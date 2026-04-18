@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghna Pal | Economic Analysis</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        wef: {
+                            blue: '#0F2D4A', 
+                            lightBlue: '#005BBB',
+                            gray: '#F4F5F5', 
+                            dark: '#1A1A1A',
+                            border: '#E0E0E0',
+                            textGray: '#4A5568' 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1A1A1A;
+            overflow-x: hidden; 
+        }
+
+        /* WEF Style Article Typography */
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #333333;
+            text-align: justify;
+        }
+
+        /* Chart Containers */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin: 3rem auto;
+        }
+        .chart-single { height: 400px; max-width: 900px; }
+        .chart-grid { height: 350px; }
+
+        @media (max-width: 768px) {
+            .chart-single { height: 300px; }
+            .chart-grid { height: 280px; }
+        }
+
+        /* Overlay Menu Transitions */
+        #menu-overlay {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #menu-overlay.hidden-overlay {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* View switching logic */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Hover Underlines */
+        .hover-underline {
+            position: relative;
+            text-decoration: none;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #005BBB;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hide default details marker for custom dropdown */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="fixed w-full bg-white border-b border-wef-border z-40 h-[72px] flex items-center">
+        <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            
+            <div class="flex items-center">
+                <button id="menu-btn" class="p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none" aria-label="Open Menu">
+                    <svg class="w-6 h-6 text-wef-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex-1 flex justify-center cursor-pointer" onclick="navigate('home')">
+                <h1 class="text-2xl font-bold text-wef-blue tracking-tight">Meghna Pal</h1>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" onclick="navigate('home')" class="text-sm font-bold text-wef-dark hover-underline uppercase tracking-wide">Home</a>
+                <a href="#" onclick="navigate('publications')" class="text-sm font-bold text-wef-dark hover-underline uppercase tracking-wide">Publications</a>
+                <a href="#" onclick="navigate('about')" class="text-sm font-bold text-wef-dark hover-underline uppercase tracking-wide">About</a>
+            </div>
+
+            <div class="md:hidden w-10"></div>
+        </div>
+    </nav>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-wef-dark z-50 hidden-overlay overflow-y-auto">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-white text-2xl font-bold">Explore</h2>
+                <button id="close-menu-btn" class="p-2 text-white hover:text-gray-300 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-white">
+                
+                <div class="space-y-8">
+                    <div>
+                        <a href="#" onclick="navigate('home')" class="text-3xl font-bold hover:text-wef-lightBlue transition-colors block mb-4">Home</a>
+                        <a href="#" onclick="navigate('publications')" class="text-3xl font-bold hover:text-wef-lightBlue transition-colors block mb-4">Publications & Research</a>
+                        <a href="#" onclick="navigate('about')" class="text-3xl font-bold hover:text-wef-lightBlue transition-colors block mb-4">About</a>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="mt-4 border-l border-gray-700 pl-6">
+                        <p class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-3">Latest Theme</p>
+                        <h3 class="text-xl font-semibold mb-3">The 2026 Middle East Oil Crisis</h3>
+                        <a href="#" onclick="navigate('article')" class="text-lg text-gray-300 hover:text-white transition-colors block">
+                            Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-[72px]">
+
+        <div id="view-home" class="page-view active">
+            
+            <div class="relative w-full h-[500px] md:h-[600px] group cursor-pointer overflow-hidden" onclick="navigate('article')">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" 
+                     style="background-image: url('image_72e3c2.png'); background-color: #2d3748;">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10"></div>
+                
+                <div class="absolute bottom-0 left-0 p-6 md:p-12 w-full h-full flex flex-col justify-end">
+                    <div class="max-w-[1200px] mx-auto w-full">
+                        <span class="inline-block bg-white text-wef-dark text-xs font-bold uppercase tracking-widest px-3 py-1.5 mb-6 shadow-sm">Latest Insight</span>
+                        
+                        <h4 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight group-hover:text-blue-200 transition-colors text-white max-w-4xl">
+                            Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                        </h4>
+                        
+                        <p class="text-gray-300 text-lg md:text-xl line-clamp-2 md:line-clamp-3 mb-8 max-w-3xl leading-relaxed">
+                            An analysis of oil-GDP elasticity, cost-push inflation decomposition, and forward-looking growth scenarios.
+                        </p>
+                        
+                        <div class="flex items-center text-sm font-bold uppercase tracking-widest text-blue-300">
+                            Read Analysis 
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+                <div class="mb-12">
+                    <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
+                        <span class="bg-wef-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 mr-4 shadow-sm">Theme</span>
+                        <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">The 2026 Middle East Oil Crisis</h3>
+                    </div>
+
+                    <div class="group cursor-pointer block" onclick="navigate('article')">
+                        <div class="hover:bg-wef-gray p-4 -ml-4 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An analysis of oil-GDP elasticity, cost-push inflation decomposition, and forward-looking growth scenarios.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                18 April, 2026 &nbsp;&bull;&nbsp; 8 min read
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="bg-wef-gray p-8 border-t-4 border-wef-blue shadow-sm rounded-sm max-w-4xl">
+                    <h3 class="text-2xl font-bold text-wef-dark mb-6">What should I analyze next?</h3>
+                    
+                    <form action="https://formspree.io/f/xwvaoogp" method="POST" class="space-y-6">
+                        <details class="group relative">
+                            <summary class="list-none w-full bg-white border border-gray-300 px-4 py-3 rounded text-left flex justify-between items-center text-sm text-wef-dark cursor-pointer focus:outline-none focus:ring-1 focus:ring-wef-blue">
+                                <span class="font-medium text-gray-700">Select broad topics (choose multiple)...</span>
+                                <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg p-2 space-y-1">
+                                <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
+                                    <input type="checkbox" name="broad_topics" value="International Trade" class="w-4 h-4 text-wef-lightBlue focus:ring-wef-blue border-gray-300 rounded">
+                                    <span class="ml-3 text-sm font-medium text-wef-dark">International Trade</span>
+                                </label>
+                                <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
+                                    <input type="checkbox" name="broad_topics" value="International Finance" class="w-4 h-4 text-wef-lightBlue focus:ring-wef-blue border-gray-300 rounded">
+                                    <span class="ml-3 text-sm font-medium text-wef-dark">International Finance</span>
+                                </label>
+                                <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
+                                    <input type="checkbox" name="broad_topics" value="Macroeconomics and Geopolitics" class="w-4 h-4 text-wef-lightBlue focus:ring-wef-blue border-gray-300 rounded">
+                                    <span class="ml-3 text-sm font-medium text-wef-dark">Macroeconomics and Geopolitics</span>
+                                </label>
+                                <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
+                                    <input type="checkbox" name="broad_topics" value="Public Finance and Fiscal Policy" class="w-4 h-4 text-wef-lightBlue focus:ring-wef-blue border-gray-300 rounded">
+                                    <span class="ml-3 text-sm font-medium text-wef-dark">Public Finance and Fiscal Policy</span>
+                                </label>
+                            </div>
+                        </details>
+                        <div>
+                            <input type="text" name="custom_topic" placeholder="Or manually type a specific topic..." class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-wef-blue focus:ring-1 focus:ring-wef-blue transition-colors text-sm">
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="bg-wef-blue text-white font-bold px-8 py-3 rounded hover:bg-wef-lightBlue transition-colors shadow-md w-full sm:w-auto">Submit Topic</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-publications" class="page-view">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
+                
+                <div class="mb-20">
+                    <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
+                        <span class="bg-wef-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 mr-4 shadow-sm">Theme</span>
+                        <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">The 2026 Middle East Oil Crisis</h3>
+                    </div>
+
+                    <div class="group cursor-pointer block" onclick="navigate('article')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An analysis of oil-GDP elasticity, cost-push inflation decomposition, and forward-looking growth scenarios.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                18 April, 2026 &nbsp;&bull;&nbsp; 8 min read
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="view-article" class="page-view">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The 2026 Middle East Oil Crisis</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 18 April, 2026</p>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p>On April 8, 2026, markets celebrated a ceasefire. Headlines declared oil was getting cheaper. This analysis argues that this interpretation reflects a misreading of events, one caused by conflating a financial market reaction with a real-economy outcome. The analysis that follows builds a case to demonstrate that the structural conditions for stagflation, an economic condition characterised by the combination of stagnant economic growth, high unemployment, and high inflation, are already embedded in the global economy and will not unwind on the timeline that a diplomatic pause implies. Stagflation is analytically distinct from either a pure inflation shock or a pure recession. In a stagflationary environment, raising rates to control inflation deepens the output contraction, while cutting rates to support growth entrenches inflationary expectations.</p>
+
+                    <p>Supply-driven oil shocks carry the strongest and most persistent recessionary effects, distinct from demand-driven shocks, which are typically accompanied by growth. The 2026 Middle East disruption is unambiguously supply-driven as it originates from the physical interdiction of a transit chokepoint, the Strait of Hormuz, and not from demand weakness. This distinction matters enormously for the size and duration of the economic response. Higher energy costs raise the price of every good and service for which energy is an input. The price elasticity of GDP with respect to oil is approximately -0.04 per 10% increase in oil prices, meaning that if oil prices rise by 10%, economic growth tends to slow in the short run by approximately 0.04 percentage points.</p>
+
+                    <div class="my-12">
+                        <h4 class="text-xl font-bold text-wef-dark mb-4 text-center">Estimated GDP Growth Drag</h4>
+                        <div class="chart-container chart-single !my-0">
+                            <div id="dragChart" style="width: 100%; height: 100%;"></div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic mt-2 text-center">Source: Author's Calculations</p>
+                    </div>
+
+                    <p>Even under the least severe scenario of oil stabilising at $96 per barrel following the ceasefire, there is a drag of -1.40 percentage points on global GDP growth relative to the pre-war trajectory. This is not a marginal slowdown. Applied to the pre-war global growth forecast of approximately 3.3%, a drag of this size brings annual growth to approximately 1.9% inside the near-recession zone. Each step up the severity ladder compounds the damage non-linearly. Under the severe scenario ($132 per barrel, three-quarter disruption), the drag of -2.84pp implies global growth approaching or falling below 0.5% for the affected quarters.</p>
+
+                    <div class="my-12">
+                        <h4 class="text-xl font-bold text-wef-dark mb-4 text-center">Cost-Push Inflation Decomposition</h4>
+                        <div class="chart-container chart-single !my-0" style="height: 450px;">
+                            <div id="inflationChart" style="width: 100%; height: 100%;"></div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic mt-2 text-center">Source: Author's Calculations</p>
+                    </div>
+
+                    <p>The decomposition reveals that energy costs are the largest single driver in both scenarios, but the food and fertiliser channel is the most structurally locked-in. Unlike energy prices, which can partially reverse when supply resumes, the food inflation impact is determined by planting decisions already made under conditions of fertiliser scarcity earlier in April, decisions that will only translate into higher consumer food prices with a 6 to 12 month lag. Under the prolonged disruption scenario, the combined total of +6.0 percentage points above baseline implies global CPI approaching or exceeding 9.8%, a level not seen in advanced economies since the early 1980s. The freight and insurance channel, while smaller in absolute terms, is notable because it persists independently of oil prices. Insurance markets require legal resolution of the naval blockade before they reopen, regardless of whether a ceasefire holds.</p>
+
+                    <p>If oil prices stay around $96-$102 and the Strait remains partly restricted through Q2, global growth is expected to reach approximately 2.3% in 2026, while inflation rises to around 5.1%. Growth below 2.5% is generally too weak to reduce inequality meaningfully, and inflation above 2% exceeds the comfort zone of most central banks. The result is an uncomfortable middle ground of slow growth and high inflation simultaneously.</p>
+
+                    <p><strong>Scenario A:</strong> Oil stabilises between $88 and $102, and insurance markets begin reopening by June. The GDP drag of -1.4 to -2.0 percentage points persists from January to June, with a partial recovery from July to December as the inventory drawdown slows. Q4 growth comes in near 2.3-2.5%, and inflation peaks at approximately 5.1% before beginning a gradual decline. This is the least damaging outcome, but inflation will remain above target through 2027 regardless, because the food inflation channel delivers its price increases on a 6 to 12 month lag, independent of oil price movements.</p>
+
+                    <p><strong>Scenario B:</strong> The ceasefire holds militarily, but insurance markets do not reopen until August due to legal disputes over the naval blockade. Oil peaks at $115 to $122 in Q2, and physical delivered oil remains more expensive than benchmark futures prices suggest. The GDP drag rises to -2.16 percentage points or greater. Germany and Italy enter technical recession in from July to December (defined as two consecutive quarters of negative growth). India's inventory buffers are exhausted by June. Global growth falls toward 1.6%, inside the historical recession zone. The ECB is forced into a reactive rate decision under contradictory signals. Food price inflation arrives in Q3-Q4 precisely as consumers are already experiencing a recession-like environment, compounding the household income squeeze.</p>
+
+                    <p><strong>Scenario C:</strong> The ceasefire breaks down before the Strait fully reopens. Oil moves toward $128 to $140 or higher. The IEA's coordinated 400-million-barrel reserve release is exhausted by Q3 without replenishment. Global growth falls toward or below 2%, triggering the technical definition of a global recession. Central bank credibility comes under severe pressure: any rate cut risks entrenching inflation above 6%, while holding rates accelerates the recessionary dynamics. Even a contained three-month conflict at $150 per barrel could produce a global stagflationary shock comparable in severity to 1973-74, even if it proves shorter in duration.</p>
+
+                    <div class="my-12">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-wef-dark mb-4 text-center">Oil Price Scenario Paths</h4>
+                                <div class="chart-container chart-grid !my-0">
+                                    <div id="oilScenarioChart" style="width: 100%; height: 100%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-wef-dark mb-4 text-center">Global GDP Growth Paths</h4>
+                                <div class="chart-container chart-grid !my-0">
+                                    <div id="gdpScenarioChart" style="width: 100%; height: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic mt-6 text-center">Source: Author's Calculations</p>
+                    </div>
+
+                    <p>The left panel shows that even under the most benign Scenario A (green dashed line), oil remains materially above pre-war levels through year-end, sustaining the GDP drag throughout 2026. The right panel makes the stakes concrete as all three disruption scenarios breach the near-recession threshold of 2% growth at some point in Q2-Q3. Scenario C (red dashed) dips below zero in Q3, an outright global contraction. The pre-war trajectory (black solid line) illustrates the counterfactual in which the disruption was absent, the global economy was on course for 3%+ growth. The gap between that trajectory and any of the disruption scenarios represents the permanent output loss that accumulates the longer the Strait remains commercially closed.</p>
+
+                    <p>In conclusion, the April 8 ceasefire resolved a military signal. It did not resolve the economic mechanisms that are now driving stagflation which is an oil-GDP elasticity already operating on a $35+ price shock, insurance markets that actuaries and not diplomats reopen, a cost-push inflation decomposition running across five simultaneous channels, and a monetary policy framework that offers no clean exit when growth and inflation move in opposite directions at the same time. The food inflation channel alone, determined by planting decisions made in early April, will deliver its impact as a lagged shock through late 2026 and into 2027, regardless of what happens in the Strait in the coming weeks. The ceasefire is a political event. The stagflation is an economic fact.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="view-about" class="page-view">
+            <div class="bg-wef-blue py-16">
+                <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">About</h2>
+                </div>
+            </div>
+
+            <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-wef-dark mb-6 border-b-2 border-wef-dark pb-2">Profile</h3>
+                        <div class="flex flex-col md:flex-row gap-8 items-start">
+                            <div class="w-2/3 sm:w-1/2 md:w-64 mx-auto md:mx-0 shrink-0">
+                                <img src="image_669d07.jpeg" alt="Meghna Pal" class="w-full h-auto rounded shadow-md object-cover bg-gray-100 aspect-[3/4]">
+                                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mt-4 text-center">Meghna Pal</p>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed text-lg text-justify flex-1">
+                                I am an MSc Economics student at the University of Amsterdam specializing in International Finance and Trade. My work focuses on the intersection of macroeconomic policy, trade vulnerabilities, and quantitative modeling. I specialize in applying econometric methodologies to evaluate global economic shifts. Through my economic explainers, I leverage these techniques to break down major global events. My primary objective is to bridge the gap between economic theory and market analysis, transforming data into useful commercial and policy insights.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-wef-dark mb-4 border-b-2 border-wef-dark pb-2">Research & Publications</h3>
+                        <div class="bg-wef-gray p-6 rounded border-l-4 border-wef-blue shadow-sm">
+                            <h4 class="text-xl font-bold text-wef-dark mb-2">Carbon Border Adjustment and Trade Vulnerability in Developing Countries</h4>
+                            <p class="text-sm font-bold text-wef-lightBlue uppercase tracking-widest mb-4">IRE Journals, Vol.9 (5)</p>
+                            <a href="https://www.irejournals.com/formatedpaper/1711946.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-bold text-wef-blue hover:text-wef-lightBlue transition-colors group uppercase tracking-wider">
+                                Read Full Paper
+                                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="Meghna%20Pal%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer" download="Meghna Pal - Resume.pdf" class="inline-flex items-center px-8 py-4 bg-wef-blue text-white font-bold rounded shadow-md hover:bg-wef-lightBlue hover:shadow-lg transition-all duration-200 text-lg">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            View and Download Resume (PDF)
+                        </a>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-wef-dark mb-4 border-b-2 border-wef-dark pb-2">Contact</h3>
+                        <ul class="space-y-4 text-lg text-gray-700">
+                            <li class="flex items-center"><svg class="w-6 h-6 mr-4 text-wef-lightBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Amsterdam, Netherlands</li>
+                            <li class="flex items-center"><svg class="w-6 h-6 mr-4 text-wef-lightBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> meghna04.pal@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-wef-dark text-white py-8 border-t border-gray-800">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center text-sm">
+            <div class="text-gray-500 text-center">
+                &copy; 2026 Meghna Pal. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            if (menuOverlay.classList.contains('hidden-overlay')) {
+                menuOverlay.classList.remove('hidden-overlay');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                menuOverlay.classList.add('hidden-overlay');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        let chartsRendered = false; 
+
+        function navigate(viewId) {
+            if (!menuOverlay.classList.contains('hidden-overlay')) {
+                toggleMenu();
+            }
+
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => {
+                view.classList.remove('active');
+            });
+
+            const targetView = document.getElementById(`view-${viewId}`);
+            if (targetView) {
+                targetView.classList.add('active');
+                window.scrollTo(0, 0); 
+            }
+
+            if (viewId === 'article' && !chartsRendered) {
+                renderCharts();
+                chartsRendered = true;
+            }
+        }
+
+        function renderCharts() {
+            const colorPrimary = '#0F2D4A';
+            const colorSecondary = '#005BBB';
+            const colorAlert = '#D32F2F'; 
+            const colorWarn = '#F57C00';
+
+            const layoutTemplate = {
+                font: { family: "'Inter', sans-serif", color: '#1A1A1A' },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)'
+            };
+            const config = { responsive: true };
+
+            // Chart 1: dragChart
+            Plotly.newPlot('dragChart', [{
+                type: 'bar',
+                x: [0, 1.40, 2.16, 2.84],
+                y: ['Baseline<br>(pre-war)', 'Ceasefire Plateau<br>($96/bbl)', 'Prolonged Disruption<br>($115/bbl)', 'Severe<br>($132/bbl)'],
+                orientation: 'h',
+                marker: {
+                    color: ['#ffffff', colorWarn, colorAlert, '#7f1d1d'],
+                    line: { color: '#E0E0E0', width: [1, 0, 0, 0] }
+                },
+                text: ['', '-1.40pp', '-2.16pp', '-2.84pp'],
+                textposition: 'auto'
+            }], {
+                ...layoutTemplate,
+                margin: { t: 20, r: 20, b: 40, l: 150 },
+                xaxis: { title: 'Percentage points', range: [0, 3.5], showgrid: true, gridcolor: '#E0E0E0' },
+                yaxis: { autorange: 'reversed' }
+            }, config);
+
+            // Chart 2: inflationChart
+            Plotly.newPlot('inflationChart', [
+                {
+                    name: 'Ceasefire Plateau',
+                    type: 'bar',
+                    x: ['Energy<br>(direct)', 'Freight &<br>Insurance', 'Food &<br>Fertiliser', 'Wage-Price<br>Spiral', 'FX / Import<br>Effect'],
+                    y: [1.6, 0.5, 0.7, 0.4, 0.3],
+                    marker: { color: colorSecondary },
+                    text: ['+1.6', '+0.5', '+0.7', '+0.4', '+0.3'],
+                    textposition: 'outside'
+                },
+                {
+                    name: 'Prolonged Disruption',
+                    type: 'bar',
+                    x: ['Energy<br>(direct)', 'Freight &<br>Insurance', 'Food &<br>Fertiliser', 'Wage-Price<br>Spiral', 'FX / Import<br>Effect'],
+                    y: [2.4, 1.0, 1.2, 0.8, 0.6],
+                    marker: { color: colorPrimary },
+                    text: ['+2.4', '+1.0', '+1.2', '+0.8', '+0.6'],
+                    textposition: 'outside'
+                }
+            ], {
+                ...layoutTemplate,
+                margin: { t: 20, r: 20, b: 60, l: 60 },
+                barmode: 'group',
+                yaxis: { title: 'CPI contribution (pp above baseline)', range: [0, 3.0], showgrid: true, gridcolor: '#E0E0E0' },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom' }
+            }, config);
+
+            // Chart 3: oilScenarioChart
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            Plotly.newPlot('oilScenarioChart', [
+                { name: 'Actual', type: 'scatter', mode: 'lines', x: months, y: [61, 66, 103, 96, null, null, null, null, null, null, null, null], line: { color: '#1A1A1A', width: 3 } },
+                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 98, 102, 105, 100, 95, 91, 88, 87], line: { color: colorSecondary, width: 2, dash: 'dash' } },
+                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 105, 115, 122, 118, 112, 108, 103, 99], line: { color: colorWarn, width: 2, dash: 'dash' } },
+                { name: 'Severe', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 112, 128, 140, 135, 130, 125, 120, 115], line: { color: colorAlert, width: 2, dash: 'dash' } }
+            ], {
+                ...layoutTemplate,
+                margin: { t: 20, r: 20, b: 40, l: 40 },
+                yaxis: { range: [60, 150], showgrid: true, gridcolor: '#E0E0E0' },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top' },
+                shapes: [
+                    { type: 'line', x0: 2.5, x1: 2.5, y0: 60, y1: 150, line: { color: '#000', width: 2, dash: 'dash' } }
+                ],
+                annotations: [
+                    { x: 2.5, y: 145, text: 'Apr 8 - Ceasefire', showarrow: false, xanchor: 'left', xshift: 5, font: { size: 10 } }
+                ]
+            }, config);
+
+            // Chart 4: gdpScenarioChart
+            const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
+            Plotly.newPlot('gdpScenarioChart', [
+                { name: 'Pre-war', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 2.3, 2.8, 3.1], line: { color: '#1A1A1A', width: 3 } },
+                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.8, 2.0, 2.4], line: { color: colorSecondary, width: 2, dash: 'dash' } },
+                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.3, 1.1, 1.5], line: { color: colorWarn, width: 2, dash: 'dash' } },
+                { name: 'Severe', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 0.7, 0.4, 0.8], line: { color: colorAlert, width: 2, dash: 'dash' } }
+            ], {
+                ...layoutTemplate,
+                margin: { t: 20, r: 20, b: 40, l: 40 },
+                yaxis: { range: [-0.5, 4.0], showgrid: true, gridcolor: '#E0E0E0' },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top' },
+                shapes: [
+                    { type: 'line', x0: 0, x1: 3, y0: 2.0, y1: 2.0, line: { color: '#000', width: 2, dash: 'dash' } }
+                ],
+                annotations: [
+                    { x: 1.5, y: 2.0, text: 'Near-recession threshold', showarrow: false, yanchor: 'bottom', yshift: 5, font: { size: 10 } }
+                ]
+            }, config);
+        }
+    </script>
+</body>
+</html>
