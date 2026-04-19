@@ -252,30 +252,45 @@
                         </div>
                         
                         <form action="https://formspree.io/f/xwvaoogp" method="POST" class="space-y-6">
-                            <details class="group relative">
+                            <details id="topicDropdown" class="group relative">
                                 <summary class="list-none w-full bg-white border border-gray-300 px-4 py-3 rounded text-left flex justify-between items-center text-sm text-[#0F172A] cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500">
-                                    <span class="font-medium text-gray-700">Select broad topics (choose multiple)...</span>
+                                    <span id="topicSummaryText" class="font-medium text-gray-700">Select...</span>
                                     <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </summary>
                                 <div class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg p-2 space-y-1">
                                     <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
-                                        <input type="checkbox" name="broad_topics" value="International Trade" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">International Trade</span>
+                                        <input type="checkbox" name="broad_topics" value="International Trade & Global Supply Chains" class="topic-checkbox w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">International Trade & Global Supply Chains</span>
                                     </label>
                                     <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
-                                        <input type="checkbox" name="broad_topics" value="International Finance" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">International Finance</span>
+                                        <input type="checkbox" name="broad_topics" value="Capital Markets & Inflation" class="topic-checkbox w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Capital Markets & Inflation</span>
                                     </label>
                                     <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
-                                        <input type="checkbox" name="broad_topics" value="Macroeconomics and Geopolitics" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Macroeconomics and Geopolitics</span>
+                                        <input type="checkbox" name="broad_topics" value="Geoeconomics" class="topic-checkbox w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Geoeconomics</span>
                                     </label>
                                     <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
-                                        <input type="checkbox" name="broad_topics" value="Public Finance and Fiscal Policy" class="w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Public Finance and Fiscal Policy</span>
+                                        <input type="checkbox" name="broad_topics" value="Energy Transition & Sustainability" class="topic-checkbox w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Energy Transition & Sustainability</span>
+                                    </label>
+                                    <label class="flex items-center p-3 hover:bg-gray-50 cursor-pointer rounded transition-colors">
+                                        <input type="checkbox" name="broad_topics" value="Development Economics & Emerging Markets" class="topic-checkbox w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <span class="ml-3 text-sm font-medium text-[#0F172A]">Development Economics & Emerging Markets</span>
                                     </label>
                                 </div>
                             </details>
+                            <script>
+                                document.querySelectorAll('.topic-checkbox').forEach(function(checkbox) {
+                                    checkbox.addEventListener('change', function() {
+                                        const checked = Array.from(document.querySelectorAll('.topic-checkbox:checked')).map(c => c.value);
+                                        const summaryText = document.getElementById('topicSummaryText');
+                                        summaryText.textContent = checked.length > 0 ? checked.join(', ') : 'Select...';
+                                        summaryText.classList.toggle('text-gray-700', checked.length === 0);
+                                        summaryText.classList.toggle('text-[#0F172A]', checked.length > 0);
+                                    });
+                                });
+                            </script>
                             <div>
                                 <input type="text" name="custom_topic" placeholder="Or manually type a specific topic..." class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm">
                             </div>
