@@ -548,12 +548,13 @@
                 text: ['', '-1.40pp', '-2.16pp', '-2.84pp'],
                 textposition: 'auto',
                 textfont: { color: ['#475569', '#1E3A8A', '#FFFFFF', '#FFFFFF'], weight: 'bold', size: 14 },
-                hoverinfo: 'none'
+                hovertemplate: '<b>%{y}</b><br>Impact: -%{x} pp<extra></extra>'
             }], {
                 ...layoutTemplate,
                 margin: { t: 20, r: 40, b: 40, l: 160 },
                 xaxis: { ...xAxisStyle, title: { text: 'Percentage points', font: { color: '#64748B', size: 13 } }, range: [0, 3.5] },
-                yaxis: { autorange: 'reversed', tickfont: { color: '#334155', size: 14, weight: 'bold' } }
+                yaxis: { autorange: 'reversed', tickfont: { color: '#334155', size: 14, weight: 'bold' } },
+                hovermode: 'closest'
             }, config);
 
             // Chart 2: inflationChart
