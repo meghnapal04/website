@@ -563,20 +563,22 @@
                     type: 'bar',
                     x: ['Energy<br>(direct)', 'Freight &<br>Insurance', 'Food &<br>Fertiliser', 'Wage-Price<br>Spiral', 'FX / Import<br>Effect'],
                     y: [1.6, 0.5, 0.7, 0.4, 0.3],
-                    marker: { color: '#93C5FD' },
+                    marker: { color: '#34D399' }, // Emerald 400
                     text: ['+1.6', '+0.5', '+0.7', '+0.4', '+0.3'],
                     textposition: 'outside',
-                    textfont: { color: '#2563EB', size: 13, weight: 'bold' }
+                    textfont: { color: '#059669', size: 13, weight: 'bold' },
+                    hovertemplate: '<b>Ceasefire Plateau</b><br>+%{y} pp<extra></extra>'
                 },
                 {
                     name: 'Prolonged Disruption',
                     type: 'bar',
                     x: ['Energy<br>(direct)', 'Freight &<br>Insurance', 'Food &<br>Fertiliser', 'Wage-Price<br>Spiral', 'FX / Import<br>Effect'],
                     y: [2.4, 1.0, 1.2, 0.8, 0.6],
-                    marker: { color: '#1E3A8A' },
+                    marker: { color: '#064E3B' }, // Emerald 900
                     text: ['+2.4', '+1.0', '+1.2', '+0.8', '+0.6'],
                     textposition: 'outside',
-                    textfont: { color: '#1E3A8A', size: 13, weight: 'bold' }
+                    textfont: { color: '#064E3B', size: 13, weight: 'bold' },
+                    hovertemplate: '<b>Prolonged Disruption</b><br>+%{y} pp<extra></extra>'
                 }
             ], {
                 ...layoutTemplate,
@@ -584,7 +586,8 @@
                 barmode: 'group',
                 xaxis: { ...xAxisStyle, tickfont: { color: '#334155', size: 13, weight: 'bold' } },
                 yaxis: { ...yAxisStyle, title: { text: 'CPI contribution (pp above baseline)', font: { color: '#64748B', size: 13 } }, range: [0, 3.0] },
-                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom', font: { size: 14, color: '#334155', weight: 'bold' } }
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom', font: { size: 14, color: '#334155', weight: 'bold' } },
+                hovermode: 'closest'
             }, config);
 
             // Chart 3: oilScenarioChart
