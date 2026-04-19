@@ -473,17 +473,48 @@
         }
 
         function renderCharts() {
-            const colorPrimary = '#0F2D4A';
-            const colorSecondary = '#005BBB';
-            const colorAlert = '#D32F2F'; 
-            const colorWarn = '#F57C00';
+            // Premium institutional aesthetic palette
+            const colorPrimary = '#1A365D';    // Deep Navy
+            const colorSecondary = '#2B6CB0';  // Rich Blue
+            const colorAlert = '#C53030';      // Deep Red
+            const colorWarn = '#DD6B20';       // Rich Orange
+            const colorNeutral = '#718096';    // Slate Gray
 
             const layoutTemplate = {
-                font: { family: "'Inter', sans-serif", color: '#1A1A1A' },
+                font: { family: "'Inter', sans-serif", color: '#2D3748', size: 13 },
                 paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)'
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                hoverlabel: {
+                    bgcolor: '#FFFFFF',
+                    font: { family: "'Inter', sans-serif", color: '#1A202C' },
+                    bordercolor: '#E2E8F0',
+                    borderpad: 8
+                },
+                colorway: [colorPrimary, colorSecondary, colorWarn, colorAlert, colorNeutral]
             };
-            const config = { responsive: true };
+            
+            // REMOVE the modebar
+            const config = { responsive: true, displayModeBar: false };
+
+            // Common axis styles for a clean, minimalist look
+            const xAxisStyle = {
+                showgrid: false,
+                zeroline: false,
+                showline: true,
+                linecolor: '#CBD5E0',
+                linewidth: 2,
+                tickfont: { color: '#718096' }
+            };
+            
+            const yAxisStyle = {
+                showgrid: true,
+                gridcolor: '#EDF2F7', 
+                zeroline: true,
+                zerolinecolor: '#CBD5E0',
+                zerolinewidth: 1,
+                showline: false,
+                tickfont: { color: '#718096' }
+            };
 
             // Chart 1: dragChart
             Plotly.newPlot('dragChart', [{
@@ -492,16 +523,17 @@
                 y: ['Baseline<br>(pre-war)', 'Ceasefire Plateau<br>($96/bbl)', 'Prolonged Disruption<br>($115/bbl)', 'Severe<br>($132/bbl)'],
                 orientation: 'h',
                 marker: {
-                    color: ['#ffffff', colorWarn, colorAlert, '#7f1d1d'],
-                    line: { color: '#E0E0E0', width: [1, 0, 0, 0] }
+                    color: ['#EDF2F7', colorWarn, colorAlert, '#742A2A']
                 },
                 text: ['', '-1.40pp', '-2.16pp', '-2.84pp'],
-                textposition: 'auto'
+                textposition: 'auto',
+                textfont: { color: ['#4A5568', '#FFFFFF', '#FFFFFF', '#FFFFFF'], weight: 'bold' },
+                hoverinfo: 'none'
             }], {
                 ...layoutTemplate,
-                margin: { t: 20, r: 20, b: 40, l: 150 },
-                xaxis: { title: 'Percentage points', range: [0, 3.5], showgrid: true, gridcolor: '#E0E0E0' },
-                yaxis: { autorange: 'reversed' }
+                margin: { t: 20, r: 40, b: 40, l: 150 },
+                xaxis: { ...xAxisStyle, title: { text: 'Percentage points', font: { color: '#718096', size: 12 } }, range: [0, 3.5] },
+                yaxis: { autorange: 'reversed', tickfont: { color: '#4A5568', size: 13 } }
             }, config);
 
             // Chart 2: inflationChart
@@ -513,7 +545,8 @@
                     y: [1.6, 0.5, 0.7, 0.4, 0.3],
                     marker: { color: colorSecondary },
                     text: ['+1.6', '+0.5', '+0.7', '+0.4', '+0.3'],
-                    textposition: 'outside'
+                    textposition: 'outside',
+                    textfont: { color: colorSecondary, size: 12 }
                 },
                 {
                     name: 'Prolonged Disruption',
@@ -522,53 +555,57 @@
                     y: [2.4, 1.0, 1.2, 0.8, 0.6],
                     marker: { color: colorPrimary },
                     text: ['+2.4', '+1.0', '+1.2', '+0.8', '+0.6'],
-                    textposition: 'outside'
+                    textposition: 'outside',
+                    textfont: { color: colorPrimary, size: 12, weight: 'bold' }
                 }
             ], {
                 ...layoutTemplate,
-                margin: { t: 20, r: 20, b: 60, l: 60 },
+                margin: { t: 20, r: 20, b: 60, l: 50 },
                 barmode: 'group',
-                yaxis: { title: 'CPI contribution (pp above baseline)', range: [0, 3.0], showgrid: true, gridcolor: '#E0E0E0' },
-                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom' }
+                xaxis: { ...xAxisStyle, tickfont: { color: '#4A5568', size: 12 } },
+                yaxis: { ...yAxisStyle, title: { text: 'CPI contribution (pp above baseline)', font: { color: '#718096', size: 12 } }, range: [0, 3.0] },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom', font: { size: 13, color: '#4A5568' } }
             }, config);
 
             // Chart 3: oilScenarioChart
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             Plotly.newPlot('oilScenarioChart', [
-                { name: 'Actual', type: 'scatter', mode: 'lines', x: months, y: [61, 66, 103, 96, null, null, null, null, null, null, null, null], line: { color: '#1A1A1A', width: 3 } },
-                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 98, 102, 105, 100, 95, 91, 88, 87], line: { color: colorSecondary, width: 2, dash: 'dash' } },
-                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 105, 115, 122, 118, 112, 108, 103, 99], line: { color: colorWarn, width: 2, dash: 'dash' } },
-                { name: 'Severe', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 112, 128, 140, 135, 130, 125, 120, 115], line: { color: colorAlert, width: 2, dash: 'dash' } }
+                { name: 'Actual', type: 'scatter', mode: 'lines+markers', x: months, y: [61, 66, 103, 96, null, null, null, null, null, null, null, null], line: { color: colorPrimary, width: 3 }, marker: { size: 6 } },
+                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 98, 102, 105, 100, 95, 91, 88, 87], line: { color: colorSecondary, width: 2.5, dash: 'dot' } },
+                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 105, 115, 122, 118, 112, 108, 103, 99], line: { color: colorWarn, width: 2.5, dash: 'dot' } },
+                { name: 'Severe', type: 'scatter', mode: 'lines', x: months, y: [null, null, null, 96, 112, 128, 140, 135, 130, 125, 120, 115], line: { color: colorAlert, width: 2.5, dash: 'dot' } }
             ], {
                 ...layoutTemplate,
                 margin: { t: 20, r: 20, b: 40, l: 40 },
-                yaxis: { range: [60, 150], showgrid: true, gridcolor: '#E0E0E0' },
-                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top' },
+                xaxis: xAxisStyle,
+                yaxis: { ...yAxisStyle, range: [60, 150] },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top', font: { color: '#4A5568' } },
                 shapes: [
-                    { type: 'line', x0: 2.5, x1: 2.5, y0: 60, y1: 150, line: { color: '#000', width: 2, dash: 'dash' } }
+                    { type: 'line', x0: 2.5, x1: 2.5, y0: 60, y1: 150, line: { color: '#A0AEC0', width: 1.5, dash: 'dash' } }
                 ],
                 annotations: [
-                    { x: 2.5, y: 145, text: 'Apr 8 - Ceasefire', showarrow: false, xanchor: 'left', xshift: 5, font: { size: 10 } }
+                    { x: 2.6, y: 145, text: 'Apr 8 Ceasefire', showarrow: false, xanchor: 'left', font: { size: 11, color: '#718096' } }
                 ]
             }, config);
 
             // Chart 4: gdpScenarioChart
             const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
             Plotly.newPlot('gdpScenarioChart', [
-                { name: 'Pre-war', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 2.3, 2.8, 3.1], line: { color: '#1A1A1A', width: 3 } },
-                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.8, 2.0, 2.4], line: { color: colorSecondary, width: 2, dash: 'dash' } },
-                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.3, 1.1, 1.5], line: { color: colorWarn, width: 2, dash: 'dash' } },
-                { name: 'Severe', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 0.7, 0.4, 0.8], line: { color: colorAlert, width: 2, dash: 'dash' } }
+                { name: 'Pre-war', type: 'scatter', mode: 'lines+markers', x: quarters, y: [3.0, 2.3, 2.8, 3.1], line: { color: colorPrimary, width: 3 }, marker: { size: 6 } },
+                { name: 'Ceasefire', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.8, 2.0, 2.4], line: { color: colorSecondary, width: 2.5, dash: 'dot' } },
+                { name: 'Prolonged', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 1.3, 1.1, 1.5], line: { color: colorWarn, width: 2.5, dash: 'dot' } },
+                { name: 'Severe', type: 'scatter', mode: 'lines', x: quarters, y: [3.0, 0.7, 0.4, 0.8], line: { color: colorAlert, width: 2.5, dash: 'dot' } }
             ], {
                 ...layoutTemplate,
                 margin: { t: 20, r: 20, b: 40, l: 40 },
-                yaxis: { range: [-0.5, 4.0], showgrid: true, gridcolor: '#E0E0E0' },
-                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top' },
+                xaxis: xAxisStyle,
+                yaxis: { ...yAxisStyle, range: [-0.5, 4.0] },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.2, yanchor: 'top', font: { color: '#4A5568' } },
                 shapes: [
-                    { type: 'line', x0: 0, x1: 3, y0: 2.0, y1: 2.0, line: { color: '#000', width: 2, dash: 'dash' } }
+                    { type: 'line', x0: 0, x1: 3, y0: 2.0, y1: 2.0, line: { color: '#E53E3E', width: 1, dash: 'dash' } }
                 ],
                 annotations: [
-                    { x: 1.5, y: 2.0, text: 'Near-recession threshold', showarrow: false, yanchor: 'bottom', yshift: 5, font: { size: 10 } }
+                    { x: 1.5, y: 2.05, text: 'Near-recession threshold', showarrow: false, yanchor: 'bottom', font: { size: 11, color: '#E53E3E' } }
                 ]
             }, config);
         }
