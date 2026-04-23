@@ -222,6 +222,7 @@
                                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article2_cover.png');"></div>
                             </div>
                             <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: The 2026 Middle East Oil Crisis</p>
                                 <div class="mb-6">
                                     <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
                                         What Happens if Oil Shifts from the Dollar to the Yuan?
@@ -241,17 +242,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group cursor-pointer block border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg hover:border-transparent transition-all duration-300 bg-gray-50" onclick="navigate('article')">
-                        <div class="flex flex-col sm:flex-row h-full">
-                            <div class="sm:w-1/4 relative h-40 sm:h-auto overflow-hidden">
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white" onclick="navigate('article')">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
                                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('image_72e3c2.png');"></div>
                             </div>
-                            <div class="sm:w-3/4 p-6 flex flex-col justify-center">
-                                <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Also in this series</p>
-                                <h4 class="text-xl font-bold text-[#0F172A] mb-2 group-hover:text-blue-700 transition-colors leading-tight">
-                                    Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
-                                </h4>
-                                <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">20 April, 2026 &nbsp;&bull;&nbsp; 8 min read</p>
+                            <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: The 2026 Middle East Oil Crisis</p>
+                                <div class="mb-6">
+                                    <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
+                                        Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                                    </h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                                        An analysis of oil-GDP elasticity, cost-push inflation decomposition, and forward-looking growth scenarios resulting from the 2026 Middle East Oil Crisis.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                                        20 April, 2026 &nbsp;&bull;&nbsp; 8 min read
+                                    </p>
+                                    <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -817,7 +830,7 @@
             // Chart 1: FX Reserve Shares
             const fxLabels = ['Other Currencies', 'Chinese Yuan', 'British Pound', 'Japanese Yen', 'Euro', 'US Dollar'];
             const fxValues = [10.0, 2.1, 4.9, 5.8, 20.3, 56.9];
-            const fxColors = ['#85929E', '#922B21', '#512E5F', '#154360', '#1A5276', '#0F2D4A'];
+            const fxColors = ['#AEB6BF', '#C0392B', '#5B8DB8', '#2E86AB', '#1A5276', '#0F2D4A'];
             Plotly.newPlot('fxReserveChart', [{
                 type: 'bar', orientation: 'h',
                 y: fxLabels, x: fxValues,
@@ -837,7 +850,7 @@
             // Chart 2: SWIFT Payment Shares
             const swiftLabels = ['Other', 'Chinese Yuan', 'Japanese Yen', 'British Pound', 'Euro', 'US Dollar'];
             const swiftValues = [14.8, 3.0, 3.4, 6.8, 24.0, 48.0];
-            const swiftColors = ['#85929E', '#922B21', '#154360', '#512E5F', '#1A5276', '#0F2D4A'];
+            const swiftColors = ['#AEB6BF', '#C0392B', '#2E86AB', '#5B8DB8', '#1A5276', '#0F2D4A'];
             Plotly.newPlot('swiftPaymentChart', [{
                 type: 'bar', orientation: 'h',
                 y: swiftLabels, x: swiftValues,
