@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
                                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
-                                        23 April, 2026 &nbsp;&bull;&nbsp; 9 min read
+                                        24 April, 2026 &nbsp;&bull;&nbsp; 9 min read
                                     </p>
                                     <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -350,7 +350,7 @@
                                 An analysis of the petrodollar system, yuan internationalisation, and the structural barriers to dollar replacement.
                             </p>
                             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
-                                23 April, 2026 &nbsp;&bull;&nbsp; 9 min read
+                                24 April, 2026 &nbsp;&bull;&nbsp; 9 min read
                             </p>
                         </div>
                     </div>
@@ -481,7 +481,7 @@
                         What Happens if Oil Shifts from the Dollar to the Yuan?
                     </h1>
                     <div>
-                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 23 April, 2026</p>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 24 April, 2026</p>
                     </div>
                 </header>
 
@@ -573,7 +573,7 @@
                         <p class="text-gray-700 text-[15px] leading-relaxed">A slow dollar retreat creates gradual depreciation pressure on dollar-denominated returns when measured in other currencies. This argues for modest portfolio diversification, not panic selling but considered exposure to euro, yen, and gold assets as a hedge.</p>
                     </div>
 
-                    <p>In conclusion, the 2026 Middle East crisis does not end the petrodollar. What it does is force the question faster than anyone expected. More oil will trade in yuan, particularly in China's own bilateral corridors with Gulf states, Russia, and ASEAN neighbours. The yuan's share of global reserves will grow slowly, from 2.1% today toward perhaps 4–6% by 2030 under a base case. The dollar will not collapse. Its share, already down from 72% in 2001 to 57% today, will continue its slow, steady decline. The world is not moving from a dollar system to a yuan system. It is moving from a dollar system to a more fragmented system.</p>
+                    <p>In conclusion, the 2026 Middle East crisis does not end the petrodollar. What it does is force the question faster than anyone expected. More oil will trade in yuan, particularly in China's own bilateral corridors with Gulf states, Russia, and ASEAN neighbours. The yuan's share of global reserves will grow slowly, from 2.1% today toward perhaps 3–5% by 2030 under a base case. The dollar will not collapse. Its share, already down from 72% in 2001 to 57% today, will most likely continue its slow and steady course. The world is not moving from a dollar system to a yuan system. Instead, it is moving from a dollar system to a more fragmented system.</p>
                 </div>
             </div>
         </div>
@@ -658,7 +658,17 @@
         let chartsRendered = false;
         let charts2Rendered = false;
 
-        function navigate(viewId) {
+        function handleRouteChange() {
+            let hash = window.location.hash.substring(1);
+            if (!hash) {
+                hash = 'home';
+            }
+            
+            const targetView = document.getElementById(`view-${hash}`);
+            if (!targetView) {
+                hash = 'home';
+            }
+
             if (!menuOverlay.classList.contains('hidden-overlay')) {
                 toggleMenu();
             }
@@ -668,19 +678,34 @@
                 view.classList.remove('active');
             });
 
-            const targetView = document.getElementById(`view-${viewId}`);
-            if (targetView) {
-                targetView.classList.add('active');
+            const actualTarget = document.getElementById(`view-${hash}`);
+            if (actualTarget) {
+                actualTarget.classList.add('active');
                 window.scrollTo(0, 0); 
             }
 
-            if (viewId === 'article' && !chartsRendered) {
+            if (hash === 'article' && !chartsRendered) {
                 renderCharts();
                 chartsRendered = true;
             }
-            if (viewId === 'article2' && !charts2Rendered) {
+            if (hash === 'article2' && !charts2Rendered) {
                 renderCharts2();
                 charts2Rendered = true;
+            }
+        }
+
+        window.addEventListener('hashchange', handleRouteChange);
+        
+        // Call it initially on load to handle direct links
+        document.addEventListener('DOMContentLoaded', handleRouteChange);
+        // Also call it immediately in case DOMContentLoaded already fired
+        handleRouteChange();
+
+        function navigate(viewId) {
+            if (window.location.hash === '#' + viewId || (window.location.hash === '' && viewId === 'home')) {
+                window.scrollTo(0, 0);
+            } else {
+                window.location.hash = viewId;
             }
         }
 
