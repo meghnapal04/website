@@ -193,7 +193,7 @@
                             Transforming macroeconomic data, geopolitical shifts, and market dynamics into useful commercial and policy insights.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
+                            <button onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
                                 Read Latest Insight
                             </button>
                             <button onclick="navigate('insights')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
@@ -659,9 +659,14 @@
         let charts2Rendered = false;
 
         const routeMapping = {
-            "Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation": 'article',
-            "What Happens if Oil Shifts from the Dollar to the Yuan?": 'article2',
-            "insights": 'publications'
+            "why the strait of hormuz ceasefire won't stop global stagflation": 'article',
+            "why the strait of hormuz ceasefire wont stop global stagflation": 'article',
+            "what happens if oil shifts from the dollar to the yuan?": 'article2',
+            "what happens if oil shifts from the dollar to the yuan": 'article2',
+            "insights": 'publications',
+            "publications": 'publications',
+            "about": 'about',
+            "home": 'home'
         };
 
         function handleRouteChange() {
@@ -671,11 +676,12 @@
                 hash = decodeURIComponent(rawHash);
             } catch(e) {}
             
-            if (!hash) {
-                hash = 'home';
+            let normalizedHash = hash.toLowerCase().trim();
+            if (!normalizedHash) {
+                normalizedHash = 'home';
             }
             
-            let viewId = routeMapping[hash] || hash;
+            let viewId = routeMapping[normalizedHash] || normalizedHash;
             
             const targetView = document.getElementById(`view-${viewId}`);
             if (!targetView) {
