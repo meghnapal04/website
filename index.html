@@ -124,9 +124,9 @@
             </div>
 
             <div class="hidden md:flex items-center space-x-10">
-                <a href="#" onclick="navigate('home')" class="text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">Home</a>
-                <a href="#" onclick="navigate('publications')" class="text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">Insights</a>
-                <a href="#" onclick="navigate('about')" class="text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">About</a>
+                <a onclick="navigate('home')" class="cursor-pointer text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">Home</a>
+                <a onclick="navigate('insights')" class="cursor-pointer text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">Insights</a>
+                <a onclick="navigate('about')" class="cursor-pointer text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide">About</a>
             </div>
 
             <div class="flex items-center justify-end flex-1 md:hidden">
@@ -151,19 +151,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-white">
                 <div class="space-y-8">
                     <div>
-                        <a href="#" onclick="navigate('home')" class="text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">Home</a>
-                        <a href="#" onclick="navigate('publications')" class="text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">Insights & Research</a>
-                        <a href="#" onclick="navigate('about')" class="text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">About</a>
+                        <a onclick="navigate('home')" class="cursor-pointer text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">Home</a>
+                        <a onclick="navigate('insights')" class="cursor-pointer text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">Insights & Research</a>
+                        <a onclick="navigate('about')" class="cursor-pointer text-3xl font-bold hover:text-blue-400 transition-colors block mb-4">About</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="mt-4 border-l border-gray-700 pl-6">
                         <p class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-3">Featured Insight</p>
                         <h3 class="text-xl font-semibold mb-3">The 2026 Middle East Oil Crisis</h3>
-                        <a href="#" onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')" class="text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
+                        <a onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')" class="cursor-pointer text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
                             What Happens if Oil Shifts from the Dollar to the Yuan?
                         </a>
-                        <a href="#" onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')" class="text-base text-gray-400 hover:text-white transition-colors block">
+                        <a onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')" class="cursor-pointer text-base text-gray-400 hover:text-white transition-colors block">
                             Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
                         </a>
                     </div>
@@ -196,7 +196,7 @@
                             <button onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
                                 Read Latest Insight
                             </button>
-                            <button onclick="navigate('publications')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
+                            <button onclick="navigate('insights')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
                                 All Articles
                             </button>
                         </div>
@@ -211,7 +211,7 @@
                         <div>
                             <h3 class="text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight mb-3">Featured Analysis</h3>
                         </div>
-                        <button onclick="navigate('publications')" class="hidden md:flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors mt-4 md:mt-0">
+                        <button onclick="navigate('insights')" class="hidden md:flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors mt-4 md:mt-0">
                             All Publications <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </button>
                     </div>
@@ -660,7 +660,8 @@
 
         const routeMapping = {
             "Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation": 'article',
-            "What Happens if Oil Shifts from the Dollar to the Yuan?": 'article2'
+            "What Happens if Oil Shifts from the Dollar to the Yuan?": 'article2',
+            "insights": 'publications'
         };
 
         function handleRouteChange() {
