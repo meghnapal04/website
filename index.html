@@ -688,38 +688,44 @@
         };
 
         function handleRouteChange() {
-            let rawHash = window.location.hash.substring(1);
-            let hash = "";
-            try {
-                hash = decodeURIComponent(rawHash).toLowerCase().trim();
-            } catch(e) {
-                hash = rawHash.toLowerCase().trim();
-            }
+            // We scan the entire URL for keywords. This ensures that even if LinkedIn 
+            // wraps or rewrites the URL, we still find the right article.
+            const url = window.location.href.toLowerCase();
             
-            let viewId = 'home'; // Default fallback
+            let viewId = 'home'; // Default
 
-            // 1. Keyword-based matching (Highly robust against tracking params)
-            if (hash.includes('yuan') || hash.includes('oil-shift')) {
+            if (url.includes('yuan') || url.includes('oil-shift')) {
                 viewId = 'article2';
-            } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
+            } else if (url.includes('hormuz') || url.includes('stagflation')) {
                 viewId = 'article';
-            } else if (hash.includes('insight') || hash.includes('publication')) {
-                viewId = 'publications';
-            } else if (hash.includes('about')) {
+            } else if (url.includes('about')) {
                 viewId = 'about';
-            } else if (hash === '' || hash === 'home') {
-                viewId = 'home';
-            } else {
-                // 2. Exact mapping fallback
-                viewId = routeMapping[hash] || hash;
+            } else if (url.includes('insight') || url.includes('publication')) {
+                viewId = 'publications';
             }
             
-            // Final validation of the element
-            let targetView = document.getElementById(`view-${viewId}`);
-            if (!targetView) {
-                viewId = 'home';
-                targetView = document.getElementById('view-home');
+            // Final check: if it's an exact ID match in the hash (e.g. #home)
+            const hash = window.location.hash.substring(1).toLowerCase();
+            if (hash === 'home') viewId = 'home';
+
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => view.classList.remove('active'));
+
+            const targetView = document.getElementById(`view-${viewId}`);
+            if (targetView) {
+                targetView.classList.add('active');
+                window.scrollTo(0, 0); 
             }
+
+            if (viewId === 'article' && !chartsRendered) {
+                renderCharts();
+                chartsRendered = true;
+            }
+            if (viewId === 'article2' && !charts2Rendered) {
+                renderCharts2();
+                charts2Rendered = true;
+            }
+        }
 
             if (!menuOverlay.classList.contains('hidden-overlay')) {
                 toggleMenu();
