@@ -695,6 +695,10 @@
             } catch(e) {}
             
             let normalizedHash = hash.toLowerCase().trim();
+            if (normalizedHash.endsWith('/')) {
+                normalizedHash = normalizedHash.slice(0, -1);
+            }
+            
             if (!normalizedHash) {
                 normalizedHash = 'home';
             }
