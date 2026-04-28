@@ -695,6 +695,14 @@
             } catch(e) {}
             
             let normalizedHash = hash.toLowerCase().trim();
+            
+            // LinkedIn sometimes appends tracking parameters to the end of the hash
+            if (normalizedHash.includes('?')) {
+                normalizedHash = normalizedHash.split('?')[0];
+            }
+            if (normalizedHash.includes('&')) {
+                normalizedHash = normalizedHash.split('&')[0];
+            }
             if (normalizedHash.endsWith('/')) {
                 normalizedHash = normalizedHash.slice(0, -1);
             }
