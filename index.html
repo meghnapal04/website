@@ -688,57 +688,46 @@
         };
 
         function handleRouteChange() {
-            // We scan the entire URL for keywords. This ensures that even if LinkedIn 
-            // wraps or rewrites the URL, we still find the right article.
-            const url = window.location.href.toLowerCase();
+            let rawHash = window.location.hash.substring(1);
+            let hash = "";
+            try {
+                hash = decodeURIComponent(rawHash).toLowerCase().trim();
+            } catch(e) {
+                hash = rawHash.toLowerCase().trim();
+            }
             
-            let viewId = 'home'; // Default
+            let viewId = 'home'; // Default fallback
 
-            if (url.includes('yuan') || url.includes('oil-shift')) {
+            // Robust Keyword-based matching
+            if (hash.includes('yuan') || hash.includes('oil-shift')) {
                 viewId = 'article2';
-            } else if (url.includes('hormuz') || url.includes('stagflation')) {
+            } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
                 viewId = 'article';
-            } else if (url.includes('about')) {
+            } else if (hash.includes('about')) {
                 viewId = 'about';
-            } else if (url.includes('insight') || url.includes('publication')) {
+            } else if (hash.includes('insight') || hash.includes('publication')) {
                 viewId = 'publications';
+            } else if (hash === '' || hash === 'home') {
+                viewId = 'home';
+            } else {
+                viewId = routeMapping[hash] || hash;
             }
-            
-            // Final check: if it's an exact ID match in the hash (e.g. #home)
-            const hash = window.location.hash.substring(1).toLowerCase();
-            if (hash === 'home') viewId = 'home';
-
-            const views = document.querySelectorAll('.page-view');
-            views.forEach(view => view.classList.remove('active'));
-
-            const targetView = document.getElementById(`view-${viewId}`);
-            if (targetView) {
-                targetView.classList.add('active');
-                window.scrollTo(0, 0); 
-            }
-
-            if (viewId === 'article' && !chartsRendered) {
-                renderCharts();
-                chartsRendered = true;
-            }
-            if (viewId === 'article2' && !charts2Rendered) {
-                renderCharts2();
-                charts2Rendered = true;
-            }
-        }
 
             if (!menuOverlay.classList.contains('hidden-overlay')) {
                 toggleMenu();
             }
 
             const views = document.querySelectorAll('.page-view');
-            views.forEach(view => {
-                view.classList.remove('active');
-            });
+            views.forEach(view => view.classList.remove('active'));
 
-            const actualTarget = document.getElementById(`view-${viewId}`);
-            if (actualTarget) {
-                actualTarget.classList.add('active');
+            let targetView = document.getElementById(`view-${viewId}`);
+            if (!targetView) {
+                viewId = 'home';
+                targetView = document.getElementById('view-home');
+            }
+
+            if (targetView) {
+                targetView.classList.add('active');
                 window.scrollTo(0, 0); 
             }
 
