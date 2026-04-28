@@ -172,10 +172,10 @@
                     <div class="mt-4 border-l border-gray-700 pl-6">
                         <p class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-3">Featured Insight</p>
                         <h3 class="text-xl font-semibold mb-3">The 2026 Middle East Oil Crisis</h3>
-                        <a onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')" class="cursor-pointer text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
+                        <a onclick="navigate('oil-shifts-to-yuan')" class="cursor-pointer text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
                             What Happens if Oil Shifts from the Dollar to the Yuan?
                         </a>
-                        <a onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')" class="cursor-pointer text-base text-gray-400 hover:text-white transition-colors block">
+                        <a onclick="navigate('strait-of-hormuz-ceasefire')" class="cursor-pointer text-base text-gray-400 hover:text-white transition-colors block">
                             Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
                         </a>
                     </div>
@@ -205,7 +205,7 @@
                             Transforming macroeconomic data, geopolitical shifts, and market dynamics into useful commercial and policy insights.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
+                            <button onclick="navigate('oil-shifts-to-yuan')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
                                 Read Latest Insight
                             </button>
                             <button onclick="navigate('insights')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
@@ -228,7 +228,7 @@
                         </button>
                     </div>
 
-                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')">
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('oil-shifts-to-yuan')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
                                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article2_cover.png');"></div>
@@ -254,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white" onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')">
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white" onclick="navigate('strait-of-hormuz-ceasefire')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
                                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('image_72e3c2.png');"></div>
@@ -353,7 +353,7 @@
                         <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">The 2026 Middle East Oil Crisis</h3>
                     </div>
 
-                    <div class="group cursor-pointer block" onclick="navigate('What Happens if Oil Shifts from the Dollar to the Yuan?')">
+                    <div class="group cursor-pointer block" onclick="navigate('oil-shifts-to-yuan')">
                         <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
                             <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
                                 What Happens if Oil Shifts from the Dollar to the Yuan?
@@ -367,7 +367,7 @@
                         </div>
                     </div>
 
-                    <div class="group cursor-pointer block" onclick="navigate('Why the Strait of Hormuz Ceasefire Won\'t Stop Global Stagflation')">
+                    <div class="group cursor-pointer block" onclick="navigate('strait-of-hormuz-ceasefire')">
                         <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
                             <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
                                 Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
@@ -673,8 +673,10 @@
         const routeMapping = {
             "why the strait of hormuz ceasefire won't stop global stagflation": 'article',
             "why the strait of hormuz ceasefire wont stop global stagflation": 'article',
+            "strait-of-hormuz-ceasefire": 'article',
             "what happens if oil shifts from the dollar to the yuan?": 'article2',
             "what happens if oil shifts from the dollar to the yuan": 'article2',
+            "oil-shifts-to-yuan": 'article2',
             "insights": 'publications',
             "publications": 'publications',
             "about": 'about',
