@@ -689,33 +689,36 @@
 
         function handleRouteChange() {
             let rawHash = window.location.hash.substring(1);
-            let hash = rawHash;
+            let hash = "";
             try {
-                hash = decodeURIComponent(rawHash);
-            } catch(e) {}
-            
-            let normalizedHash = hash.toLowerCase().trim();
-            
-            // LinkedIn sometimes appends tracking parameters to the end of the hash
-            if (normalizedHash.includes('?')) {
-                normalizedHash = normalizedHash.split('?')[0];
-            }
-            if (normalizedHash.includes('&')) {
-                normalizedHash = normalizedHash.split('&')[0];
-            }
-            if (normalizedHash.endsWith('/')) {
-                normalizedHash = normalizedHash.slice(0, -1);
+                hash = decodeURIComponent(rawHash).toLowerCase().trim();
+            } catch(e) {
+                hash = rawHash.toLowerCase().trim();
             }
             
-            if (!normalizedHash) {
-                normalizedHash = 'home';
+            let viewId = 'home'; // Default fallback
+
+            // 1. Keyword-based matching (Highly robust against tracking params)
+            if (hash.includes('yuan') || hash.includes('oil-shift')) {
+                viewId = 'article2';
+            } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
+                viewId = 'article';
+            } else if (hash.includes('insight') || hash.includes('publication')) {
+                viewId = 'publications';
+            } else if (hash.includes('about')) {
+                viewId = 'about';
+            } else if (hash === '' || hash === 'home') {
+                viewId = 'home';
+            } else {
+                // 2. Exact mapping fallback
+                viewId = routeMapping[hash] || hash;
             }
             
-            let viewId = routeMapping[normalizedHash] || normalizedHash;
-            
-            const targetView = document.getElementById(`view-${viewId}`);
+            // Final validation of the element
+            let targetView = document.getElementById(`view-${viewId}`);
             if (!targetView) {
                 viewId = 'home';
+                targetView = document.getElementById('view-home');
             }
 
             if (!menuOverlay.classList.contains('hidden-overlay')) {
