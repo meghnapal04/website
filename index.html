@@ -703,17 +703,17 @@
 
                     <p>The UAE is a very particular case inside OPEC. Over the past decade, it has expanded production capacity. Its current capacity stands at 4.85 million barrels per day, with a stated target of 5 million by 2027. Yet under its OPEC+ quota, the UAE was restricted to producing 3.4 million barrels per day. This left 1.44 million barrels per day effectively idle. At current Brent prices of around $108.17 per barrel, that unused capacity translates into $56.85 billion in foregone annual revenue, which is an implicit cost of adhering to the cartel’s collective discipline.</p>
 
-                    <h3 class="text-2xl font-bold text-wef-dark mt-12 mb-6">So what happens if the Strait reopens?</h3>
+                    <h3 class="text-2xl font-bold text-wef-blue mt-12 mb-6">So What Happens if the Strait Reopens?</h3>
 
                     <p>Let’s say a peace deal is reached, the Strait of Hormuz reopens to commercial shipping, and the UAE, now no longer an OPEC member, produces toward its capacity.</p>
 
                     <p>Unlike few countries which routinely exceeded their OPEC+ quotas, the UAE was compliant and unlike most OPEC members whose production capacity is already near or below their quotas, the UAE has real, substantial, investable spare capacity.</p>
 
-                    <p>When supply increases and demand stays roughly the same, prices fall. The size of the price fall depends on how sensitive oil demand is to price changes, what economists call the price elasticity of demand. For oil, short-run price elasticity of demand is approximately -0.3. This means that for every 1% increase in the supply of oil, prices fall by roughly 3.3%. Global oil supply is roughly 103 million barrels per day. The UAE's additional 1.44 million bpd represents a 1.4% increase in global supply, which, holding everything else constant, translates to a price decline of approximately $4-6 per barrel under slow ramp-up conditions. If the UAE hits its 5 million barrels per day target, the incremental impact grows.</p>
+                    <p class="border-l-4 border-wef-lightBlue pl-6 italic text-gray-700 bg-gray-50 py-4 rounded-r">When supply increases and demand stays roughly the same, prices fall. The size of the price fall depends on how sensitive oil demand is to price changes, what economists call the price elasticity of demand. For oil, short-run price elasticity of demand is approximately -0.3. This means that for every 1% increase in the supply of oil, prices fall by roughly 3.3%. Global oil supply is roughly 103 million barrels per day. The UAE's additional 1.44 million bpd represents a 1.4% increase in global supply, which, holding everything else constant, translates to a price decline of approximately $4-6 per barrel under slow ramp-up conditions. If the UAE hits its 5 million barrels per day target, the incremental impact grows.</p>
 
                     
                     
-                    <h3 class="text-2xl font-bold text-wef-dark mb-6 uppercase tracking-wider">THREE SCENARIOS FOR WHAT HAPPENS NEXT</h3>
+                    <h3 class="text-2xl font-bold text-wef-blue mt-12 mb-6">Three Scenarios for What Happens Next</h3>
 
                     <p><strong class="text-wef-dark">Scenario A: The UAE ramps up cautiously to anywhere above 3.4 million barrels but below 4.85 million barrels per day</strong></p>
 
@@ -740,7 +740,7 @@
                     </div>
 
                     
-                    <h3 class="text-2xl font-bold text-wef-dark mb-6 uppercase tracking-wider">WHAT THIS MEANS PRACTICALLY</h3>
+                    <h3 class="text-2xl font-bold text-wef-blue mt-12 mb-6">What This Means Practically</h3>
 
                     <h4 class="text-xl font-bold text-wef-dark mt-8 mb-4">For Businesses and Investors</h4>
 
@@ -1049,7 +1049,7 @@
                 font: { family: "'Inter', sans-serif", color: '#334155', size: 14 },
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
-                hoverlabel: { bgcolor: '#FFFFFF', font: { family: "'Inter', sans-serif", color: '#0F172A', size: 14 }, bordercolor: '#E2E8F0', borderpad: 10 },
+                hoverlabel: { bgcolor: '#FFFFFF', font: { family: "'Inter', sans-serif", color: '#0F172A', size: 15 }, bordercolor: '#CBD5E1', borderpad: 12, namelength: -1 },
                 dragmode: false
             };
             const xAxisStyle = { showgrid: true, gridcolor: '#F1F5F9', zeroline: false, showline: true, linecolor: '#CBD5E1', linewidth: 1, tickfont: { color: '#64748B', size: 13 }, fixedrange: true };
@@ -1058,10 +1058,10 @@
             const quarters = ['Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027'];
             
             Plotly.newPlot('uaeScenariosChart', [
-                { name: 'Quota-world counterfactual (no UAE exit)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 104, 103, 102.5, 102, 101], line: { color: '#94A3B8', width: 3, dash: 'dash' }, marker: { size: 8 } },
-                { name: 'Scenario A: UAE slow ramp (→ 4.2 mbpd by Q4 2026)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 102, 98, 94, 90, 86], line: { color: '#7AA3CC', width: 3 }, marker: { size: 8 } },
-                { name: 'Scenario B: UAE at full capacity (4.85 mbpd)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 96, 90, 83, 76.5], line: { color: '#1E3A5F', width: 3 }, marker: { size: 8 } },
-                { name: 'Scenario C: Other OPEC members begin to exit', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 95, 86, 76.5, 67], line: { color: '#C0392B', width: 3 }, marker: { size: 8 } }
+                { name: 'Quota-world counterfactual (no UAE exit)', hovertemplate: 'Quota-World: %{y}<extra></extra>', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 104, 103, 102.5, 102, 101], line: { color: '#94A3B8', width: 3, dash: 'dash' }, marker: { size: 8 } },
+                { name: 'Scenario A: UAE slow ramp (→ 4.2 mbpd by Q4 2026)', hovertemplate: 'Scenario A: %{y}<extra></extra>', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 102, 98, 94, 90, 86], line: { color: '#7AA3CC', width: 3 }, marker: { size: 8 } },
+                { name: 'Scenario B: UAE at full capacity (4.85 mbpd)', hovertemplate: 'Scenario B: %{y}<extra></extra>', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 96, 90, 83, 76.5], line: { color: '#1E3A5F', width: 3 }, marker: { size: 8 } },
+                { name: 'Scenario C: Other OPEC members begin to exit', hovertemplate: 'Scenario C: %{y}<extra></extra>', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 95, 86, 76.5, 67], line: { color: '#C0392B', width: 3 }, marker: { size: 8 } }
             ], {
                 ...layoutBase,
                 margin: { t: 30, r: 20, b: 60, l: 60 },
@@ -1073,8 +1073,8 @@
                     { type: 'line', x0: quarters[0], x1: quarters[5], y0: 79, y1: 79, line: { color: '#B8860B', width: 2, dash: 'dot' } }
                 ],
                 annotations: [
-                    { x: quarters[2], y: 79, text: '<b>Saudi fiscal breakeven ≈ $79/bbl (IMF 2025)</b>', showarrow: false, xanchor: 'center', yanchor: 'bottom', yshift: 5, font: { size: 12, color: '#0F172A' }, align: 'center', bgcolor: 'rgba(255,255,255,0.8)' },
-                    { x: quarters[2], y: 79, text: '<b>Below Saudi breakeven → deficit territory</b>', showarrow: false, xanchor: 'center', yanchor: 'top', yshift: -5, font: { size: 12, color: '#C0392B' }, align: 'center', bgcolor: 'rgba(255,255,255,0.8)' }
+                    { x: quarters[1], y: 79, text: '<b>Saudi fiscal breakeven ≈ $79/bbl (IMF 2025)</b>', showarrow: true, arrowhead: 2, arrowcolor: '#B8860B', ax: 0, ay: -35, font: { size: 12, color: '#0F172A' }, align: 'center', bgcolor: 'rgba(255,255,255,0.95)', bordercolor: '#B8860B', borderpad: 4 },
+                    { x: quarters[3], y: 79, text: '<b>Below Saudi breakeven → deficit territory</b>', showarrow: true, arrowhead: 2, arrowcolor: '#C0392B', ax: 0, ay: 35, font: { size: 12, color: '#C0392B' }, align: 'center', bgcolor: 'rgba(255,255,255,0.95)', bordercolor: '#C0392B', borderpad: 4 }
                 ]
             }, config);
         }
@@ -1085,7 +1085,7 @@
                 font: { family: "'Inter', sans-serif", color: '#334155', size: 14 },
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
-                hoverlabel: { bgcolor: '#FFFFFF', font: { family: "'Inter', sans-serif", color: '#0F172A', size: 14 }, bordercolor: '#E2E8F0', borderpad: 10 },
+                hoverlabel: { bgcolor: '#FFFFFF', font: { family: "'Inter', sans-serif", color: '#0F172A', size: 15 }, bordercolor: '#CBD5E1', borderpad: 12, namelength: -1 },
                 dragmode: false
             };
             const xStyle = { showgrid: true, gridcolor: '#F1F5F9', zeroline: false, showline: true, linecolor: '#CBD5E1', linewidth: 1, tickfont: { color: '#64748B', size: 13 }, fixedrange: true, ticksuffix: '%' };
