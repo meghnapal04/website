@@ -53,13 +53,34 @@
         }
 
         /* WEF Style Article Typography */
-        .article-content p {
+        .article-content p, .article-content li {
             text-align: justify;
-            margin-bottom: 1.5rem;
             font-size: 1.125rem;
             line-height: 1.7;
             color: #333333;
-            text-align: justify;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 1rem;
+        }
+        .article-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
+        }
+        .article-content ul li {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .article-content ul li::before {
+            content: "■";
+            color: #005BBB;
+            position: absolute;
+            left: 0.5rem;
+            top: 0.1rem;
+            font-size: 0.75rem;
         }
 
         /* Chart Containers */
@@ -746,7 +767,7 @@
 
                     <p>Where a company sits in the oil supply chain determines whether lower oil prices are a gain or a loss.</p>
                     
-                    <ul class="list-disc pl-8 mb-6 space-y-2 text-gray-700">
+                    <ul>
                         <li>Companies that produce oil (upstream firms) earn less when prices fall, because their main source of revenue declines.</li>
                         <li>Companies that use oil as an input, such as refineries, airlines, and shipping firms, benefit, since their costs fall and profit margins improve.</li>
                     </ul>
@@ -757,9 +778,9 @@
 
                     <h4 class="text-xl font-bold text-wef-dark mt-8 mb-4">2) For OPEC Members</h4>
 
-                    <p>The impact depends on a country’s "fiscal breakeven oil price", which is the price needed to balance its government budget.</p>
+                    <p>The impact depends on a country’s <span class="px-2 py-1 bg-blue-50 text-wef-lightBlue font-semibold rounded shadow-sm border border-blue-100">fiscal breakeven oil price</span>, which is the price needed to balance its government budget.</p>
                     
-                    <ul class="list-disc pl-8 mb-6 space-y-2 text-gray-700">
+                    <ul>
                         <li>Countries with low breakeven levels can tolerate lower prices and therefore have less incentive to strictly follow OPEC production limits.</li>
                         <li>Countries with high breakeven levels rely heavily on high oil prices, hence when prices fall, they face budget deficits and financial strain.</li>
                     </ul>
@@ -774,9 +795,9 @@
 
                     <p>Countries that import more oil than they export benefit directly from falling prices.</p>
                     
-                    <ul class="list-disc pl-8 mb-6 space-y-4 text-gray-700">
-                        <li>India imports about 4.8 million barrels per day. A $10 fall in oil prices reduces its annual import bill by roughly $17.5 billion. This improves its trade balance (difference between exports and imports) and reduces pressure on its currency, giving Reserve Bank of India (RBI) more flexibility to lower interest rates without triggering inflation.</li>
-                        <li>China, importing over 11 million barrels per day, saves more than $40 billion annually for every $10 price drop. It also has incentives to secure long-term supply agreements, including with the UAE, often on favourable terms.</li>
+                    <ul>
+                        <li>India imports about <strong class="text-wef-lightBlue">4.8 million barrels per day</strong>. A $10 fall in oil prices reduces its annual import bill by roughly <strong class="text-wef-lightBlue">$17.5 billion</strong>. This improves its trade balance (difference between exports and imports) and reduces pressure on its currency, giving Reserve Bank of India (RBI) more flexibility to lower interest rates without triggering inflation.</li>
+                        <li>China, importing over <strong class="text-wef-lightBlue">11 million barrels per day</strong>, saves more than <strong class="text-wef-lightBlue">$40 billion annually</strong> for every $10 price drop. It also has incentives to secure long-term supply agreements, including with the UAE, often on favourable terms.</li>
                         <li>In Europe, lower energy costs reduce cost-push inflation (inflation caused by rising production costs). This gives the European Central Bank (ECB) greater room to ease monetary policy, such as lowering interest rates to support growth.</li>
                     </ul>
 
