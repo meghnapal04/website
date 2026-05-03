@@ -7,16 +7,16 @@
     
     <!-- Open Graph / LinkedIn / Facebook Meta Tags -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="What Happens if Oil Shifts from the Dollar to the Yuan?">
-    <meta property="og:description" content="An analysis of the petrodollar system, yuan internationalisation, and the structural barriers to dollar replacement.">
-    <meta property="og:image" content="https://meghnapal.info/article2_cover.png">
+    <meta property="og:title" content="What Happens to Oil Markets When the UAE Pumps Without a Ceiling?">
+    <meta property="og:description" content="An analysis of the UAE's exit from OPEC, production capacity, and post-Strait reopening price scenarios.">
+    <meta property="og:image" content="https://meghnapal.info/article3_cover.png">
     <meta property="og:url" content="https://meghnapal.info/">
     
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What Happens if Oil Shifts from the Dollar to the Yuan?">
-    <meta name="twitter:description" content="An analysis of the petrodollar system, yuan internationalisation, and the structural barriers to dollar replacement.">
-    <meta name="twitter:image" content="https://meghnapal.info/article2_cover.png">
+    <meta name="twitter:title" content="What Happens to Oil Markets When the UAE Pumps Without a Ceiling?">
+    <meta name="twitter:description" content="An analysis of the UAE's exit from OPEC, production capacity, and post-Strait reopening price scenarios.">
+    <meta name="twitter:image" content="https://meghnapal.info/article3_cover.png">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -353,6 +353,20 @@
                         <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">The 2026 Middle East Oil Crisis</h3>
                     </div>
 
+                    <div class="group cursor-pointer block" onclick="navigate('What-Happens-to-Oil-Markets-When-the-UAE-Pumps-Without-a-Ceiling?')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                What Happens to Oil Markets When the UAE Pumps Without a Ceiling?
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An analysis of the UAE's exit from OPEC, production capacity, and post-Strait reopening price scenarios.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                3 May, 2026 &nbsp;&bull;&nbsp; 4 min read
+                            </p>
+                        </div>
+                    </div>
+
                     <div class="group cursor-pointer block" onclick="navigate('What-Happens-if-Oil-Shifts-from-the-Dollar-to-the-Yuan?')">
                         <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
                             <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
@@ -669,6 +683,7 @@
 
         let chartsRendered = false;
         let charts2Rendered = false;
+        let charts3Rendered = false;
 
         const routeMapping = {
             "why the strait of hormuz ceasefire won't stop global stagflation": 'article',
@@ -681,6 +696,10 @@
             "oil-shifts-to-yuan": 'article2',
             "what-happens-if-oil-shifts-from-the-dollar-to-the-yuan?": 'article2',
             "what-happens-if-oil-shifts-from-the-dollar-to-the-yuan": 'article2',
+            "what happens to oil markets when the uae pumps without a ceiling?": 'article3',
+            "uae-pumps-without-ceiling": 'article3',
+            "what-happens-to-oil-markets-when-the-uae-pumps-without-a-ceiling?": 'article3',
+            "what-happens-to-oil-markets-when-the-uae-pumps-without-a-ceiling": 'article3',
             "insights": 'publications',
             "publications": 'publications',
             "about": 'about',
@@ -699,7 +718,9 @@
             let viewId = 'home'; // Default fallback
 
             // Robust Keyword-based matching
-            if (hash.includes('yuan') || hash.includes('oil-shift')) {
+            if (hash.includes('uae') || hash.includes('ceiling') || hash.includes('pumps')) {
+                viewId = 'article3';
+            } else if (hash.includes('yuan') || hash.includes('oil-shift')) {
                 viewId = 'article2';
             } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
                 viewId = 'article';
@@ -738,6 +759,10 @@
             if (viewId === 'article2' && !charts2Rendered) {
                 renderCharts2();
                 charts2Rendered = true;
+            }
+            if (viewId === 'article3' && !charts3Rendered) {
+                renderCharts3();
+                charts3Rendered = true;
             }
         }
 
@@ -898,6 +923,41 @@
                 ],
                 annotations: [
                     { x: 1.5, y: 2.05, text: 'Near-recession threshold', showarrow: false, yanchor: 'bottom', font: { size: 12, color: '#EF4444', weight: 'bold' } }
+                ]
+            }, config);
+        }
+
+        function renderCharts3() {
+            const config = { responsive: true, displayModeBar: false };
+            const layoutBase = {
+                font: { family: "'Inter', sans-serif", color: '#334155', size: 14 },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                hoverlabel: { bgcolor: '#FFFFFF', font: { family: "'Inter', sans-serif", color: '#0F172A', size: 14 }, bordercolor: '#E2E8F0', borderpad: 10 },
+                dragmode: false
+            };
+            const xAxisStyle = { showgrid: true, gridcolor: '#F1F5F9', zeroline: false, showline: true, linecolor: '#CBD5E1', linewidth: 1, tickfont: { color: '#64748B', size: 13 }, fixedrange: true };
+            const yAxisStyle = { showgrid: true, gridcolor: '#F1F5F9', zeroline: false, showline: true, linecolor: '#CBD5E1', linewidth: 1, tickfont: { color: '#64748B', size: 13 }, fixedrange: true, title: { text: 'Brent Crude ($/bbl)', font: { size: 13, color: '#64748B', weight: 'bold' } } };
+
+            const quarters = ['Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027'];
+            
+            Plotly.newPlot('uaeScenariosChart', [
+                { name: 'Quota-world counterfactual (no UAE exit)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 104, 103, 102.5, 102, 101], line: { color: '#94A3B8', width: 3, dash: 'dash' }, marker: { size: 8 } },
+                { name: 'Scenario A: UAE slow ramp (→ 4.2 mbpd by Q4 2026)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 102, 98, 94, 90, 86], line: { color: '#7AA3CC', width: 3 }, marker: { size: 8 } },
+                { name: 'Scenario B: UAE at full capacity (4.85 mbpd)', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 96, 90, 83, 76.5], line: { color: '#1E3A5F', width: 3 }, marker: { size: 8 } },
+                { name: 'Scenario C: UAE + Iraq & Kazakhstan defect', type: 'scatter', mode: 'lines+markers', x: quarters, y: [107, 101, 95, 86, 76.5, 67], line: { color: '#C0392B', width: 3 }, marker: { size: 8 } }
+            ], {
+                ...layoutBase,
+                margin: { t: 30, r: 20, b: 60, l: 60 },
+                xaxis: xAxisStyle,
+                yaxis: { ...yAxisStyle, range: [60, 120], tickvals: [60, 70, 80, 90, 100, 110, 120] },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom', font: { color: '#334155', size: 12 } },
+                shapes: [
+                    { type: 'line', x0: quarters[0], x1: quarters[5], y0: 79, y1: 79, line: { color: '#D4AF37', width: 2, dash: 'dot' } }
+                ],
+                annotations: [
+                    { x: quarters[5], y: 81, text: '<b>Saudi fiscal<br>breakeven ≈ $79/bbl<br>(IMF 2025)</b>', showarrow: false, xanchor: 'right', yanchor: 'bottom', font: { size: 11, color: '#D4AF37' }, align: 'right' },
+                    { x: quarters[5], y: 77, text: '<b>Below Saudi<br>breakeven →<br>deficit territory</b>', showarrow: false, xanchor: 'right', yanchor: 'top', font: { size: 11, color: '#C0392B' }, align: 'right' }
                 ]
             }, config);
         }
