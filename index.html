@@ -54,6 +54,7 @@
 
         /* WEF Style Article Typography */
         .article-content p {
+            text-align: justify;
             margin-bottom: 1.5rem;
             font-size: 1.125rem;
             line-height: 1.7;
@@ -435,7 +436,7 @@
                         Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
                     </h1>
                     <div>
-                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 20 April, 2026</p>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 20 April, 2026 &bull; 8 min read</p>
                     </div>
                 </header>
 
@@ -533,7 +534,7 @@
                         What Happens if Oil Shifts from the Dollar to the Yuan?
                     </h1>
                     <div>
-                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 24 April, 2026</p>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 24 April, 2026 &bull; 6 min read</p>
                     </div>
                 </header>
 
@@ -679,19 +680,20 @@
         </div>
         <!-- Article 3 View -->
         <div id="view-article3" class="page-view">
-            <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
                 
-                <div class="mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-wef-dark mb-6 leading-tight tracking-tight">How Will the UAE’s OPEC Exit Impact Global Oil Prices?</h1>
-                    <div class="flex items-center text-sm font-bold text-gray-500 uppercase tracking-widest border-b border-gray-200 pb-8">
-                        <span>3 May, 2026</span>
-                        <span class="mx-3">&bull;</span>
-                        <span>4 min read</span>
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The 2026 Middle East Oil Crisis</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        How Will the UAE’s OPEC Exit Impact Global Oil Prices?
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 3 May, 2026 &bull; 4 min read</p>
                     </div>
-                </div>
+                </header>
 
-                <div class="prose prose-lg max-w-none text-wef-textGray leading-relaxed space-y-6">
-                    <p class="text-xl leading-relaxed text-gray-600 font-medium mb-8">
+                <div class="article-content">
+                    <p>
                         On April 28, 2026, the UAE announced it would exit OPEC, effective May 1. At present, Iran’s control of the Strait of Hormuz continues to constrain UAE exports, limiting flows to a capacity of roughly 1.5 million barrels per day, which is well below the country’s true production potential. In that sense, the immediate supply response is mostly restricted. However, the policy shift is still consequential. By leaving OPEC, the UAE has removed permanently, the production ceiling that had kept 1.44 million barrels per day off the global market.
                     </p>
 
@@ -709,7 +711,7 @@
 
                     <p>When supply increases and demand stays roughly the same, prices fall. The size of the price fall depends on how sensitive oil demand is to price changes, what economists call the price elasticity of demand. For oil, short-run price elasticity of demand is approximately -0.3. This means that for every 1% increase in the supply of oil, prices fall by roughly 3.3%. Global oil supply is roughly 103 million barrels per day. The UAE's additional 1.44 million bpd represents a 1.4% increase in global supply, which, holding everything else constant, translates to a price decline of approximately $4-6 per barrel under slow ramp-up conditions. If the UAE hits its 5 million barrels per day target, the incremental impact grows.</p>
 
-                    <hr class="my-12 border-gray-200">
+                    
                     
                     <h3 class="text-2xl font-bold text-wef-dark mb-6 uppercase tracking-wider">THREE SCENARIOS FOR WHAT HAPPENS NEXT</h3>
 
@@ -729,15 +731,15 @@
 
                     <p>To construct these projections, the starting point is Brent at approximately $108 per barrel at the time of writing. By Q3 2026, prices are expected to have already adjusted to around $101, as markets begin pricing in UAE production plans ahead of actual barrel flows. From there, each quarter’s additional supply is applied against the global supply figure of 103 million barrels per day. The resulting price change is calculated using the short-run oil price elasticity of -0.3 described earlier: every 1% increase in supply produces a 3.3% price decline.</p>
 
-                    <div class="my-16 bg-[#F8FAFC] p-8 rounded-xl border border-gray-200 shadow-sm relative">
-                        <div class="text-center mb-6">
-                            <h4 class="text-2xl font-bold text-wef-dark">Post-Strait Reopening Scenarios</h4>
-                            <p class="text-sm text-gray-500 italic mt-1">Author's Calculations</p>
+                    <div class="my-12">
+                        <h4 class="text-xl font-bold text-wef-dark mb-4 text-center">Post-Strait Reopening Scenarios</h4>
+                        <div class="chart-container chart-single !my-0">
+                            <div id="uaeScenariosChart" style="width: 100%; height: 100%;"></div>
                         </div>
-                        <div id="uaeScenariosChart" class="w-full h-[550px]"></div>
+                        <p class="text-sm text-gray-500 italic mt-4 text-center">Source: Author's Calculations</p>
                     </div>
 
-                    <hr class="my-12 border-gray-200">
+                    
                     <h3 class="text-2xl font-bold text-wef-dark mb-6 uppercase tracking-wider">WHAT THIS MEANS PRACTICALLY</h3>
 
                     <h4 class="text-xl font-bold text-wef-dark mt-8 mb-4">For Businesses and Investors</h4>
@@ -1065,13 +1067,14 @@
                 margin: { t: 30, r: 20, b: 60, l: 60 },
                 xaxis: xAxisStyle,
                 yaxis: { ...yAxisStyle, range: [60, 120], tickvals: [60, 70, 80, 90, 100, 110, 120] },
-                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: 1.15, yanchor: 'bottom', font: { color: '#334155', size: 12 } },
+                legend: { orientation: 'h', x: 0.5, xanchor: 'center', y: -0.15, yanchor: 'top', font: { color: '#334155', size: 12 } },
+                hovermode: 'x unified',
                 shapes: [
-                    { type: 'line', x0: quarters[0], x1: quarters[5], y0: 79, y1: 79, line: { color: '#D4AF37', width: 2, dash: 'dot' } }
+                    { type: 'line', x0: quarters[0], x1: quarters[5], y0: 79, y1: 79, line: { color: '#B8860B', width: 2, dash: 'dot' } }
                 ],
                 annotations: [
-                    { x: quarters[5], y: 81, text: '<b>Saudi fiscal<br>breakeven ≈ $79/bbl<br>(IMF 2025)</b>', showarrow: false, xanchor: 'right', yanchor: 'bottom', font: { size: 11, color: '#D4AF37' }, align: 'right' },
-                    { x: quarters[5], y: 77, text: '<b>Below Saudi<br>breakeven →<br>deficit territory</b>', showarrow: false, xanchor: 'right', yanchor: 'top', font: { size: 11, color: '#C0392B' }, align: 'right' }
+                    { x: quarters[2], y: 79, text: '<b>Saudi fiscal breakeven ≈ $79/bbl (IMF 2025)</b>', showarrow: false, xanchor: 'center', yanchor: 'bottom', yshift: 5, font: { size: 12, color: '#0F172A' }, align: 'center', bgcolor: 'rgba(255,255,255,0.8)' },
+                    { x: quarters[2], y: 79, text: '<b>Below Saudi breakeven → deficit territory</b>', showarrow: false, xanchor: 'center', yanchor: 'top', yshift: -5, font: { size: 12, color: '#C0392B' }, align: 'center', bgcolor: 'rgba(255,255,255,0.8)' }
                 ]
             }, config);
         }
