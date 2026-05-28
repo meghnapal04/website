@@ -167,14 +167,7 @@
             color: #1A202C;
             letter-spacing: -0.01em;
         }
-        .serif-article h2::before {
-            content: '';
-            display: block;
-            width: 32px;
-            height: 2px;
-            background: #C44527;
-            margin-bottom: 12px;
-        }
+
         .serif-article h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.45rem;
@@ -1537,8 +1530,7 @@
                     <!-- Chart 5: Sensitivity Tool -->
                     <div class="chart-block-serif">
                         <span class="chart-label">Interactive Sensitivity Analysis</span>
-                        <div class="chart-title-text text-xl font-bold mb-1">Purchasing Power Recovery: How Long to Close the Food Price Gap?</div>
-                        <div class="chart-desc mb-6 text-sm">Starting gap: 23.5 percentage points. The chart shows how much of that gap remains under each scenario over time. Adjust the sliders to model your own assumptions — the custom scenario (dashed) updates in real time.</div>
+                        <div class="chart-title-text text-xl font-bold mb-1">How Long to Close the Food Price Gap?</div>
 
                         <div class="flex flex-wrap gap-4 mb-6">
                             <div class="legend-item-serif"><div class="legend-dot-serif" style="background:#2E7D4F"></div> A: wages +4%, food +1.5%</div>
@@ -1560,13 +1552,12 @@
                                 <input type="range" id="priceFoodSlider" min="0.0" max="8.0" step="0.1" value="2.6">
                                 <span class="slider-val" id="priceFoodVal">2.6%</span>
                             </div>
-                            <div class="gap-result-serif" id="priceGapResult"></div>
                         </div>
 
                         <div class="relative w-full h-[300px] bg-white">
                             <canvas id="priceRecoveryChart"></canvas>
                         </div>
-                        <p class="chart-source">Starting gap: 23.5 percentage points (food-at-home price floor gap above pre-pandemic trend, 2019–2026). Each year, the gap closes by (wage growth − food price growth). Scenario B wage: OECD average forecast (2026); food price: USDA 2026 projection. Author's calculations.</p>
+                        <p class="chart-source">Source: Author's calculations.</p>
                     </div>
 
                     <p class="base-case">The base case, Scenario B, using current OECD average wage forecasts (3.4%) and USDA food price projections (2.6%), says households will not fully recover the purchasing power lost since 2019 until approximately 2055. That is nearly three decades to close a gap that opened in about two years. Scenario D is worth noting specifically. A new food price shock, the kind that could emerge from energy costs feeding through into agricultural commodities, would widen the gap further every year.</p>
@@ -2457,18 +2448,7 @@
         }
 
         function updatePriceGapResult(wage, food) {
-            const n = priceYearsToClose(wage, food);
-            const rate = (wage - food).toFixed(1);
-            const el = document.getElementById('priceGapResult');
-            if (!el) return;
-            if (n === null) {
-                el.innerHTML = `At these rates, the gap <strong>never closes</strong> — it widens by ${Math.abs(rate)}pp per year.`;
-            } else if (n > 100) {
-                el.innerHTML = `At ${rate}pp real gain per year, closing the gap would take over 100 years.`;
-            } else {
-                const yr = 2026 + n;
-                el.innerHTML = `At ${rate}pp real gain per year, the food price floor gap closes in approximately <strong>${n} years</strong> — around <strong>${yr}</strong>.`;
-            }
+            // Deleted as requested
         }
 
         window.updatePriceSensitivity = function() {
