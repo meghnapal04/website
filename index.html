@@ -1338,7 +1338,7 @@
                     </div>
                 </header>
 
-                <div class="article-content serif-article">
+                <div class="article-content">
                     <p>For most of modern economic history, there was an implicit method behind urban life which was to work hard, save steadily, and eventually buy a home. Across much of the world, that sequence is beginning to fail.</p>
 
                     <p>Home prices have moved far beyond and compounded much faster than wage growth. This is no longer a story about temporary price spikes or cyclical downturns. It is the result of a divergence that has widened for decades.</p>
@@ -1447,33 +1447,28 @@
 
                     <!-- Chart 3: Rent Spiral -->
                     <div class="chart-block-serif">
-                        <div class="chart-title-text font-bold">The Rent Spiral: Rent-to-Income Ratio, 2020–2030</div>
-                        <div class="chart-desc">Australia (representative tight-supply market). Red shading indicates households in "housing stress" — spending 30%+ of income on rent. Rent growth: 5.7% p.a.; wage growth: 3.0% p.a.</div>
+                        <div class="chart-title-text font-bold">Rent-to-Income Ratio, 2020-2030</div>
                         <div class="relative w-full h-[280px] bg-white">
                             <canvas id="housingRentChart"></canvas>
                         </div>
-                        <p class="chart-source text-xs text-slate-400 mt-2">Baseline 2020 rent-to-income: author's estimate. Rent growth: Cotality Rental Report (2026); wage growth: RBA Wage Price Index / OECD (2026). Author's projections from 2025 onward.</p>
+                        <p class="chart-source text-xs text-slate-400 mt-2">Source: Author's Calculations using (baseline 2020)</p>
                     </div>
 
-                    <p>The 30% threshold was crossed in 2023, and it is not coming back. By 2030, on current trajectories, the median renter in a tight-supply Australian market will spend over 36% of their income on housing.</p>
+                    <p>The threshold for "housing stress" is spending 30% or more of gross household income on housing costs. Below this, most households can manage other essentials, save a little, and absorb occasional shocks. Above it, housing begins crowding out groceries, healthcare, the ability to save.</p>
 
-                    <p>What makes this particularly damaging is the feedback loop it creates. More rent → less savings → deposit target moves further away → longer renting → more rent consumed. The trap closes on itself, with no natural exit.</p>
+                    <h2 class="text-2xl font-bold text-wef-dark mt-12 mb-6">When Does This Get Better?</h2>
 
-                    <h2>Three Futures: When Does This Get Better?</h2>
-
-                    <p>To assess when — or whether — housing becomes affordable again, we model three scenarios for how PTI ratios evolve over the next 20 years. "Recovery" is defined as reaching a PTI of 5.0, which sits within the "moderately unaffordable" range — not affordable by historical standards, but achievable through sustained saving within a working lifetime.</p>
+                    <p>To assess when or whether housing becomes affordable again, here are three scenarios for how PTI ratios evolve over the next 20 years. "Recovery" is defined as reaching a PTI of 5.0, which sits within the "moderately unaffordable" range.</p>
 
                     <ul class="mb-6">
-                        <li><strong class="text-emerald-700">Scenario A</strong> — Best case: house prices freeze entirely; wages grow at 3% per year.</li>
-                        <li><strong class="text-blue-900">Scenario B</strong> — Base case: prices grow at 2%, wages at 3%. A mild affordability improvement each year.</li>
-                        <li><strong class="text-rose-700">Scenario C</strong> — Stress case: prices grow at 5%, wages at 3%. This approximates the historical pattern in supply-constrained cities.</li>
+                        <li><strong>Scenario A:</strong> Best case - house prices freeze entirely; wages grow at 3% per year.</li>
+                        <li><strong>Scenario B:</strong> Base case - prices grow at 2%, wages at 3%. A mild affordability improvement each year.</li>
+                        <li><strong>Scenario C:</strong> Stress case - prices grow at 5%, wages at 3%. This approximates the historical pattern in supply-constrained cities.</li>
                     </ul>
 
                     <!-- Chart 4: Recovery Scenarios -->
                     <div class="chart-block-serif shadow-sm border border-slate-200/80 rounded-xl p-6 bg-white">
-                        <span class="chart-label">Interactive</span>
                         <div class="chart-title-text text-xl font-bold mb-1">Housing Affordability Forecast, 2026–2046</div>
-                        <div class="chart-desc mb-4 text-sm">Price-to-income ratio under three scenarios. Select a city to see its trajectory. Dashed lines mark the "severely unaffordable" (PTI 9) and "moderately unaffordable" (PTI 5) thresholds.</div>
                         <div class="flex items-center gap-3 mb-6 flex-wrap">
                             <label for="housingCitySelect" class="text-sm font-semibold text-slate-700">Select city:</label>
                             <select id="housingCitySelect" class="city-select-serif" onchange="updateHousingRecoveryChart()">
@@ -1492,31 +1487,15 @@
                         <div class="relative w-full h-[300px] bg-white">
                             <canvas id="housingRecoveryChart"></canvas>
                         </div>
-                        <p class="chart-source">Author's calculations. Starting PTI: Demographia (2025). Scenario A: PTI ÷ 1.03ⁿ. Scenario B: PTI × (1.02/1.03)ⁿ. Scenario C: PTI × (1.05/1.03)ⁿ.</p>
+                        <p class="chart-source">Author's calculations.</p>
                     </div>
 
-                    <p>The results are sobering. Under Scenario B — the most realistic projection — no major city in this sample reaches the "moderately unaffordable" threshold of 5.0 within the next 20 years. Under Scenario C, Sydney's PTI rises from 13.8 today to above 20 by 2046. Only London, under the most optimistic scenario, edges close to recovery — and only by 2046.</p>
+                    <h2 class="text-2xl font-bold text-wef-dark mt-12 mb-6">What This Means</h2>
 
-                    <p>The sensitivity analysis reveals something important: the difference between Scenario A and Scenario C is not a matter of degree. It is the difference between a difficult problem that slowly resolves and one that permanently locks most households out of ownership. The direction of the outcome hinges almost entirely on whether prices grow faster or slower than wages — and by how much.</p>
+                    <p>The housing affordability crisis is not cyclical. It is not a temporary dislocation caused by high interest rates that will unwind as rates fall. It is a three-decade divergence between asset prices and wages, now deeply embedded and, under most plausible scenarios, self-reinforcing.</p>
 
-                    <h2>What This Means</h2>
-
-                    <p>The housing affordability crisis is structural, not cyclical. It is not a temporary dislocation caused by high interest rates that will unwind as rates fall. It is a three-decade divergence between asset prices and wages, now deeply embedded and — under most plausible scenarios — self-reinforcing.</p>
-
-                    <p>For <strong>individuals</strong>: ownership in the world's major cities increasingly depends on inherited wealth, not earned income. If your parents own, you benefit from a compressing timeline. If they do not, the clock is long.</p>
-
-                    <p>For <strong>renters</strong>: without decisive policy intervention — on supply, rent regulation, or income — the rent-to-income ratio in tight markets will rise every year. The arithmetic has no natural floor.</p>
-
-                    <p>For <strong>policymakers</strong>: the only recovery scenario that works within a generation is a sustained period where house prices grow significantly slower than wages. Any scenario where prices continue outpacing incomes — even by 2% per year — keeps the problem permanently beyond reach.</p>
-
-                    <p>The ladder to ownership is not broken because people stopped climbing. It is broken because the rungs keep moving.</p>
+                    <p>For individuals, ownership in the world's major cities increasingly depends on inherited wealth, not earned income. For renters, without decisive policy intervention on supply, rent regulation, or income, the rent-to-income ratio in tight markets will rise every year. For policymakers, the only recovery scenario that works within a generation is a sustained period where house prices grow significantly slower than wages. Any scenario where prices continue outpacing incomes, even by 2% per year keeps the problem persistent.</p>
                 </div>
-                
-                <footer class="mt-16 pt-8 border-t border-slate-200">
-                    <p class="text-xs text-slate-400 italic leading-relaxed">
-                        Data sources: Demographia International Housing Affordability Report (2025); Numbeo Property Price Index (2025); Cotality Rental Report (2026); Reserve Bank of Australia Wage Price Index; OECD Household Savings Rate Database (2025). Forecasting calculations are the author's own. Deposit-years model assumes 10% gross income saved annually toward a 20% deposit with no interest earned on savings; interest-adjusted variants available on request.
-                    </p>
-                </footer>
             </div>
         </div>
 
@@ -2377,8 +2356,7 @@
                             max: Math.max(C[C.length - 1] + 2, pti + 4),
                             grid: { color: BORDER },
                             ticks: {
-                                font: { size: 11 },
-                                callback: v => 'PTI ' + v,
+                                font: { size: 11 }
                             },
                             title: {
                                 display: true,
