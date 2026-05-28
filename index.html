@@ -193,12 +193,12 @@
                 <div class="hidden md:block">
                     <div class="mt-4 border-l border-gray-700 pl-6">
                         <p class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-3">Featured Insight</p>
-                        <h3 class="text-xl font-semibold mb-3">The 2026 Middle East Oil Crisis</h3>
-                        <a onclick="navigate('What-Happens-if-Oil-Shifts-from-the-Dollar-to-the-Yuan?')" class="cursor-pointer text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
-                            What Happens if Oil Shifts from the Dollar to the Yuan?
+                        <h3 class="text-xl font-semibold mb-3">The Affordability Collapse</h3>
+                        <a onclick="navigate('the-measurement-gap')" class="cursor-pointer text-lg text-white hover:text-blue-300 transition-colors block mb-2 font-semibold">
+                            The Measurement Gap
                         </a>
-                        <a onclick="navigate('Why-the-Strait-of-Hormuz-Ceasefire-Won\'t-Stop-Global-Stagflation')" class="cursor-pointer text-base text-gray-400 hover:text-white transition-colors block">
-                            Why the Strait of Hormuz Ceasefire Won't Stop Global Stagflation
+                        <a onclick="navigate('How-Will-the-UAEs-OPEC-Exit-Impact-Global-Oil-Prices')" class="cursor-pointer text-base text-gray-400 hover:text-white transition-colors block">
+                            How Will the UAE’s OPEC Exit Impact Global Oil Prices?
                         </a>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                             Transforming macroeconomic data, geopolitical shifts, and market dynamics into useful commercial and policy insights.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="navigate('How-Will-the-UAEs-OPEC-Exit-Impact-Global-Oil-Prices')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
+                            <button onclick="navigate('the-measurement-gap')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
                                 Read Latest Insight
                             </button>
                             <button onclick="navigate('insights')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
@@ -248,6 +248,34 @@
                         <button onclick="navigate('insights')" class="hidden md:flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors mt-4 md:mt-0">
                             All Publications <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </button>
+                    </div>
+
+                    <!-- The Measurement Gap Card -->
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('the-measurement-gap')">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article4_cover.png');"></div>
+                            </div>
+                            <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: The Affordability Collapse</p>
+                                <div class="mb-6">
+                                    <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
+                                        The Measurement Gap
+                                    </h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                                        Traditional inflation measures fail to capture the unequal burden of rising prices across different income groups. An analysis of the post-pandemic inflation shock's distributional impact.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                                        28 May, 2026 &nbsp;&bull;&nbsp; 5 min read
+                                    </p>
+                                    <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('How-Will-the-UAEs-OPEC-Exit-Impact-Global-Oil-Prices')">
@@ -395,6 +423,29 @@
         <div id="view-publications" class="page-view">
             <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
                 
+                <!-- Theme 2: The Affordability Collapse -->
+                <div class="mb-20">
+                    <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
+                        <span class="bg-wef-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 mr-4 shadow-sm">Theme</span>
+                        <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">The Affordability Collapse</h3>
+                    </div>
+
+                    <div class="group cursor-pointer block" onclick="navigate('the-measurement-gap')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                The Measurement Gap
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                Traditional inflation measures fail to capture the unequal burden of rising prices across different income groups. An analysis of the post-pandemic inflation shock's distributional impact.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                28 May, 2026 &nbsp;&bull;&nbsp; 5 min read
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 1: The 2026 Middle East Oil Crisis -->
                 <div class="mb-20">
                     <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
                         <span class="bg-wef-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 mr-4 shadow-sm">Theme</span>
@@ -806,6 +857,171 @@
             </div>
         </div>
 
+        <!-- Article 4 View -->
+        <div id="view-article4" class="page-view">
+            <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+                
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The Affordability Collapse</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        The Measurement Gap
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 28 May, 2026 &bull; 5 min read</p>
+                    </div>
+                </header>
+
+                <div class="article-content">
+                    <p>The Consumer Price Index (CPI) is designed to measure inflation by tracking price changes across a basket of goods and services consumed by the “average” household. The problem is that no truly average household exists. Spending patterns differ sharply across income groups, meaning that inflation is not experienced equally across society.</p>
+
+                    <p>This creates what can be called a measurement gap, which is the difference between official inflation and the inflation households actually feel in their daily lives.</p>
+
+                    <p>Traditional inflation measures are useful for understanding macroeconomic trends, but they often fail to capture the unequal burden created by rising prices. A household that spends most of its income on rent, food, and electricity will experience inflation very differently from a household that spends more on travel, leisure, financial services, or discretionary consumption.</p>
+
+                    <p>The distinction became especially visible during the post-pandemic inflation shock between 2021 and 2024. While official CPI inflation gradually moderated after peaking in 2022, many lower-income households continued to experience severe cost-of-living pressure because the categories driving inflation were precisely the goods they consumed most heavily.</p>
+
+                    <p>To understand this divergence, instead of assuming a single consumption basket for the entire population, this analysis separates households by income group and examines how spending patterns differ across those groups.</p>
+
+                    <p>Lower-income households typically allocate a much larger share of their income to essentials. Housing, food, utilities, and transport absorb most of their monthly expenditure, leaving little room for discretionary spending. Higher-income households, by contrast, spend proportionally less on essentials and more on services, recreation, healthcare, financial assets, and other categories where inflation has generally been less severe.</p>
+
+                    <p>This difference in expenditure composition means that even when the official inflation rate falls, the effective inflation rate experienced by poorer households can remain substantially higher.</p>
+
+                    <p>Table 1 demonstrates that inflation was not evenly distributed across income groups during the 2021-2024 period. While official CPI peaked at 8.0% in 2022, the bottom income quintile experienced an effective inflation rate of approximately 10.9%, compared with 6.4% for the top quintile.</p>
+
+                    <!-- Table 1 HTML -->
+                    <div class="my-12 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-sm">
+                        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+                            <h4 class="text-base font-bold text-slate-900">Table 1: Basket-Weighted Inflation Estimate vs. Official CPI, 2021–2024</h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse bg-white">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        <th class="px-6 py-4">Year</th>
+                                        <th class="px-6 py-4 text-right">Official CPI (%)</th>
+                                        <th class="px-6 py-4 text-right">Bottom Quintile Inflation (%)*</th>
+                                        <th class="px-6 py-4 text-right">Top Quintile Inflation (%)*</th>
+                                        <th class="px-6 py-4 text-right">Spread (bottom-top)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm text-slate-600">
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">2021</td>
+                                        <td class="px-6 py-4 text-right">4.7</td>
+                                        <td class="px-6 py-4 text-right font-medium text-slate-900">8.7</td>
+                                        <td class="px-6 py-4 text-right">4.3</td>
+                                        <td class="px-6 py-4 text-right font-bold text-blue-600">4.4</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">2022</td>
+                                        <td class="px-6 py-4 text-right">8.0</td>
+                                        <td class="px-6 py-4 text-right font-medium text-slate-900">10.9</td>
+                                        <td class="px-6 py-4 text-right">6.4</td>
+                                        <td class="px-6 py-4 text-right font-bold text-blue-600">4.5</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">2023</td>
+                                        <td class="px-6 py-4 text-right">4.1</td>
+                                        <td class="px-6 py-4 text-right font-medium text-slate-900">5.5</td>
+                                        <td class="px-6 py-4 text-right">3.8</td>
+                                        <td class="px-6 py-4 text-right font-bold text-blue-600">1.7</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">2024</td>
+                                        <td class="px-6 py-4 text-right">2.9</td>
+                                        <td class="px-6 py-4 text-right font-medium text-slate-900">3.7</td>
+                                        <td class="px-6 py-4 text-right">2.4</td>
+                                        <td class="px-6 py-4 text-right font-bold text-blue-600">1.3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 italic -mt-8 mb-12 text-center">Source: Author's Calculations</p>
+
+                    <p>The gap reflects differences in consumption patterns. Lower-income households devote a significantly larger share of expenditure to essential goods, which are categories that experienced the strongest price increases during the inflation shock. Higher-income households, by contrast, spend relatively more on discretionary services and non-essential consumption categories where inflationary pressures were lower. Although headline inflation moderated after 2022, the cumulative effect remained severe for poorer households. Over the four-year period, lower-income groups experienced substantially greater erosion in purchasing power, illustrating how aggregate CPI measures can understate the inflation burden faced by low-income households.</p>
+
+                    <p>In practical terms, this means that two households living in the same economy experienced very different declines in purchasing power during the same inflation cycle.</p>
+
+                    <p>However, inflation alone does not determine living standards. Wage growth matters equally. The post-pandemic period also revealed that income gains were distributed unevenly across the labour market. Higher-income workers, particularly those employed in professional and high-skill sectors, benefited from stronger nominal wage growth. Many lower-income workers saw wages rise as well, but not fast enough to offset the much higher inflation affecting their consumption baskets.</p>
+
+                    <p>Table 2 highlights the unequal recovery in real purchasing power across the income distribution.</p>
+
+                    <!-- Table 2 HTML -->
+                    <div class="my-12 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-sm">
+                        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+                            <h4 class="text-base font-bold text-slate-900">Table 2: Net Purchasing Power Change by Income Group, Advanced G20 Economies, 2021–2024</h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse bg-white">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        <th class="px-6 py-4">Income Group</th>
+                                        <th class="px-6 py-4 text-right">Nominal Wage Growth (cumul.)</th>
+                                        <th class="px-6 py-4 text-right">Personal Inflation Rate (cumul.)</th>
+                                        <th class="px-6 py-4 text-right">Net Purchasing Power Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm text-slate-600">
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">Top 20%</td>
+                                        <td class="px-6 py-4 text-right">~+20%</td>
+                                        <td class="px-6 py-4 text-right">~+18%</td>
+                                        <td class="px-6 py-4 text-right font-bold text-emerald-600">~+2%</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">Upper-Middle 20%</td>
+                                        <td class="px-6 py-4 text-right">~+16%</td>
+                                        <td class="px-6 py-4 text-right">~+19%</td>
+                                        <td class="px-6 py-4 text-right font-semibold text-rose-600">~−3%</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">Middle 20%</td>
+                                        <td class="px-6 py-4 text-right">~+12%</td>
+                                        <td class="px-6 py-4 text-right">~+21%</td>
+                                        <td class="px-6 py-4 text-right font-semibold text-rose-600">~−8%</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">Lower-Middle 20%</td>
+                                        <td class="px-6 py-4 text-right">~+9%</td>
+                                        <td class="px-6 py-4 text-right">~+25%</td>
+                                        <td class="px-6 py-4 text-right font-semibold text-rose-600">~−13%</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                        <td class="px-6 py-4 font-semibold text-slate-950">Bottom 20%</td>
+                                        <td class="px-6 py-4 text-right">~+9%</td>
+                                        <td class="px-6 py-4 text-right">~+32%</td>
+                                        <td class="px-6 py-4 text-right font-bold text-rose-600">~−17%</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 hover:bg-slate-100 transition-colors font-bold text-slate-900 border-t border-slate-200">
+                                        <td class="px-6 py-4">Official Average</td>
+                                        <td class="px-6 py-4 text-right">~+17%</td>
+                                        <td class="px-6 py-4 text-right">~+19.7% (CPI)</td>
+                                        <td class="px-6 py-4 text-right text-rose-600">~−2.4%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 italic -mt-8 mb-12 text-center">Source: Author's Calculations</p>
+
+                    <p class="top-income-quintile">The top income quintile recorded a modest positive gain in purchasing power over the 2021-2024 period, whereas the bottom quintile experienced a substantial decline. This divergence illustrates that aggregate indicators such as “average real wage recovery” can conceal significant variation. Inflation shocks can amplify inequality when wage adjustments fail to keep pace with the cost increases faced by lower-income households. Hence, the inflation cycle operated not only as a macroeconomic shock, but also as a mechanism of redistribution across the income distribution.</p>
+
+                    <p>As a result, the recovery in “real wages” frequently discussed in aggregate economic statistics is highly uneven across society. Average figures suggest stabilisation, yet many households continue to experience declining real purchasing power even as headline inflation slows.</p>
+
+                    <p>The measurement gap therefore has important economic implications.</p>
+
+                    <p>First, it changes how inflation should be interpreted. Inflation is not simply a single national number. It is a distributional phenomenon that affects households differently depending on income and consumption structure.</p>
+
+                    <p>Second, it affects wage negotiations. Workers benchmark their wage demands against the prices they actually face, not against the official inflation average. If personal inflation consistently exceeds headline CPI, pressure for higher wage growth is likely to persist even after official inflation declines.</p>
+
+                    <p>Third, it has direct implications for monetary and fiscal policy. Policymakers relying solely on aggregate CPI measures may underestimate the severity of the cost-of-living burden on lower-income households. This can result in policies that appear successful in aggregate terms while leaving significant sections of society financially worse off.</p>
+
+                    <p>In conclusion, the measurement gap highlights that inflation shocks are rarely neutral. They redistribute purchasing power across households, sectors, and generations. The effects depend not only on the level of inflation itself, but also on who consumes what, who owns assets, and whose wages adjust quickly enough to keep pace with rising prices. In this sense, inflation should not be viewed purely as a macroeconomic variable. It is also a social and distributional force that shapes inequality, living standards, and economic stability over time.</p>
+                </div>
+            </div>
+        </div>
+
         </div>
 
     </div>
@@ -859,6 +1075,9 @@
             "how-will-the-uaes-opec-exit-impact-global-oil-prices?": 'article3',
             "how-will-the-uaes-opec-exit-impact-global-oil-prices": 'article3',
             "how will the uae’s opec exit impact global oil prices?": 'article3',
+            "the-measurement-gap": 'article4',
+            "measurement-gap": 'article4',
+            "the measurement gap": 'article4',
             "insights": 'publications',
             "publications": 'publications',
             "about": 'about',
@@ -883,6 +1102,8 @@
                 viewId = 'article2';
             } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
                 viewId = 'article';
+            } else if (hash.includes('measurement') || hash.includes('gap')) {
+                viewId = 'article4';
             } else if (hash.includes('about')) {
                 viewId = 'about';
             } else if (hash.includes('insight') || hash.includes('publication')) {
