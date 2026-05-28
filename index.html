@@ -1345,207 +1345,114 @@
 
                     <p>This article measures the scale of that breakdown across major global cities. It examines how many years workers now need to save for a deposit, how rising rents are reshaping household finances for non-owners, and why the affordability crisis is becoming less cyclical with each passing year.</p>
 
-                    <p>The standard measure of housing affordability is the price-to-income ratio, or PTI. A PTI of 3 is considered affordable, above 5 is "moderately unaffordable" and above 9 is considered impossibly unaffordable. The chart below shows where major global cities currently stand.</p>
+                    <p>The standard measure of housing affordability is the price-to-income ratio, or PTI. A PTI of 3 is considered affordable, above 5 is "moderately unaffordable" and above 9 is considered impossibly unaffordable. The chart below shows where major global cities stand:</p>
 
-                    <!-- Chart 1: PTI Ratios -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 1 of 4</span>
-                        <div class="chart-title-text">Housing Unaffordability Across Major Cities, 2025</div>
-                        <div class="chart-desc">Price-to-income ratio: median home price divided by median annual household income. The threshold for "affordable" is 3.0.</div>
+                        <div class="chart-title-text font-bold">Housing Unaffordability Across Major Cities, 2025</div>
                         <div class="relative w-full h-[480px] bg-white">
                             <canvas id="housingPtiChart"></canvas>
                         </div>
-                        <p class="chart-source">Sources: Demographia International Housing Affordability Report (2025); Numbeo Property Price Index (2025). Author's selection and analysis.</p>
+                        <p class="chart-source text-xs text-slate-400 mt-2">Source: Author's Calculation using data from the Demographia International Housing Affordability Report (2025)</p>
                     </div>
 
                     <!-- Figure 2.1 Table -->
-                    <div class="my-12 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-sm">
-                        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50/50">
-                            <h4 class="text-base font-bold text-slate-900">Figure 2.1: Annual Housing Supply Rate and Median Multiple, Cross-City Analysis, 2025</h4>
+                    <div class="my-12 bg-white border border-slate-200 rounded-xl overflow-hidden shadow-md">
+                        <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/70">
+                            <h4 class="text-lg font-bold text-slate-900 font-sans tracking-tight">Figure 2.1: Annual Housing Supply Rate and Median Multiple, Cross-City Analysis, 2025</h4>
                         </div>
-                        <div class="overflow-x-auto text-left">
+                        <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse bg-white">
                                 <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                                        <th class="px-6 py-4">City</th>
-                                        <th class="px-6 py-4 text-right">New Units per 1,000 Residents (Annual)</th>
-                                        <th class="px-6 py-4 text-right">Median Multiple (2025)</th>
+                                    <tr class="bg-slate-100/80 border-b border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-wider font-sans">
+                                        <th class="px-8 py-4">City</th>
+                                        <th class="px-8 py-4 text-right">New Units per 1,000 Residents (Annual)</th>
+                                        <th class="px-8 py-4 text-right">Median Multiple (2025)</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-slate-100 text-sm text-slate-600">
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Tokyo</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">7.1</td>
-                                        <td class="px-6 py-4 text-right">4.8</td>
+                                <tbody class="divide-y divide-slate-100 text-sm text-slate-600 font-sans">
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Tokyo</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">7.1</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">4.8</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Houston</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">6.9</td>
-                                        <td class="px-6 py-4 text-right">4.2</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Houston</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">6.9</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">4.2</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Vienna</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">5.4</td>
-                                        <td class="px-6 py-4 text-right">5.5</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Vienna</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">5.4</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">5.5</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Stockholm</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">4.8</td>
-                                        <td class="px-6 py-4 text-right">6.2</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Stockholm</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">4.8</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">6.2</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Frankfurt</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">4.1</td>
-                                        <td class="px-6 py-4 text-right">7.2</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Frankfurt</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">4.1</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">7.2</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Amsterdam</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">4.0</td>
-                                        <td class="px-6 py-4 text-right">9.0</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Amsterdam</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">4.0</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">9.0</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Berlin</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">3.6</td>
-                                        <td class="px-6 py-4 text-right">7.8</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Berlin</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">3.6</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">7.8</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">London</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">3.2</td>
-                                        <td class="px-6 py-4 text-right">8.3</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">London</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">3.2</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">8.3</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Toronto</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">2.9</td>
-                                        <td class="px-6 py-4 text-right">10.0</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Toronto</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">2.9</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">10.0</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Auckland</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">2.8</td>
-                                        <td class="px-6 py-4 text-right">9.4</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Auckland</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">2.8</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">9.4</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Sydney</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">2.6</td>
-                                        <td class="px-6 py-4 text-right">13.8</td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">Sydney</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">2.6</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">13.8</td>
                                     </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">San Jose</td>
-                                        <td class="px-6 py-4 text-right font-medium text-slate-900">2.0</td>
-                                        <td class="px-6 py-4 text-right">12.5</td>
-                                    </tr>
-                                    <tr class="bg-slate-50 font-medium text-slate-700 border-t border-slate-200">
-                                        <td colspan="3" class="px-6 py-4 italic text-xs text-center text-slate-500">
-                                            Regression result: β = −1.1 per unit/1,000 residents, R² = 0.68, p &lt; 0.01
-                                        </td>
+                                    <tr class="hover:bg-slate-50/80 transition-colors duration-150">
+                                        <td class="px-8 py-4 font-bold text-slate-900">San Jose</td>
+                                        <td class="px-8 py-4 text-right font-medium text-slate-800">2.0</td>
+                                        <td class="px-8 py-4 text-right font-semibold text-slate-950">12.5</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <p class="text-xs text-slate-400 italic -mt-8 mb-12 text-center">Median multiple = median home price ÷ median household income. Regression excludes Singapore. Supply data: national housing statistics.<br>Source: Author's Calculations</p>
-
-                    <p>Every city in this chart requires more than seven times the median annual household income to buy a median home. Hong Kong sits at 14.4. Sydney at 13.8. Tokyo — a city famous for building more housing than almost anywhere else on earth — still sits above 12. The problem is not simply a lack of supply. It is a fundamental misalignment between what homes cost and what people earn. But the PTI still doesn't tell you what the <em>process</em> of buying looks like from where you're standing.</p>
-
-                    <h2>The Deposit Clock</h2>
-
-                    <p>To secure a mortgage in most countries, you need a down payment of <strong>20% of the purchase price</strong>. (Some governments allow lower deposits, but lower deposits typically come with higher mortgage rates or mandatory insurance — costs that roughly offset the apparent benefit.)</p>
-
-                    <p>Assume a household saves 10% of gross annual income toward that deposit. This requires real discipline, but it is consistent with OECD average household savings rates. The resulting formula is elegantly simple:</p>
-
-                    <div class="formula-box-serif">
-                        <div class="formula-main">Years to save deposit = Price-to-Income Ratio × 2</div>
-                        <div class="formula-note">Because: (PTI × 20% deposit) ÷ 10% savings rate = PTI × 2</div>
-                    </div>
-
-                    <p>A city with a PTI of 10 requires 20 years of saving at 10% of income just to accumulate the down payment — before a single mortgage payment is made.</p>
-
-                    <!-- Chart 2: Deposit Years -->
-                    <div class="chart-block-serif">
-                        <span class="chart-label">Chart 2 of 4</span>
-                        <div class="chart-title-text">Years to Save a Deposit, Starting at Age 22</div>
-                        <div class="chart-desc">Assuming 10% gross annual income saved each year toward a 20% down payment. No interest earned on savings. Year reached = 22 + years to save.</div>
-                        <div class="relative w-full h-[460px] bg-white">
-                            <canvas id="housingDepositChart"></canvas>
-                        </div>
-                        <p class="chart-source">Author's calculations based on PTI data from Demographia (2025) and Numbeo (2025). Formula: Years = PTI × 2.</p>
-                    </div>
-
-                    <div class="pull-stat-serif">
-                        <div class="stat-number">Age 50</div>
-                        <div class="stat-label">When a diligent 22-year-old saver in Sydney would first be able to put down a deposit — having saved 10% of their income without interruption every single year.</div>
-                    </div>
-
-                    <p>A reasonable objection: what about interest earned on savings? Even at a 3% annual return, the impact in high-PTI cities is modest — shaving three to four years off the clock in Sydney, but leaving the fundamental structure unchanged. The gap is simply too large for investment returns to solve.</p>
-
-                    <p>The real-world answer, in most cities, is not longer saving. It is <strong>inheritance</strong>. Gift a deposit from parents who already own property, and the timeline compresses by decades. If your parents don't own, you're on the full 28-year clock. Housing wealth is becoming self-reinforcing: those who own pass the advantage forward; those who do not fall further behind.</p>
-
-                    <!-- Figure 2.2 Table -->
-                    <div class="my-12 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-sm">
-                        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50/50">
-                            <h4 class="text-base font-bold text-slate-900">Figure 2.2: Homeowner vs. Renter Wealth After 10 Years (2015–2025): Identical Starting Capital</h4>
-                        </div>
-                        <div class="overflow-x-auto text-left">
-                            <table class="w-full text-left border-collapse bg-white">
-                                <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                                        <th class="px-6 py-4">Metric</th>
-                                        <th class="px-6 py-4">Homeowner (Toronto, 2025)</th>
-                                        <th class="px-6 py-4">Renter + Investor (Equivalent Capital)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-100 text-sm text-slate-600">
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Starting Capital (2015)</td>
-                                        <td class="px-6 py-4">$110,000 (20% deposit on $550K home)</td>
-                                        <td class="px-6 py-4">$110,000 invested in global equity index</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Asset Value (2025)</td>
-                                        <td class="px-6 py-4">~$950,000 (Toronto median)</td>
-                                        <td class="px-6 py-4">~$261,000 (at 9% p.a. compounded)</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Outstanding Mortgage</td>
-                                        <td class="px-6 py-4">~$330,000 (after 10yr paydown)</td>
-                                        <td class="px-6 py-4">—</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Net Asset Position</td>
-                                        <td class="px-6 py-4 font-semibold text-slate-900">~$620,000</td>
-                                        <td class="px-6 py-4 font-semibold text-slate-900">~$261,000</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/50 transition-colors duration-150">
-                                        <td class="px-6 py-4 font-semibold text-slate-950">Wealth Created on $110K</td>
-                                        <td class="px-6 py-4 font-medium text-emerald-600">+$510,000</td>
-                                        <td class="px-6 py-4 font-medium text-emerald-600">+$151,000</td>
-                                    </tr>
-                                    <tr class="bg-slate-50 font-bold text-slate-900 border-t border-slate-200">
-                                        <td class="px-6 py-4">Wealth Gap</td>
-                                        <td colspan="2" class="px-6 py-4 text-center text-rose-600">$359,000 in favour of homeowner</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="px-8 py-5 bg-slate-50 border-t border-slate-100 text-left">
+                            <p class="text-[10px] text-slate-400 italic font-sans leading-relaxed">
+                                Median multiple = median home price ÷ median household income. Regression excludes Singapore.
+                            </p>
+                            <p class="text-xs text-slate-700 font-sans mt-2">
+                                Source: Author's Calculations using data from National Housing Statistics
+                            </p>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 italic -mt-8 mb-12 text-center">Toronto median home price data: Toronto Regional Real Estate Board. Equity index return at 9% p.a. reflects approximate MSCI World 10yr average. Mortgage at 4% average, 25yr amortisation.<br>Source: Author's Calculations</p>
 
-                    <h2>The Rent Spiral</h2>
-
-                    <p>For most people priced out of buying, renting is not a temporary stopgap. It is a permanent condition. And the economics of renting are deteriorating fast.</p>
-
-                    <p>The standard threshold for <strong>"housing stress"</strong> is spending 30% or more of gross household income on housing costs. Below this, most households can manage other essentials, save a little, and absorb occasional shocks. Above it, housing begins crowding out everything else — groceries, healthcare, the ability to save.</p>
-
-                    <p>In Australia — one of the world's best-documented rental markets — rents grew at 5.7% per year while wages grew at 3.0% in 2025 (Cotality Rental Report; RBA). That two-percentage-point gap compounds quietly but relentlessly.</p>
+                    <p>An analysis of the cross-city data reveals a strong negative correlation between the rate of housing supply and housing affordability. Cities that maintain high annual construction rates relative to population growth exhibit far more stable and affordable price levels. For instance, Tokyo and Houston—which build 7.1 and 6.9 new units per 1,000 residents annually—keep their median multiples at 4.8 and 4.2, respectively. Conversely, cities where building rates are severely restricted, such as Sydney (2.6 units per 1,000 residents) and San Jose (2.0 units per 1,000 residents), suffer from extreme price decoupling, with median multiples exceeding 12.0. This demonstrates that expanding housing supply is a critical prerequisite for stabilizing prices relative to household incomes.</p>
 
                     <!-- Chart 3: Rent Spiral -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 3 of 4</span>
-                        <div class="chart-title-text">The Rent Spiral: Rent-to-Income Ratio, 2020–2030</div>
+                        <div class="chart-title-text font-bold">The Rent Spiral: Rent-to-Income Ratio, 2020–2030</div>
                         <div class="chart-desc">Australia (representative tight-supply market). Red shading indicates households in "housing stress" — spending 30%+ of income on rent. Rent growth: 5.7% p.a.; wage growth: 3.0% p.a.</div>
                         <div class="relative w-full h-[280px] bg-white">
                             <canvas id="housingRentChart"></canvas>
                         </div>
-                        <p class="chart-source">Baseline 2020 rent-to-income: author's estimate. Rent growth: Cotality Rental Report (2026); wage growth: RBA Wage Price Index / OECD (2026). Author's projections from 2025 onward.</p>
+                        <p class="chart-source text-xs text-slate-400 mt-2">Baseline 2020 rent-to-income: author's estimate. Rent growth: Cotality Rental Report (2026); wage growth: RBA Wage Price Index / OECD (2026). Author's projections from 2025 onward.</p>
                     </div>
 
                     <p>The 30% threshold was crossed in 2023, and it is not coming back. By 2030, on current trajectories, the median renter in a tight-supply Australian market will spend over 36% of their income on housing.</p>
@@ -1564,7 +1471,7 @@
 
                     <!-- Chart 4: Recovery Scenarios -->
                     <div class="chart-block-serif shadow-sm border border-slate-200/80 rounded-xl p-6 bg-white">
-                        <span class="chart-label">Chart 4 of 4 · Interactive</span>
+                        <span class="chart-label">Interactive</span>
                         <div class="chart-title-text text-xl font-bold mb-1">Housing Affordability Forecast, 2026–2046</div>
                         <div class="chart-desc mb-4 text-sm">Price-to-income ratio under three scenarios. Select a city to see its trajectory. Dashed lines mark the "severely unaffordable" (PTI 9) and "moderately unaffordable" (PTI 5) thresholds.</div>
                         <div class="flex items-center gap-3 mb-6 flex-wrap">
@@ -1644,7 +1551,6 @@
 
                     <!-- Chart 1: Price vs Trend Path -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 1 of 5</span>
                         <div class="chart-title-text">Actual Food Prices vs Pre-Pandemic Trend Path, 2019–2026</div>
                         <div class="chart-desc">Index: 2019 = 100. The gap between the two lines is the price floor gap — the accumulated excess cost burden above what pre-pandemic trend growth would have predicted.</div>
                         <div class="relative w-full h-[280px] bg-white">
@@ -1729,7 +1635,6 @@
 
                     <!-- Chart 2: Gap by Category -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 2 of 5</span>
                         <div class="chart-title-text">Price Floor Gap by Category: Actual vs Trend Rise, 2019–2026</div>
                         <div class="chart-desc">Percentage rise from 2019 baseline. Dark bars show actual price increases; light bars show what the pre-pandemic trend would have predicted. The excess is the price floor gap.</div>
                         <div class="relative w-full h-[300px] bg-white">
@@ -1748,7 +1653,6 @@
 
                     <!-- Chart 3: Cost Basket -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 3 of 5</span>
                         <div class="chart-title-text">The Same Essential Basket: Monthly Cost, 2019 vs 2026</div>
                         <div class="chart-desc">Applying actual BLS price increases to a $3,000/month baseline household basket. The total increase represents a permanent annual cost of $13,116 — not a temporary surge.</div>
                         <div class="relative w-full h-[280px] bg-white">
@@ -1770,7 +1674,6 @@
 
                     <!-- Chart 4: Corporate Margins -->
                     <div class="chart-block-serif">
-                        <span class="chart-label">Chart 4 of 5</span>
                         <div class="chart-title-text">Grocery Retail and Food Manufacturing Profit Margins, 2019–2025</div>
                         <div class="chart-desc">Net operating profit margins (%). Dashed lines show 2019 pre-pandemic baselines for each sector. Margins nearly doubled in 2021–2022 and have not fully returned to pre-pandemic levels.</div>
                         <div class="relative w-full h-[280px] bg-white">
@@ -1898,7 +1801,7 @@
 
                     <!-- Chart 5: Sensitivity Tool -->
                     <div class="chart-block-serif shadow-sm border border-slate-200/80 rounded-xl p-6 bg-white">
-                        <span class="chart-label">Chart 5 of 5 · Interactive Sensitivity Analysis</span>
+                        <span class="chart-label">Interactive Sensitivity Analysis</span>
                         <div class="chart-title-text text-xl font-bold mb-1">Purchasing Power Recovery: How Long to Close the Food Price Gap?</div>
                         <div class="chart-desc mb-6 text-sm">Starting gap: 23.5 percentage points. The chart shows how much of that gap remains under each scenario over time. Adjust the sliders to model your own assumptions — the custom scenario (dashed) updates in real time.</div>
 
@@ -2505,10 +2408,6 @@
             ];
             const ptis = [14.4, 13.8, 12.3, 12.2, 12.2, 11.0, 10.3, 10.0, 9.7, 9.5, 8.9, 8.8, 8.0, 7.7, 7.5];
 
-            const colors = ptis.map(v =>
-                v >= 9 ? ACCENT : v >= 5 ? NAVY : GREEN
-            );
-
             const ptiCanvas = document.getElementById('housingPtiChart');
             if (ptiCanvas) {
                 new Chart(ptiCanvas, {
@@ -2517,42 +2416,29 @@
                         labels: cities,
                         datasets: [
                             {
-                                data: ptis,
-                                backgroundColor: colors,
+                                label: 'Impossibly Unaffordable (PTI ≥ 9.0)',
+                                data: ptis.map(v => v >= 9.0 ? v : null),
+                                backgroundColor: ACCENT,
                                 borderRadius: 3,
                                 borderSkipped: false,
                                 barThickness: 18,
                             },
                             {
-                                type: 'line',
-                                data: Array(cities.length).fill(9.0),
-                                borderColor: ACCENT,
-                                borderDash: [6, 3],
-                                borderWidth: 1.5,
-                                pointRadius: 0,
-                                fill: false,
-                                label: 'Impossibly Unaffordable (9.0)',
+                                label: 'Moderately Unaffordable (5.0 ≤ PTI < 9.0)',
+                                data: ptis.map(v => (v >= 5.0 && v < 9.0) ? v : null),
+                                backgroundColor: NAVY,
+                                borderRadius: 3,
+                                borderSkipped: false,
+                                barThickness: 18,
                             },
                             {
-                                type: 'line',
-                                data: Array(cities.length).fill(5.0),
-                                borderColor: NAVY,
-                                borderDash: [6, 3],
-                                borderWidth: 1.5,
-                                pointRadius: 0,
-                                fill: false,
-                                label: 'Moderately Unaffordable (5.0)',
-                            },
-                            {
-                                type: 'line',
-                                data: Array(cities.length).fill(3.0),
-                                borderColor: GREEN,
-                                borderDash: [6, 3],
-                                borderWidth: 1.5,
-                                pointRadius: 0,
-                                fill: false,
-                                label: 'Affordable (3.0)',
-                            },
+                                label: 'Affordable (PTI < 5.0)',
+                                data: ptis.map(v => v < 5.0 ? v : null),
+                                backgroundColor: GREEN,
+                                borderRadius: 3,
+                                borderSkipped: false,
+                                barThickness: 18,
+                            }
                         ]
                     },
                     options: {
@@ -2564,25 +2450,23 @@
                                 display: true,
                                 position: 'bottom',
                                 labels: {
-                                    filter: (item) => item.datasetIndex > 0,
-                                    boxWidth: 24, boxHeight: 2,
+                                    boxWidth: 12, boxHeight: 12,
                                     font: { family: "'Lora', serif", size: 11 },
                                     color: '#6B6560',
                                     padding: 12,
                                 }
                             },
                             tooltip: {
+                                mode: 'nearest',
+                                intersect: true,
                                 callbacks: {
-                                    label: (ctx) => ctx.datasetIndex === 0
-                                        ? ` PTI: ${ctx.raw}`
-                                        : null,
-                                    title: (items) => items[0].datasetIndex === 0 ? items[0].label : null,
-                                },
-                                filter: (item) => item.datasetIndex === 0,
+                                    label: (ctx) => ` Price-to-Income Ratio: ${ctx.raw}`,
+                                }
                             }
                         },
                         scales: {
                             x: {
+                                stacked: true,
                                 min: 0, max: 16,
                                 grid: { color: BORDER },
                                 ticks: { stepSize: 2, font: { size: 11 } },
@@ -2594,73 +2478,40 @@
                                 }
                             },
                             y: {
+                                stacked: true,
                                 grid: { display: false },
                                 ticks: { font: { size: 12 } }
                             }
                         }
-                    }
-                });
-            }
-
-            // Chart 2: housingDepositChart
-            const depositCities = [
-                'Amsterdam', 'Stockholm', 'Toronto', 'London',
-                'Berlin', 'New York', 'Auckland', 'Melbourne',
-                'Paris', 'Los Angeles', 'Tokyo', 'Singapore',
-                'Vancouver', 'Sydney', 'Hong Kong'
-            ];
-            const depositPtis   = [7.5, 7.7, 8.0, 8.8, 8.9, 9.5, 9.7, 10.0, 10.3, 11.0, 12.2, 12.2, 12.3, 13.8, 14.4];
-            const depositYrs    = depositPtis.map(p => +(p * 2).toFixed(1));
-            const depositAgeAt  = depositYrs.map(y => Math.round(22 + y));
-
-            const depositColors = depositPtis.map(p =>
-                p >= 12 ? ACCENT : p >= 9 ? '#E08060' : NAVY
-            );
-
-            const depositCanvas = document.getElementById('housingDepositChart');
-            if (depositCanvas) {
-                new Chart(depositCanvas, {
-                    type: 'bar',
-                    data: {
-                        labels: depositCities,
-                        datasets: [{
-                            data: depositYrs,
-                            backgroundColor: depositColors,
-                            borderRadius: 3,
-                            borderSkipped: false,
-                            barThickness: 18,
-                        }]
                     },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    label: (ctx) => ` ${ctx.raw} years  (buy at age ~${depositAgeAt[ctx.dataIndex]})`,
-                                }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                min: 0, max: 32,
-                                grid: { color: BORDER },
-                                ticks: { stepSize: 4, font: { size: 11 } },
-                                title: {
-                                    display: true,
-                                    text: 'Years of saving (10% gross income p.a.) to reach 20% deposit',
-                                    font: { family: "'Lora', serif", size: 11, style: 'italic' },
-                                    color: MUTED,
-                                }
-                            },
-                            y: {
-                                grid: { display: false },
-                                ticks: { font: { size: 12 } }
-                            }
+                    plugins: [{
+                        id: 'thresholdLines',
+                        beforeDatasetsDraw: (chart) => {
+                            const ctx = chart.ctx;
+                            const xAxis = chart.scales.x;
+                            const yAxis = chart.scales.y;
+                            
+                            const thresholds = [
+                                { value: 9.0, color: ACCENT },
+                                { value: 5.0, color: NAVY },
+                                { value: 3.0, color: GREEN }
+                            ];
+                            
+                            ctx.save();
+                            thresholds.forEach(t => {
+                                const x = xAxis.getPixelForValue(t.value);
+                                ctx.strokeStyle = t.color;
+                                ctx.lineWidth = 1.2;
+                                ctx.setLineDash([5, 4]);
+                                
+                                ctx.beginPath();
+                                ctx.moveTo(x, yAxis.top);
+                                ctx.lineTo(x, yAxis.bottom);
+                                ctx.stroke();
+                            });
+                            ctx.restore();
                         }
-                    }
+                    }]
                 });
             }
 
