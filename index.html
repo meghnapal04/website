@@ -157,7 +157,7 @@
             line-height: 1.8;
             color: #2D3748;
             margin-bottom: 1.5rem;
-            text-align: left;
+            text-align: justify;
         }
         .serif-article h2 {
             font-family: 'Playfair Display', serif;
@@ -277,74 +277,151 @@
         .city-select-serif:focus {
             border-color: #C44527;
         }
+        /* ── Sensitivity analysis block ─────────────────────────────── */
         .sensitivity-block-serif {
-            background: #F7F5F0;
-            border: 1px solid #E2E8F0;
-            border-radius: 4px;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
+            background: #F9F7F4;
+            border: 1px solid #E2DACE;
+            border-radius: 10px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
             font-family: 'Lora', serif;
         }
         .sensitivity-block-serif h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1A202C;
+            margin-bottom: 1.25rem;
+            color: #8A8070;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
         .slider-row-serif {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 0.9rem;
         }
         .slider-row-serif label {
-            font-size: 0.875rem;
-            color: #2D3748;
-            min-width: 160px;
+            font-size: 0.82rem;
+            color: #3D3530;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.01em;
         }
         .slider-row-serif input[type=range] {
-            flex: 1;
-            min-width: 140px;
-            max-width: 240px;
-            accent-color: #C44527;
+            width: 200px;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: #DDD7CB;
+            border-radius: 2px;
+            outline: none;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+        .slider-row-serif input[type=range]:hover {
+            background: #CEC7B8;
+        }
+        .slider-row-serif input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #C44527;
+            border: 2px solid #ffffff;
+            box-shadow: 0 1px 4px rgba(196,69,39,0.35);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .slider-row-serif input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 2px 8px rgba(196,69,39,0.45);
+        }
+        .slider-row-serif input[type=range]::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #C44527;
+            border: 2px solid #ffffff;
+            box-shadow: 0 1px 4px rgba(196,69,39,0.35);
+            transition: transform 0.15s;
         }
         .slider-row-serif .slider-val {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #C44527;
-            min-width: 50px;
-            text-align: right;
+            background: rgba(196,69,39,0.07);
+            border: 1px solid rgba(196,69,39,0.18);
+            padding: 2px 9px;
+            border-radius: 20px;
+            min-width: 52px;
+            text-align: center;
+            letter-spacing: 0.02em;
         }
-        .gap-result-serif {
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: #4A5568;
-            font-style: italic;
-            border-top: 1px dashed #E2E8F0;
-            padding-top: 0.75rem;
-        }
-        .gap-result-serif strong {
-            color: #1A202C;
-            font-style: normal;
-        }
-        .legend-item-serif {
+
+        /* ── Legend: horizontal row of scenario entries ─────────────── */
+        .legend-table-serif {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0;
+            border: 1px solid #E5E0D8;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background: #fff;
+        }
+        .legend-entry {
+            flex: 1;
+            min-width: 130px;
+            display: flex;
+            flex-direction: column;
+            padding: 0.85rem 1rem;
+            border-right: 1px solid #EEEBE4;
+            position: relative;
+            gap: 0.3rem;
+        }
+        .legend-entry:last-child {
+            border-right: none;
+        }
+        .legend-entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--entry-color);
+            border-radius: 3px 0 0 3px;
+        }
+        .legend-entry-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--entry-color);
+        }
+        .legend-entry-desc {
             font-family: 'Lora', serif;
-            color: #4A5568;
+            font-size: 0.72rem;
+            color: #6B6560;
+            font-style: italic;
+            line-height: 1.4;
         }
-        .legend-dot-serif {
-            width: 24px;
-            height: 3px;
-            border-radius: 2px;
-            flex-shrink: 0;
+        .legend-entry-dashed::before {
+            background: repeating-linear-gradient(
+                to bottom,
+                var(--entry-color) 0,
+                var(--entry-color) 4px,
+                transparent 4px,
+                transparent 8px
+            );
         }
+
+        /* keep old class names for compat but they become invisible */
+        .legend-badge-serif { display: none; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -397,7 +474,7 @@
                             The Permanent Price Floor
                         </a>
                         <a onclick="navigate('the-housing-trap')" class="cursor-pointer text-base text-gray-300 hover:text-white transition-colors block mb-2 font-semibold">
-                            The Housing Trap
+                            Why is the Global Housing Market Becoming Structurally Unaffordable?
                         </a>
                         <a onclick="navigate('the-measurement-gap')" class="cursor-pointer text-sm text-gray-400 hover:text-white transition-colors block font-semibold">
                             The Measurement Gap
@@ -429,7 +506,7 @@
                             Transforming macroeconomic data, geopolitical shifts, and market dynamics into useful commercial and policy insights.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <button onclick="navigate('the-permanent-price-floor')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
+                            <button onclick="navigate('why-cant-the-dutch-climate-policy-survive-without-a-fairness-story')" class="bg-white text-[#0F172A] font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200">
                                 Read Latest Insight
                             </button>
                             <button onclick="navigate('insights')" class="border border-white/30 bg-white/5 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors duration-200">
@@ -452,7 +529,91 @@
                         </button>
                     </div>
 
-                    <!-- The Permanent Price Floor Card -->
+                    <!-- Article 7 Card: Dutch Economy Oil Shock -->
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('why-is-the-dutch-economy-weathering-the-2026-oil-shock-better-than-ever')">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article7_cover.png');"></div>
+                            </div>
+                            <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: Dutch Economy</p>
+                                <div class="mb-6">
+                                    <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
+                                        Why Is the Dutch Economy Weathering the 2026 Oil Shock Better Than Ever?
+                                    </h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                                        An analysis of how the Netherlands transformed a historic macroeconomic threat into a manageable hurdle across four energy disruption cycles.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                                        14 June, 2026 &nbsp;&bull;&nbsp; 4 min read
+                                    </p>
+                                    <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 8 Card: Dutch Deficit Overshoot -->
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('what-does-the-temporary-overshoot-in-dutch-deficit-actually-tell-us')">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article8_cover.png');"></div>
+                            </div>
+                            <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: Dutch Economy</p>
+                                <div class="mb-6">
+                                    <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
+                                        What does the Temporary Overshoot in Dutch Deficit Actually Tell Us?
+                                    </h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                                        An examination of the projected 2026 Dutch budget deficit breach, DELFI 2.0 econometric modeling, and Maastricht rules compliance.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                                        12 July, 2026 &nbsp;&bull;&nbsp; 5 min read
+                                    </p>
+                                    <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 9 Card: Dutch Climate Policy Fairness -->
+                    <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('why-cant-the-dutch-climate-policy-survive-without-a-fairness-story')">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('article9_cover.png');"></div>
+                            </div>
+                            <div class="lg:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                                <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: Dutch Economy</p>
+                                <div class="mb-6">
+                                    <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
+                                        Why Can’t the Dutch Climate Policy Survive Without a Fairness Story?
+                                    </h4>
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                                        An analysis of public resistance, the 32x energy tax disparity between households and industry, and equity-first climate governance.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                                        6 August, 2026 &nbsp;&bull;&nbsp; 4 min read
+                                    </p>
+                                    <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 6 Card: The Permanent Price Floor -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('the-permanent-price-floor')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -480,7 +641,7 @@
                         </div>
                     </div>
 
-                    <!-- The Housing Trap Card -->
+                    <!-- Article 5 Card: Housing Trap -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('the-housing-trap')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -490,7 +651,7 @@
                                 <p class="text-xs font-bold text-wef-lightBlue uppercase tracking-widest mb-3">Theme: The Affordability Collapse</p>
                                 <div class="mb-6">
                                     <h4 class="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 group-hover:text-blue-700 transition-colors leading-tight">
-                                        The Housing Trap
+                                        Why is the Global Housing Market Becoming Structurally Unaffordable?
                                     </h4>
                                     <p class="text-gray-600 text-lg leading-relaxed mb-8">
                                         An analysis of the structural divergence between global property prices and household incomes.
@@ -508,7 +669,7 @@
                         </div>
                     </div>
 
-                    <!-- The Measurement Gap Card -->
+                    <!-- Article 4 Card: Measurement Gap -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('the-measurement-gap')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -536,6 +697,7 @@
                         </div>
                     </div>
 
+                    <!-- Article 3 Card: UAE Exit -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('How-Will-the-UAEs-OPEC-Exit-Impact-Global-Oil-Prices')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -562,6 +724,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Article 2 Card: Yuan Oil -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white mb-6" onclick="navigate('What-Happens-if-Oil-Shifts-from-the-Dollar-to-the-Yuan?')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -588,6 +752,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Article 1 Card: Strait of Hormuz -->
                     <div class="group cursor-pointer block border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-300 bg-white" onclick="navigate('Why-the-Strait-of-Hormuz-Ceasefire-Won\'t-Stop-Global-Stagflation')">
                         <div class="flex flex-col lg:flex-row h-full">
                             <div class="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -679,8 +845,58 @@
         </div>
 
         <div id="view-publications" class="page-view">
-            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-24">
                 
+                <!-- Theme 3: Dutch Economy -->
+                <div class="mb-20">
+                    <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
+                        <span class="bg-wef-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 mr-4 shadow-sm">Theme</span>
+                        <h3 class="text-2xl md:text-3xl font-bold text-wef-dark tracking-tight">Dutch Economy</h3>
+                    </div>
+
+                    <div class="group cursor-pointer block mb-6" onclick="navigate('why-is-the-dutch-economy-weathering-the-2026-oil-shock-better-than-ever')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                Why Is the Dutch Economy Weathering the 2026 Oil Shock Better Than Ever?
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An analysis of how the Netherlands transformed a historic macroeconomic threat into a manageable hurdle across four energy disruption cycles.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                14 June, 2026 &nbsp;&bull;&nbsp; 4 min read
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer block mb-6" onclick="navigate('what-does-the-temporary-overshoot-in-dutch-deficit-actually-tell-us')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                What does the Temporary Overshoot in Dutch Deficit Actually Tell Us?
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An examination of the projected 2026 Dutch budget deficit breach, DELFI 2.0 econometric modeling, and Maastricht rules compliance.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                12 July, 2026 &nbsp;&bull;&nbsp; 5 min read
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer block mb-6" onclick="navigate('why-cant-the-dutch-climate-policy-survive-without-a-fairness-story')">
+                        <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
+                            <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
+                                Why Can’t the Dutch Climate Policy Survive Without a Fairness Story?
+                            </h4>
+                            <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
+                                An analysis of public resistance, the 32x energy tax disparity between households and industry, and equity-first climate governance.
+                            </p>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                                6 August, 2026 &nbsp;&bull;&nbsp; 4 min read
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Theme 2: The Affordability Collapse -->
                 <div class="mb-20">
                     <div class="flex items-center border-b-[3px] border-wef-dark pb-3 mb-10">
@@ -705,7 +921,7 @@
                     <div class="group cursor-pointer block mb-6" onclick="navigate('the-housing-trap')">
                         <div class="hover:bg-wef-gray p-6 -ml-6 rounded transition-colors duration-200">
                             <h4 class="text-3xl font-bold text-wef-dark mb-4 group-hover:text-wef-lightBlue transition-colors leading-snug">
-                                The Housing Trap
+                                Why is the Global Housing Market Becoming Structurally Unaffordable?
                             </h4>
                             <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mb-4">
                                 An analysis of the structural divergence between global property prices and household incomes.
@@ -787,7 +1003,9 @@
 
         <div id="view-article" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-                
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The 2026 Middle East Oil Crisis</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
@@ -886,6 +1104,9 @@
 
         <div id="view-article2" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The 2026 Middle East Oil Crisis</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
@@ -1039,7 +1260,9 @@
         <!-- Article 3 View -->
         <div id="view-article3" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-                
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The 2026 Middle East Oil Crisis</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
@@ -1146,7 +1369,9 @@
         <!-- Article 4 View -->
         <div id="view-article4" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-                
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The Affordability Collapse</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
@@ -1308,14 +1533,16 @@
             </div>
         </div>
 
-        <!-- Article 5 View (The Housing Trap) -->
+        <!-- Article 5 View (Why is the Global Housing Market Becoming Structurally Unaffordable?) -->
         <div id="view-article5" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-                
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The Affordability Collapse</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
-                        The Housing Trap
+                        Why is the Global Housing Market Becoming Structurally Unaffordable?
                     </h1>
                     <div>
                         <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 20 May, 2026 &bull; 5 min read</p>
@@ -1399,7 +1626,9 @@
         <!-- Article 6 View (The Permanent Price Floor) -->
         <div id="view-article6" class="page-view">
             <div class="max-w-[850px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-                
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
                 <header class="mb-12 border-b border-wef-border pb-8">
                     <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: The Affordability Collapse</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
@@ -1530,25 +1759,41 @@
                     <!-- Chart 5: Sensitivity Tool -->
                     <div class="chart-block-serif">
                         <span class="chart-label">Interactive Sensitivity Analysis</span>
-                        <div class="chart-title-text text-xl font-bold mb-1">How Long to Close the Food Price Gap?</div>
+                        <div class="chart-title-text text-xl font-bold mb-3">How Long to Close the Food Price Gap?</div>
 
-                        <div class="flex flex-wrap gap-4 mb-6">
-                            <div class="legend-item-serif"><div class="legend-dot-serif" style="background:#2E7D4F"></div> A: wages +4%, food +1.5%</div>
-                            <div class="legend-item-serif"><div class="legend-dot-serif" style="background:#1B3A6B"></div> B: wages +3.4%, food +2.6%</div>
-                            <div class="legend-item-serif"><div class="legend-dot-serif" style="background:#9E9890"></div> C: wages = food (stagnation)</div>
-                            <div class="legend-item-serif"><div class="legend-dot-serif" style="background:#8B1A1A"></div> D: wages +2.5%, food +5%</div>
-                            <div class="legend-item-serif"><div class="legend-dot-serif" style="border-top:2px dashed #C44527; height:0"></div> <span class="text-[#C44527] font-bold">Custom</span></div>
+                        <!-- Legend table -->
+                        <div class="legend-table-serif">
+                            <div class="legend-entry" style="--entry-color: #2E7D4F;">
+                                <span class="legend-entry-label">Scenario A</span>
+                                <span class="legend-entry-desc">Wages +4.0%, Food +1.5%</span>
+                            </div>
+                            <div class="legend-entry" style="--entry-color: #1B3A6B;">
+                                <span class="legend-entry-label">Scenario B</span>
+                                <span class="legend-entry-desc">Wages +3.4%, Food +2.6%</span>
+                            </div>
+                            <div class="legend-entry" style="--entry-color: #9E9890;">
+                                <span class="legend-entry-label">Scenario C</span>
+                                <span class="legend-entry-desc">Stagnation</span>
+                            </div>
+                            <div class="legend-entry" style="--entry-color: #8B1A1A;">
+                                <span class="legend-entry-label">Scenario D</span>
+                                <span class="legend-entry-desc">Wages +2.5%, Food +5.0%</span>
+                            </div>
+                            <div class="legend-entry legend-entry-dashed" style="--entry-color: #C44527;">
+                                <span class="legend-entry-label">Custom</span>
+                                <span class="legend-entry-desc">User defined</span>
+                            </div>
                         </div>
 
                         <div class="sensitivity-block-serif">
                             <h4>Adjust your own scenario</h4>
                             <div class="slider-row-serif">
-                                <label for="priceWageSlider" class="text-sm font-semibold">Annual wage growth</label>
+                                <label for="priceWageSlider">Annual wage growth</label>
                                 <input type="range" id="priceWageSlider" min="1.0" max="6.0" step="0.1" value="3.4">
                                 <span class="slider-val" id="priceWageVal">3.4%</span>
                             </div>
                             <div class="slider-row-serif">
-                                <label for="priceFoodSlider" class="text-sm font-semibold">Annual food price growth</label>
+                                <label for="priceFoodSlider">Annual food price growth</label>
                                 <input type="range" id="priceFoodSlider" min="0.0" max="8.0" step="0.1" value="2.6">
                                 <span class="slider-val" id="priceFoodVal">2.6%</span>
                             </div>
@@ -1568,6 +1813,202 @@
                 </div>
 
 
+            </div>
+        </div>
+
+        <!-- Article 7: Why Is the Dutch Economy Weathering the 2026 Oil Shock Better Than Ever? -->
+        <div id="view-article7" class="page-view">
+            <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: Dutch Economy</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        Why Is the Dutch Economy Weathering the 2026 Oil Shock Better Than Ever?
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 14 June, 2026 &bull; 4 min read</p>
+                    </div>
+                </header>
+
+                <div class="article-content serif-article">
+                    <p>To understand the Dutch economy's response to the 2026 Middle East escalation, it is necessary to trace how the country's relationship with oil has evolved across four distinct episodes of energy disruption over the past fifty years.</p>
+                    <p>In October 1973, the OPEC imposed an embargo on the Netherlands and since the Dutch economy at the time relied almost entirely on crude oil for industrial production, power generation, and transport, the embargo translated directly into physical scarcity. The government responded with formal rationing measures, most memorably the “autoloze zondagen”, the car-free Sundays during which private vehicle use was prohibited by law.</p>
+                    <p>Six years later in 1979, the collapse of Iranian oil production following the Iranian Revolution triggered a second, globally transmitted price surge. The Dutch economy, still dependent on oil and only partially recovered from the first shock, absorbed the blow through a prolonged period of domestic economic slump, characterized by simultaneously elevated inflation and unemployment.</p>
+                    <p>Nearly half a century later in 2022, the sudden loss of Russian pipeline gas centered on natural gas rather than oil, again put the Dutch energy system under intense pressure. The Netherlands responded quickly by improving industrial energy efficiency, rapidly expanding LNG import capacity, and shifting energy consumption when traditional gas supplies were no longer available.</p>
+                    <p>The ongoing 2026 oil crisis has produced a sharp rise in global oil prices and volatility in energy markets. It has introduced macroeconomic headwinds, higher inflation and slower growth. Yet it has not paralyzed the Dutch economy in the manner of its predecessors. This raises the central question this article sets out to answer: how did the Netherlands convert what was historically a threat into a manageable macroeconomic hurdle?</p>
+                    <p>According to the De Nederlandsche Bank's (DNB) June 2026 Spring Report, GDP growth will be 0.8 percent in 2026, which is clearly lower than 2025 (1.8 percent) but represents continued expansion rather than contraction. There are expectations that growth will recover to 1.2 percent in 2027 and 1.3 percent in 2028, as energy prices ease and uncertainty subsides. This growth path stands in sharp contrast to the contractions and elevated unemployment that followed both the 1973 and 1979 shocks.</p>
+                    <p>The DNB projects harmonized inflation (HICP) to average 2.7 percent in 2026, which is modestly higher than earlier forecasts due to fuel price effects, but exponentially lower than the double-digit inflation peaks recorded during both 1970s oil shocks and, notably, lower than the acute inflation spike experienced during the 2022 gas crisis. The report projects inflation to continue easing thereafter, to 2.3 percent in 2027 and 2.4 percent in 2028, remaining moderately above the 2 percent ECB benchmark.</p>
+                    <p>This points towards the fact that the mathematical relationship between a barrel of oil and a unit of Dutch industrial output has weakened to the point where even a severe global oil price shock no longer produces a proportionate domestic output shock. Where the 1970s shocks transmitted almost one-to-one from oil price to industrial output, given that oil functioned as the primary input for electricity generation and manufacturing alike, the 2026 shock is being absorbed with GDP growth remaining positive throughout the projection horizon despite a comparable  price shock in crude terms.</p>
+
+                    <h2>The Labor Market as a Stabilizing Shield</h2>
+                    <p>Another key source of resilience is the structure of the Dutch labor market, which is helping prevent the kind of wage-price spiral that kept inflation high in the 1970s.</p>
+                    <p>Wages in the Netherlands are still rising, but more slowly. DNB and CPB expect collectively negotiated wages to grow by around 4 percent in 2026, with wage growth slowing further in 2027 and 2028. This is a change from previous oil crises periods, when wages were rising much faster as workers tried to catch up with the sharp increase in living costs. When oil prices rose, the cost of living increased. Workers then demanded higher wages to compensate for inflation. Higher wages increased companies' costs, so companies raised their prices. That created even more inflation, leading workers to demand higher wages again. This created a wage-price spiral in which wage growth and price growth chase each other upward:</p>
+                    
+                    <div class="bg-slate-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg shadow-sm">
+                        <p class="font-semibold text-slate-800 mb-0">Higher oil prices &rarr; higher inflation &rarr; higher wages &rarr; higher business costs &rarr; higher prices &rarr; higher inflation &rarr; higher wages...and so on.</p>
+                    </div>
+
+                    <p>The key point to note is that the Netherlands is less vulnerable to this cycle today because wage growth is moderating rather than continuously accelerating. So even if the 2026 oil shock pushes prices up, it is less likely to turn into the kind of persistent, self-reinforcing inflation seen in the 1970s.</p>
+
+                    <h2>Implications on the Dutch households</h2>
+                    <p>Higher energy prices push up the cost of living, which means inflation increases. Even though wages are also rising, they may not rise quite as quickly as prices in the short term. This means households have less money left over in real terms and may respond by cutting back on spending and saving more. That is why purchasing power is expected to be broadly stagnant in 2026. However, the situation is expected to improve from 2027 as wage growth should remain positive while inflation falls since energy prices are expected to normalize. If wages then grow faster than prices, households' real purchasing power will begin to recover.</p>
+
+                    <h2>Implications on the Dutch trade sector</h2>
+                    <p>Higher energy prices make imports of energy-intensive goods more expensive. Dutch companies face higher production costs, particularly industries that use large amounts of energy. This can make Dutch exports more expensive relative to goods produced in other countries, potentially reducing the competitiveness of Dutch exporters. However, the Netherlands is a major trading and re-export hub, so higher imports do not automatically mean that the country is worse off since many imported goods are processed, distributed or re-exported, generating economic value in the Netherlands.</p>
+                    <p>Higher energy prices can put downward pressure on the Euro by worsening the euro area's trade balance, particularly through more expensive energy imports and weaker export competitiveness. However, this effect can be offset if the resulting inflation leads the ECB to maintain higher interest rates, attracting capital into euro-denominated assets.</p>
+                    <p>What matters most for Dutch trade is therefore relative competitiveness. If Dutch energy and labour costs rise much faster than those of its trading partners, Dutch exports could become less competitive. However, if inflation and wage pressures moderate across Europe at roughly the same time, the effect is much smaller. As energy prices are expected to normalize from 2027, Dutch firms should face lower input costs, while moderating wage growth should further reduce cost pressures.</p>
+                    <p>In conclusion, the broader story is that 2026 is a year of adjustment rather than necessarily a structural deterioration. The absence of an inflation peak comparable to 2022 is attributed directly to the combination of lower oil dependency and a less overheated starting position in the labor market. Households face weaker purchasing power and businesses face higher costs, while exporters face some pressure on competitiveness. If energy prices fall, inflation moderates and wages stabilize, these pressures can gradually unwind. This is why the shock can be significant in the short term without necessarily turning into a prolonged period of weak growth, permanently falling purchasing power or declining export competitiveness.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 8: What does the Temporary Overshoot in Dutch Deficit Actually Tell Us? -->
+        <div id="view-article8" class="page-view">
+            <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: Dutch Economy</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        What does the Temporary Overshoot in Dutch Deficit Actually Tell Us?
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 12 July, 2026 &bull; 5 min read</p>
+                    </div>
+                </header>
+
+                <div class="article-content serif-article">
+                    <p>The Maastricht Treaty, signed in 1992, laid the legal groundwork for the euro and, with it, a set of shared fiscal rules for the countries that would eventually adopt the single currency. A shared currency only works if member states do not run budget deficits so large that they destabilize the currency union as a whole, or force the European Central Bank (ECB) into an impossible position.</p>
+                    <p>Two numbers anchor the framework, later formalized in the Stability and Growth Pact:</p>
+                    <ul>
+                        <li><strong>The deficit rule:</strong> annual government borrowing should not exceed 3 percent of GDP.</li>
+                        <li><strong>The debt rule:</strong> total government debt should not exceed 60 percent of GDP.</li>
+                    </ul>
+                    <p>According to the De Nederlandsche Bank's (DNB) June 2026 Spring economic outlook, the Dutch government budget deficit is projected to reach 3.3 percent of GDP in 2026.  The Netherlands has, for most of the euro's existence, positioned itself among the rule's strongest defenders, particularly during the sovereign debt crisis of the early 2010s, when Dutch officials were vocal advocates for strict conditionality attached to financial support for other member states. CBS data show the Netherlands has, in fact, met the 3 percent deficit norm in every year since 2013 except 2020, when the pandemic pushed the shortfall to 3.7 percent under an exceptional, EU-sanctioned suspension of the rules. That consistency is precisely why a projected 2026 breach, arriving under ordinary conditions, is being read as more than a routine budgetary fluctuation.</p>
+                    <p>It is worth being precise about the method here, because it changes how much weight the number should carry. DNB does not forecast the deficit by extrapolating its own past shape with a statistical time series model. It builds the projection with DNB Econometric Linked Forecasting Instrument (DELFI) 2.0.</p>
+                    <p>This is a computerized simulator of the Dutch economy that acts like a massive web of cause-and-effect equations. To project a budget deficit, the model processes data in a specific sequence:</p>
+                    <ol class="list-decimal pl-6 space-y-2 mb-6 text-gray-700">
+                        <li><strong>External Inputs:</strong> DNB plugs in global variables like global trade volume, oil prices, and interest rates.</li>
+                        <li><strong>Domestic Activity:</strong> The model calculates how those global factors affect Dutch corporate investments, employment, and consumer spending.</li>
+                        <li><strong>Tax Revenues:</strong> Based on employment and spending, it estimates how much the government will collect in income tax, corporate tax, and VAT.</li>
+                        <li><strong>Government Spending:</strong> It factors in fixed state expenditures, such as civil servant salaries, infrastructure, and unemployment benefits.</li>
+                        <li><strong>The Final Deficit:</strong> It subtracts the total spending from the total tax revenue to output the projected government budget balance.</li>
+                    </ol>
+
+                    <h2>The Four Underlying Drivers</h2>
+                    <ul>
+                        <li><strong>The military pension overhaul is a one-off cost.</strong> The government is changing the military pension system, which requires a large one-time payment of around &euro;8.2 billion this year. Because this is a transition cost rather than a recurring expense, it will not continue to weigh on the budget in the same way in future years.</li>
+                        <li><strong>An aging population is making pensions and healthcare more expensive.</strong> As the Dutch population gets older, more people are receiving state pensions and spending more on healthcare. These costs keep rising even when the economy slows, making them a long-term source of pressure on government finances.</li>
+                        <li><strong>The government is spending more on both workers and defense.</strong> The government is hiring more people, particularly in defense, as the Netherlands works toward its NATO spending commitments. At the same time, public-sector wages have increased after a long period of pay restraint. This means the government is spending more because it has more employees and higher salaries, even as private-sector hiring has slowed. Higher government spending on areas such as healthcare and defense is also helping support economic growth this year.</li>
+                        <li><strong>Government revenue has not risen as quickly as spending.</strong> The government has chosen to ease pressure on households rather than raise taxes to cover its higher costs. For example, it extended the cut in fuel duty, while a planned increase in the Box 3 wealth tax has stalled in parliament without replacement revenue being agreed. These measures help households with the cost of living, but they also mean the government is collecting less revenue at a time when its spending is rising.</li>
+                    </ul>
+
+                    <h2>The Path Back to Compliance</h2>
+                    <p>This article stresses on the fact that since the largest single driver is a one-off rather than a recurring cost, DNB's medium-term projections show the deficit narrowing once it clears the books, alongside a debt ratio that keeps climbing but stays well under the Maastricht ceiling:</p>
+
+                    <!-- Data Graph Visualization: 2 Separate Graphs -->
+                    <div class="my-10 space-y-10">
+                        <!-- Graph 1: Budget Deficit -->
+                        <div class="chart-block-serif">
+                            <div class="chart-title-text">Figure 1: Dutch Budget Deficit Trajectory (2025–2028)</div>
+                            <div class="relative w-full h-[320px] bg-white mt-4">
+                                <canvas id="dutchDeficitChart"></canvas>
+                            </div>
+                            <p class="chart-source">Source: Author's calculations using data from DNB Spring 2026 Outlook</p>
+                        </div>
+
+                        <!-- Graph 2: Government Debt -->
+                        <div class="chart-block-serif">
+                            <div class="chart-title-text">Figure 2: Dutch Government Debt Trajectory (2025–2028)</div>
+                            <div class="relative w-full h-[320px] bg-white mt-4">
+                                <canvas id="dutchDebtChart"></canvas>
+                            </div>
+                            <p class="chart-source">Source: Author's calculations using data from DNB Spring 2026 Outlook</p>
+                        </div>
+                    </div>
+
+                    <p>According to this trajectory given by the DNB’s Spring Outlook, the 2026 figure functions less as a durable breach and more as a single-year spike layered on top of a slower, steadier upward drift in structural spending, one that DNB expects will keep the deficit closer to the 3 percent line than the Netherlands has been accustomed to over the past decade, even after the 2026 spike passes. DNB has previously supported the advisory Studiegroep Begrotingsruimte's recommendation that the Netherlands aim to steer toward a stricter 2 percent target, precisely to build in a buffer against exactly this kind of shock, and it explicitly names "prudent begrotingsbeleid" (prudent budgetary policy) as one of its central recommendations in this same report.</p>
+                    <p>In conclusion, two things are true at once. First, gross Dutch government debt, at 44.4 percent of GDP in 2025 and rising to 47.4 percent in 2026, remains comfortably below the 60 percent Maastricht ceiling, so nothing here points toward a solvency concern. Second, the 2026 deficit figure is a departure from the fiscal position the Netherlands has maintained for most of the past decade. The data suggest the Maastricht rules are not broken and the Dutch fiscal position is not deteriorating in an open-ended way. What the 2026 figure represents is closer to a planned stress test. The more useful question for policymakers over the next two budget cycles is not whether the Netherlands can get back under 3 percent, but whether the underlying structural drift gets addressed before the next one-off shock arrives to test the margin again.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 9: Why Can’t the Dutch Climate Policy Survive Without a Fairness Story? -->
+        <div id="view-article9" class="page-view">
+            <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+                <button onclick="navigate('publications')" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Back to Insights
+                </button>
+                <header class="mb-12 border-b border-wef-border pb-8">
+                    <p class="text-wef-lightBlue font-bold text-sm tracking-widest uppercase mb-4">Theme: Dutch Economy</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-wef-dark leading-tight mb-8">
+                        Why Can’t the Dutch Climate Policy Survive Without a Fairness Story?
+                    </h1>
+                    <div>
+                        <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Meghna Pal | 6 August, 2026 &bull; 4 min read</p>
+                    </div>
+                </header>
+
+                <div class="article-content serif-article">
+                    <p>While most Dutch voters agree that climate change is real, opinions diverge sharply on how to fund the necessary solutions. There is an ongoing belief that the green transition has been designed for people who can already afford solar panels, heat pumps, and electric cars. According to the Institute for Social Research (SCP), 82 percent of Dutch citizens believe the costs of climate policy are unfairly split between citizens and businesses, and 78 percent believe the burden falls unevenly between rich and poor households.</p>
+                    <p>The Dutch tax authority (Belastingdienst) uses a tiered system for energy tax, where the rate per kilowatt hour goes down as electricity consumption goes up. Since households consume relatively little energy, they end up paying the highest rate in the first tier. In contrast, massive industrial companies buy most of their power at heavily discounted rates. In simple terms, this means a large factory ends up paying a much lower average tax rate per unit of electricity than an ordinary household does.</p>
+                    <p>According to the official Belastingdienst (Dutch Tax Administration) data, the energy tax on electricity is divided into five consumption tiers:</p>
+                    <ul>
+                        <li><strong>Tier 1 (0 to 2,900 kWh):</strong> Household and small business baseline.</li>
+                        <li><strong>Tier 5 (Above 10,000,000 kWh):</strong> Heavy industrial corporate usage (e.g., massive factories).</li>
+                    </ul>
+                    <p>To strictly calculate the baseline tax ratio, let us look at the official rates (excluding the 21% VAT, which corporations normally recover):</p>
+                    <ul>
+                        <li><strong>Tier 1:</strong> ~&euro;0.1088 per kWh</li>
+                        <li><strong>Tier 5:</strong> ~&euro;0.0034 per kWh</li>
+                    </ul>
+
+                    <!-- Native Embedded Calculation Block -->
+                    <div class="my-8 py-6 px-4 bg-slate-50 border-y border-slate-200 text-center font-serif text-slate-900">
+                        <div class="inline-flex flex-col items-center space-y-4 max-w-xl mx-auto">
+                            <!-- Formula 1 -->
+                            <div class="flex items-center justify-center flex-wrap gap-2 text-lg sm:text-xl">
+                                <span class="font-semibold">Tax Burden Ratio</span>
+                                <span>=</span>
+                                <div class="inline-flex flex-col items-center mx-2">
+                                    <span class="border-b border-slate-800 pb-0.5 px-3">Household Tax Rate (Tier 1)</span>
+                                    <span class="pt-0.5 px-3">Industrial Tax Rate (Tier 5)</span>
+                                </div>
+                            </div>
+                            <!-- Formula 2 -->
+                            <div class="flex items-center justify-center flex-wrap gap-2 text-xl sm:text-2xl pt-2">
+                                <span class="font-semibold">Tax Burden Ratio</span>
+                                <span>=</span>
+                                <div class="inline-flex flex-col items-center mx-2">
+                                    <span class="border-b border-slate-800 pb-0.5 px-3">0.10880</span>
+                                    <span class="pt-0.5 px-3">0.00340</span>
+                                </div>
+                                <span class="mx-1 font-sans">&approx;</span>
+                                <span class="font-bold text-slate-950">32.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Thus, the Dutch energy tax system's tiered framework where the rate per kilowatt-hour drops significantly as consumption increases, allowing large-scale industries to pay minimal rates while households face a marginal rate that is 32 times higher.</p>
+                    <p>This is something that matters a lot for Dutch climate policy heading into 2027 and beyond.</p>
+                    <p>The following three friction points explain how an ambitious and sound decarbonisation agenda collided with public resistance.</p>
+                    <ul>
+                        <li>SCP researchers directly point to the fact that climate measures such as insulation grants and electric vehicle incentives have disproportionately benefited higher income, homeowning households, who had the capital to invest. Meanwhile, renters, concentrated among lower income groups, faced rising fixed energy taxes with no comparable route to lower their bills. ING research has shown that the lowest earners spend a growing share of their income on energy while the wealthiest spend proportionally less.</li>
+                        <li>The nitrogen issue shows how environmental rules can directly impact local communities and farming families. After court rulings required the government to lower nitrogen pollution near protected nature areas, officials introduced plans to buy out livestock farms and reduce livestock numbers. This led to a significant political shift. In March 2023, the new Farmer-Citizen Movement (BBB) gained widespread support and became the largest party in all twelve provinces. Many farmers and voters felt the agriculture sector was bearing too much of the burden while other industries faced fewer restrictions. By November 2023, this ongoing public debate contributed to a major national election victory for Geert Wilders' PVV party.</li>
+                        <li>According to a letter that was sent to the Dutch parliament on 4 February 2026, regional grid operators had 14,044 requests from businesses waiting for a new or larger electricity connection, adding up to about 9 gigawatts of capacity that could not yet be provided. The same letter states that TenneT, the national grid operator, had a further 212 requests waiting in its own queue, totalling about 38 gigawatts. A progress report on the government's Landelijk Actieprogramma Netcongestie (the National Grid Congestion Action Programme), also submitted to parliament, found that around 90 percent of Dutch businesses were experiencing some kind of effect from this grid congestion.</li>
+                    </ul>
+                    <p>Confronted with this accumulating resentment, recent Dutch governments have slowed down on strict climate rules that directly cost everyday citizens money. Instead, officials are focusing on protecting the koopkracht (the household purchasing power figure calculated by the government’s economic agency, the CPB). Since this metric acts as a direct measure of political success, keeping consumer costs steady has taken priority over implementing aggressive green mandates.</p>
+                    <p>The clearest example is the hybrid heat pump mandate. Announced in 2022 to take effect from 2026, it would have required homeowners replacing a central heating boiler to install a heat pump or connect to a heat network. The Schoof coalition cabinet canceled this mandate in its 2024 agreement, while extending fuel duty cuts and adjusting labor tax credits to raise projected 2026 household purchasing power by roughly 1.3 percent. Additionally, the government implemented a gradual annual increase for the CO2 tax through 2028 to maintain industrial competitiveness. Following the 2025 collapse of the Schoof cabinet over asylum policy, the new government formed in February 2026 requires every climate measure to be negotiated in order to achieve faster and fairer climate action.</p>
+                    <p>What would an equity-first Dutch climate framework actually look like, as opposed to the efficiency-first model that dominated the 2010s and early 2020s?</p>
+                    <ul>
+                        <li>Instead of offering individual grants where homeowners must pay money and wait for a refund, the government works directly with housing corporations. They upgrade neighborhoods of rental and social housing all at once. This ensures that lower-income tenants benefit from energy-efficient housing and lower utility bills, even if they do not have the personal savings to invest in green technology themselves. The government already uses this neighborhood approach to work with housing corporations to upgrade large blocks of social housing simultaneously. However, the framework has not fully shifted away from the old model. Individual-first subsidy schemes (like the ISDE) still exist, meaning wealthy homeowners who can pay upfront costs still absorb a large portion of available state funding.</li>
+                        <li>The Landelijk Actieprogramma Netcongestie and the newer Aansluitoffensief have started directing billions in annual grid investment toward capacity expansion, but the tax and tariff structure underneath it still lets the largest industrial users pay proportionally less. A credible fairness story requires narrowing the 32-to-1 gap between household and bulk industrial energy tax rates, and phasing out exemptions, such as those historically granted to metallurgical and mineralogical processes, that let the heaviest emitters off the hook.</li>
+                        <li>The Netherlands is a small, trade-dependent, densely populated economy that genuinely cannot decarbonise unilaterally without risking industrial flight. CPB and PBL research has already found that support schemes designed purely to protect industrial competitiveness often increase emissions rather than reduce them. Hence, the answer is not to abandon support for energy intensive industry, but to tie it explicitly to verifiable decarbonisation commitments. The policy of tying money to verifiable decarbonization targets is actively being rolled out. However, while the process has started, critics, environmental groups, and economic agencies note that many of these industrial contracts are still being finalized, heavily delayed, or face intense political debate regarding how strict the targets should be.</li>
+                    </ul>
+                    <p>In conclusion, Dutch climate policy requires balancing environmental goals with social fairness to ensure broad public support and a stable transition. By prioritizing collective investments and ensuring equitable contributions from both households and large industries, the Netherlands can protect both the environment and the economy.</p>
+                </div>
             </div>
         </div>
 
@@ -1603,8 +2044,19 @@
         let charts3Rendered = false;
         let charts5Rendered = false;
         let charts6Rendered = false;
+        let charts8Rendered = false;
 
         const routeMapping = {
+            "why-is-the-dutch-economy-weathering-the-2026-oil-shock-better-than-ever": 'article7',
+            "dutch-oil-shock": 'article7',
+            "why is the dutch economy weathering the 2026 oil shock better than ever": 'article7',
+            "what-does-the-temporary-overshoot-in-dutch-deficit-actually-tell-us": 'article8',
+            "dutch-deficit": 'article8',
+            "what does the temporary overshoot in dutch deficit actually tell us": 'article8',
+            "why-cant-the-dutch-climate-policy-survive-without-a-fairness-story": 'article9',
+            "why-can't-the-dutch-climate-policy-survive-without-a-fairness-story": 'article9',
+            "dutch-climate-policy": 'article9',
+            "why can’t the dutch climate policy survive without a fairness story": 'article9',
             "why the strait of hormuz ceasefire won't stop global stagflation": 'article',
             "why the strait of hormuz ceasefire wont stop global stagflation": 'article',
             "strait-of-hormuz-ceasefire": 'article',
@@ -1646,32 +2098,40 @@
                 hash = rawHash.toLowerCase().trim();
             }
             
-            let viewId = 'home'; // Default fallback
+            let viewId = routeMapping[hash]; // Check exact route mapping first!
 
-            // Robust Keyword-based matching
-            if (hash.includes('uae') || hash.includes('ceiling') || hash.includes('pumps')) {
-                viewId = 'article3';
-            } else if (hash.includes('yuan') || hash.includes('oil-shift')) {
-                viewId = 'article2';
-            } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
-                viewId = 'article';
-            } else if (hash.includes('measurement') || hash.includes('gap')) {
-                viewId = 'article4';
-            } else if (hash.includes('housing') || hash.includes('trap')) {
-                viewId = 'article5';
-            } else if (hash.includes('price-floor') || hash.includes('price') || hash.includes('floor')) {
-                viewId = 'article6';
-            } else if (hash.includes('about')) {
-                viewId = 'about';
-            } else if (hash.includes('insight') || hash.includes('publication')) {
-                viewId = 'publications';
-            } else if (hash === '' || hash === 'home') {
-                viewId = 'home';
-            } else {
-                viewId = routeMapping[hash] || hash;
+            // Robust Keyword-based fallback matching if not in routeMapping
+            if (!viewId) {
+                if (hash.includes('dutch-deficit') || (hash.includes('dutch') && hash.includes('deficit')) || hash.includes('overshoot')) {
+                    viewId = 'article8';
+                } else if (hash.includes('dutch-climate') || (hash.includes('dutch') && hash.includes('climate')) || hash.includes('fairness')) {
+                    viewId = 'article9';
+                } else if (hash.includes('dutch-oil') || (hash.includes('dutch') && hash.includes('weathering')) || (hash.includes('dutch') && hash.includes('shock'))) {
+                    viewId = 'article7';
+                } else if (hash.includes('uae') || hash.includes('ceiling') || hash.includes('pumps')) {
+                    viewId = 'article3';
+                } else if (hash.includes('yuan') || hash.includes('oil-shift')) {
+                    viewId = 'article2';
+                } else if (hash.includes('hormuz') || hash.includes('stagflation')) {
+                    viewId = 'article';
+                } else if (hash.includes('measurement') || hash.includes('gap')) {
+                    viewId = 'article4';
+                } else if (hash.includes('housing') || hash.includes('trap')) {
+                    viewId = 'article5';
+                } else if (hash.includes('price-floor') || hash.includes('price') || hash.includes('floor')) {
+                    viewId = 'article6';
+                } else if (hash.includes('about')) {
+                    viewId = 'about';
+                } else if (hash.includes('insight') || hash.includes('publication')) {
+                    viewId = 'publications';
+                } else if (hash === '' || hash === 'home') {
+                    viewId = 'home';
+                } else {
+                    viewId = hash;
+                }
             }
 
-            if (!menuOverlay.classList.contains('hidden-overlay')) {
+            if (menuOverlay && !menuOverlay.classList.contains('hidden-overlay')) {
                 toggleMenu();
             }
 
@@ -1709,6 +2169,10 @@
                 renderCharts6();
                 charts6Rendered = true;
             }
+            if (viewId === 'article8' && !charts8Rendered) {
+                renderCharts8();
+                charts8Rendered = true;
+            }
         }
 
         window.addEventListener('hashchange', handleRouteChange);
@@ -1719,11 +2183,9 @@
         handleRouteChange();
 
         function navigate(viewId) {
-            if (window.location.hash === '#' + viewId || (window.location.hash === '' && viewId === 'home')) {
-                window.scrollTo(0, 0);
-            } else {
-                window.location.hash = viewId;
-            }
+            window.location.hash = viewId;
+            handleRouteChange();
+            window.scrollTo(0, 0);
         }
 
         function renderCharts() {
@@ -2409,13 +2871,7 @@
                     responsive: true, maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: true, position: 'bottom',
-                            labels: {
-                                filter: item => item.datasetIndex < 5,
-                                boxWidth: 24, boxHeight: 2,
-                                font: { family: "'Lora', serif", size: 11 },
-                                color: '#6B6560', padding: 10,
-                            }
+                            display: false
                         },
                         tooltip: {
                             callbacks: {
@@ -2784,6 +3240,151 @@
             }
 
             window.updatePriceSensitivity();
+        }
+
+        let dutchDeficitChartInstance = null;
+        let dutchDebtChartInstance = null;
+
+        function renderCharts8() {
+            // 1. Deficit Chart
+            const canvasDeficit = document.getElementById('dutchDeficitChart');
+            if (canvasDeficit) {
+                if (dutchDeficitChartInstance) dutchDeficitChartInstance.destroy();
+                const ctxDeficit = canvasDeficit.getContext('2d');
+                dutchDeficitChartInstance = new Chart(ctxDeficit, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2025', '2026', '2027', '2028'],
+                        datasets: [
+                            {
+                                label: 'Budget Deficit (% of GDP)',
+                                data: [-1.6, -3.3, -2.6, -2.3],
+                                backgroundColor: ['#2E7D4F', '#C44527', '#2E7D4F', '#2E7D4F'],
+                                borderColor: ['#2E7D4F', '#C44527', '#2E7D4F', '#2E7D4F'],
+                                borderWidth: 1.5,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'Maastricht Deficit Limit (3.0%)',
+                                data: [-3.0, -3.0, -3.0, -3.0],
+                                type: 'line',
+                                borderColor: '#C44527',
+                                borderDash: [6, 4],
+                                borderWidth: 2,
+                                pointRadius: 0,
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { font: { family: "'Lora', serif", size: 13 }, color: '#1A202C' }
+                            },
+                            tooltip: {
+                                backgroundColor: '#1A202C',
+                                titleFont: { family: "'Lora', serif", size: 13, weight: 'bold' },
+                                bodyFont: { family: "'Lora', serif", size: 12 },
+                                callbacks: {
+                                    label: function(context) { return context.dataset.label + ': ' + context.parsed.y + '%'; }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { family: "'Lora', serif", size: 13 }, color: '#4A5568' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Deficit (% of GDP)', font: { family: "'Lora', serif", size: 12, weight: 'bold' }, color: '#1A202C' },
+                                grid: { color: '#E2E8F0' },
+                                ticks: {
+                                    font: { family: "'Lora', serif", size: 12 },
+                                    color: '#4A5568',
+                                    callback: function(val) { return val + '%'; }
+                                },
+                                suggestedMin: -4.0,
+                                suggestedMax: 0
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Debt Chart
+            const canvasDebt = document.getElementById('dutchDebtChart');
+            if (canvasDebt) {
+                if (dutchDebtChartInstance) dutchDebtChartInstance.destroy();
+                const ctxDebt = canvasDebt.getContext('2d');
+                dutchDebtChartInstance = new Chart(ctxDebt, {
+                    type: 'line',
+                    data: {
+                        labels: ['2025', '2026', '2027', '2028'],
+                        datasets: [
+                            {
+                                label: 'Government Debt (% of GDP)',
+                                data: [44.4, 47.4, 48.4, 49.2],
+                                borderColor: '#1B3A6B',
+                                backgroundColor: 'rgba(27, 58, 107, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: '#1B3A6B',
+                                pointBorderColor: '#FFFFFF',
+                                pointBorderWidth: 2,
+                                pointRadius: 6,
+                                tension: 0.1,
+                                fill: true
+                            },
+                            {
+                                label: 'Maastricht Debt Ceiling (60.0%)',
+                                data: [60.0, 60.0, 60.0, 60.0],
+                                borderColor: '#9E9890',
+                                borderDash: [6, 4],
+                                borderWidth: 2,
+                                pointRadius: 0,
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { font: { family: "'Lora', serif", size: 13 }, color: '#1A202C' }
+                            },
+                            tooltip: {
+                                backgroundColor: '#1A202C',
+                                titleFont: { family: "'Lora', serif", size: 13, weight: 'bold' },
+                                bodyFont: { family: "'Lora', serif", size: 12 },
+                                callbacks: {
+                                    label: function(context) { return context.dataset.label + ': ' + context.parsed.y + '%'; }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { family: "'Lora', serif", size: 13 }, color: '#4A5568' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Debt (% of GDP)', font: { family: "'Lora', serif", size: 12, weight: 'bold' }, color: '#1A202C' },
+                                grid: { color: '#E2E8F0' },
+                                ticks: {
+                                    font: { family: "'Lora', serif", size: 12 },
+                                    color: '#4A5568',
+                                    callback: function(val) { return val + '%'; }
+                                },
+                                suggestedMin: 35.0,
+                                suggestedMax: 65.0
+                            }
+                        }
+                    }
+                });
+            }
         }
     </script>
 </body>
