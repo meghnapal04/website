@@ -82,6 +82,15 @@
             font-size: 0.75rem;
         }
 
+        /* Disable pseudo-bullet for flex list items or custom icon lists */
+        .article-content ul li.flex {
+            padding-left: 0 !important;
+        }
+        .article-content ul li.flex::before {
+            content: none !important;
+            display: none !important;
+        }
+
         /* Chart Containers */
         .chart-container {
             position: relative;
@@ -1045,10 +1054,10 @@
 
                     <div class="my-6 pl-5 border-l-4 border-blue-200 bg-blue-50/50 rounded-r-lg py-4 pr-4">
                         <p class="text-sm font-bold uppercase tracking-widest text-blue-700 mb-3">What to do</p>
-                        <ul class="space-y-2 text-gray-700 text-[15px]">
-                            <li class="flex gap-2"><span class="mt-1 text-blue-400 shrink-0">&#9679;</span><span>Businesses should lock in forward contracts on agricultural commodities and freight while prices are still relatively contained, before the lagged food inflation shock arrives later in the year.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-blue-400 shrink-0">&#9679;</span><span>Central banks should resist cutting rates too soon. Headline inflation may appear to be softening, but the food price channel will push prices higher again in Q3-Q4, making premature easing a costly mistake.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-blue-400 shrink-0">&#9679;</span><span>Investors can start putting money back into cyclical sectors (sectors that do well when the economy is doing well), but should stay cautious and keep some protection in case inflation rises again later in the year. The recovery is happening, but it is still not fully stable.</span></li>
+                        <ul class="space-y-3 text-gray-700 text-[15px] !mb-0">
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-blue-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Businesses should lock in forward contracts on agricultural commodities and freight while prices are still relatively contained, before the lagged food inflation shock arrives later in the year.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-blue-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Central banks should resist cutting rates too soon. Headline inflation may appear to be softening, but the food price channel will push prices higher again in Q3-Q4, making premature easing a costly mistake.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-blue-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Investors can start putting money back into cyclical sectors (sectors that do well when the economy is doing well), but should stay cautious and keep some protection in case inflation rises again later in the year. The recovery is happening, but it is still not fully stable.</span></li>
                         </ul>
                     </div>
 
@@ -1056,23 +1065,23 @@
 
                     <div class="my-6 pl-5 border-l-4 border-amber-200 bg-amber-50/50 rounded-r-lg py-4 pr-4">
                         <p class="text-sm font-bold uppercase tracking-widest text-amber-700 mb-3">What to do</p>
-                        <ul class="space-y-2 text-gray-700 text-[15px]">
-                            <li class="flex gap-2"><span class="mt-1 text-amber-400 shrink-0">&#9679;</span><span>The ECB's least damaging path is to hold rates steady as cutting would entrench inflation, and hiking would deepen the recession.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-amber-400 shrink-0">&#9679;</span><span>Governments should step in with targeted fiscal support for energy-vulnerable households, rather than relying on monetary policy to do all the work.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-amber-400 shrink-0">&#9679;</span><span>Central banks in emerging markets (especially in South Asia) should consider making currency swap deals with other countries. This can help them pay less for energy imports priced in dollars, especially when their foreign exchange reserves are getting low.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-amber-400 shrink-0">&#9679;</span><span>Investors should move their money into safer areas. Sectors like energy infrastructure, food companies, and short-term bonds are more stable and can better handle economic uncertainty.</span></li>
+                        <ul class="space-y-3 text-gray-700 text-[15px] !mb-0">
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-amber-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">The ECB's least damaging path is to hold rates steady as cutting would entrench inflation, and hiking would deepen the recession.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-amber-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Governments should step in with targeted fiscal support for energy-vulnerable households, rather than relying on monetary policy to do all the work.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-amber-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Central banks in emerging markets (especially in South Asia) should consider making currency swap deals with other countries. This can help them pay less for energy imports priced in dollars, especially when their foreign exchange reserves are getting low.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-amber-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Investors should move their money into safer areas. Sectors like energy infrastructure, food companies, and short-term bonds are more stable and can better handle economic uncertainty.</span></li>
                         </ul>
                     </div>
 
                     <p><strong>Scenario C:</strong> The ceasefire breaks down before the Strait fully reopens. Oil moves toward $128 to $140 or higher. The IEA's coordinated 400-million-barrel reserve release is exhausted by Q3 without replenishment. Global growth falls toward or below 2%, triggering the technical definition of a global recession. Central bank credibility comes under severe pressure: any rate cut risks entrenching inflation above 6%, while holding rates accelerates the recessionary dynamics. Even a contained three-month conflict at $150 per barrel could produce a global stagflationary shock comparable in severity to 1973-74, even if it proves shorter in duration.</p>
 
-                    <div class="my-6 pl-5 border-l-4 border-red-200 bg-red-50/50 rounded-r-lg py-4 pr-4">
-                        <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-3">What to do</p>
-                        <ul class="space-y-2 text-gray-700 text-[15px]">
-                            <li class="flex gap-2"><span class="mt-1 text-red-400 shrink-0">&#9679;</span><span>Governments should quickly work together to release emergency oil reserves again, and handle insurance issues separately from ceasefire talks. Waiting for everything to be resolved together will take too long and hurt the global economy.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-red-400 shrink-0">&#9679;</span><span>Central banks should clearly say that they are okay with inflation being slightly higher for a short time, instead of raising interest rates during a recession. Being open about this helps keep markets calm and prevents panic.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-red-400 shrink-0">&#9679;</span><span>Businesses should focus less on expanding and more on staying financially safe. This means cutting unnecessary spending, securing loans early before borrowing gets harder, and preparing for disruptions that could last 12-18 months.</span></li>
-                            <li class="flex gap-2"><span class="mt-1 text-red-400 shrink-0">&#9679;</span><span>Investors should focus on protecting their money rather than trying to make high returns. Assets like commodities, gold, and energy stocks tend to perform better during periods of high inflation and slow economic growth.</span></li>
+                    <div class="my-6 pl-5 border-l-4 border-rose-300 bg-rose-50/60 rounded-r-lg py-4 pr-4">
+                        <p class="text-sm font-bold uppercase tracking-widest text-rose-700 mb-3">What to do</p>
+                        <ul class="space-y-3 text-gray-700 text-[15px] !mb-0">
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-rose-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Governments should quickly work together to release emergency oil reserves again, and handle insurance issues separately from ceasefire talks. Waiting for everything to be resolved together will take too long and hurt the global economy.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-rose-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Central banks should clearly say that they are okay with inflation being slightly higher for a short time, instead of raising interest rates during a recession. Being open about this helps keep markets calm and prevents panic.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-rose-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Businesses should focus less on expanding and more on staying financially safe. This means cutting unnecessary spending, securing loans early before borrowing gets harder, and preparing for disruptions that could last 12-18 months.</span></li>
+                            <li class="flex gap-3 items-start"><span class="mt-1 text-rose-500 shrink-0 text-base leading-none">&#9679;</span><span class="leading-relaxed">Investors should focus on protecting their money rather than trying to make high returns. Assets like commodities, gold, and energy stocks tend to perform better during periods of high inflation and slow economic growth.</span></li>
                         </ul>
                     </div>
 
