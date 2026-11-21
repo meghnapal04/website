@@ -1,0 +1,49 @@
+name: Refresh Euro Rates Data Lab
+
+# Weekdays, twice: after the ECB publishes €STR (08:00 CET) and again in the
+# afternoon to pick up the yield curve. Times are UTC.
+on:
+  schedule:
+    - cron: "15 9 * * 1-5"
+    - cron: "15 15 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rates-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: rates/pipeline/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r rates/pipeline/requirements.txt
+
+      # If the ECB feed is down or truncated, build.py stops here, nothing is
+      # committed, and the last good data stays on the website.
+      - name: Rebuild from the ECB Data Portal
+        run: python rates/pipeline/build.py
+
+      - name: Publish only if the data changed
+        run: |
+          if git diff --quiet -- rates/data/rates_daily.csv rates/data/rates_monthly.csv rates/pipeline/raw; then
+            echo "No new ECB data - nothing to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rates/data rates/pipeline/raw
+          git commit -m "Rates data refresh $(date -u +%Y-%m-%d)"
+          git push

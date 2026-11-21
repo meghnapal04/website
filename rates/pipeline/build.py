@@ -42,15 +42,29 @@ def sha256(b: bytes) -> str:
 def ingest(offline: bool):
     RAW.mkdir(exist_ok=True)
     lineage = {}
+    downloads = {}
+    if not offline:
+        # Download everything first and validate it; only then overwrite the raw
+        # snapshot. If the ECB feed is down or truncated, the build stops and the
+        # last good data stays published.
+        for field, src in SERIES.items():
+            req = urllib.request.Request(url_for(src["key"]), headers={"Accept": "text/csv"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                body = r.read()
+            header = body.split(b"\n", 1)[0]
+            if b"TIME_PERIOD" not in header or b"OBS_VALUE" not in header:
+                raise SystemExit(f"ABORT: unexpected response for {field} ({src['key']})")
+            old = RAW / f"{field}.csv"
+            if old.exists() and body.count(b"\n") < old.read_bytes().count(b"\n"):
+                raise SystemExit(f"ABORT: {field} has fewer rows than the last snapshot (truncated feed?)")
+            downloads[field] = (body, datetime.now(timezone.utc).isoformat(timespec="seconds"))
+        for field, (body, _) in downloads.items():
+            (RAW / f"{field}.csv").write_bytes(body)
     for field, src in SERIES.items():
         path = RAW / f"{field}.csv"
         url = url_for(src["key"])
         if not offline:
-            req = urllib.request.Request(url, headers={"Accept": "text/csv"})
-            with urllib.request.urlopen(req, timeout=60) as r:
-                body = r.read()
-            path.write_bytes(body)
-            fetched = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            body, fetched = downloads[field]
         else:
             body = path.read_bytes()
             fetched = json.loads((OUT / "manifest.json").read_text())["sources"][field]["fetched_at_utc"]
