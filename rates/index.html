@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://meghnapal.info/rates/">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = { theme: { extend: {
             fontFamily: { sans: ['Inter', 'sans-serif'] },
@@ -37,7 +37,15 @@
         .range-btn.active { background:#0F172A; color:#fff; border-color:#0F172A; }
         .stage { border:1px solid #E0E0E0; border-radius:12px; padding:1rem; background:#fff; }
         .stage-arrow { color:#94A3B8; display:flex; align-items:center; justify-content:center; }
-        .section-kicker { font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#005BBB; }
+        .section-kicker { font-family:'Inter',sans-serif; font-size:.875rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#005BBB; }
+        /* Typography matched to the articles on meghnapal.info */
+        .hero-p { font-family:'Lora',Georgia,serif; font-size:1.125rem; line-height:1.8; color:#D1D5DB; }
+        .rates-h2 { font-family:'Playfair Display',serif; font-size:1.85rem; font-weight:700; color:#1A202C; letter-spacing:-0.01em; }
+        .rates-h3 { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:600; color:#1A202C; }
+        .rates-p, .rates-p p { font-family:'Lora',Georgia,serif; font-size:1.125rem; line-height:1.8; color:#2D3748; }
+        .chart-title { font-family:'Lora',Georgia,serif; font-size:1.25rem; font-weight:700; color:#1A202C; margin-bottom:.25rem; }
+        .chart-desc { font-family:'Lora',Georgia,serif; font-size:.875rem; font-style:italic; line-height:1.5; color:#4A5568; margin-bottom:1rem; }
+        .stage .text-sm { font-family:'Lora',Georgia,serif; font-size:.95rem; line-height:1.65; color:#2D3748; }
         .bar-track { background:#EEF0F2; border-radius:999px; height:8px; overflow:hidden; }
         .bar-fill { height:100%; border-radius:999px; background:#005BBB; }
         .scroll-x { overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -62,9 +70,8 @@
 <!-- Header -->
 <header class="bg-[#0F172A] text-white pt-36 pb-14">
     <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs font-bold tracking-[0.18em] uppercase text-blue-300 mb-4">Data project · Euro money markets</p>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-5">Euro Rates Data Lab</h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl font-light leading-relaxed">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Euro Rates Data Lab</h1>
+        <p class="hero-p max-w-3xl">
             A traceable, quality-checked dataset of €STR, EURIBOR and euro area yield-curve rates, built from official ECB data.
             Every number can be traced back to its source, every transformation is written down, and every value passes
             data-quality checks before it is published.
@@ -108,7 +115,7 @@
         <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
             <div>
                 <p class="section-kicker mb-3">Charts</p>
-                <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight">How euro rates moved</h2>
+                <h2 class="rates-h2">How euro rates moved</h2>
             </div>
             <div class="flex gap-2" id="range-btns">
                 <button class="range-btn" data-y="1">1Y</button>
@@ -119,23 +126,23 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <figure>
-                <h3 class="font-semibold text-[#0F172A]">€STR and the ECB deposit facility rate</h3>
-                <p class="text-sm text-wef-textGray mb-3">% per annum, daily. €STR sits just below the deposit rate because the system has excess liquidity.</p>
+                <h3 class="chart-title">€STR and the ECB deposit facility rate</h3>
+                <p class="chart-desc">% per annum, daily. €STR sits just below the deposit rate because the system has excess liquidity.</p>
                 <div class="chart-box"><canvas id="c-estr" role="img" aria-label="Line chart of €STR and the ECB deposit facility rate since October 2019"></canvas></div>
             </figure>
             <figure>
-                <h3 class="font-semibold text-[#0F172A]">Euro area AAA government yield curve</h3>
-                <p class="text-sm text-wef-textGray mb-3">Spot rates, % per annum, daily: 2-year, 5-year, 10-year.</p>
+                <h3 class="chart-title">Euro area AAA government yield curve</h3>
+                <p class="chart-desc">Spot rates, % per annum, daily: 2-year, 5-year, 10-year.</p>
                 <div class="chart-box"><canvas id="c-yc" role="img" aria-label="Line chart of 2, 5 and 10-year euro area AAA spot rates"></canvas></div>
             </figure>
             <figure>
-                <h3 class="font-semibold text-[#0F172A]">EURIBOR term structure vs €STR</h3>
-                <p class="text-sm text-wef-textGray mb-3">Monthly averages, % per annum. The gap is the term and bank-credit premium.</p>
+                <h3 class="chart-title">EURIBOR term structure vs €STR</h3>
+                <p class="chart-desc">Monthly averages, % per annum. The gap is the term and bank-credit premium.</p>
                 <div class="chart-box"><canvas id="c-eur" role="img" aria-label="Line chart of EURIBOR 1M, 3M, 6M, 12M monthly averages and monthly average €STR"></canvas></div>
             </figure>
             <figure>
-                <h3 class="font-semibold text-[#0F172A]">€STR underlying transaction volume</h3>
-                <p class="text-sm text-wef-textGray mb-3">EUR billions per day. A falling volume makes the rate less representative, so it is checked too.</p>
+                <h3 class="chart-title">€STR underlying transaction volume</h3>
+                <p class="chart-desc">EUR billions per day. A falling volume makes the rate less representative, so it is checked too.</p>
                 <div class="chart-box"><canvas id="c-vol" role="img" aria-label="Chart of daily €STR transaction volume in EUR billions"></canvas></div>
             </figure>
         </div>
@@ -144,16 +151,16 @@
     <!-- Downloads -->
     <section id="downloads" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Downloads</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-3">The dataset</h2>
-        <p class="text-wef-textGray max-w-3xl mb-8">Free to download. Each file's SHA-256 hash is listed so you can check that your copy matches this build.</p>
+        <h2 class="rates-h2 mb-3">The dataset</h2>
+        <p class="rates-p max-w-3xl mb-8">Free to download. Each file's SHA-256 hash is listed so you can check that your copy matches this build.</p>
         <div class="scroll-x"><table class="tbl" id="t-out"><thead><tr><th>File</th><th>Contents</th><th class="text-right">Rows</th><th>SHA-256 (first 16)</th></tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- Lineage -->
     <section id="lineage" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Data lineage</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-3">From ECB to this page</h2>
-        <p class="text-wef-textGray max-w-3xl mb-8">Each build runs the same six stages. You can trace a published value back through every stage to the exact ECB series and download it came from.</p>
+        <h2 class="rates-h2 mb-3">From ECB to this page</h2>
+        <p class="rates-p max-w-3xl mb-8">Each build runs the same six stages. You can trace a published value back through every stage to the exact ECB series and download it came from.</p>
         <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-3 items-stretch">
             <div class="stage"><p class="text-xs font-bold text-blue-700 mb-1">1 · INGEST</p><p class="font-semibold text-[#0F172A]">ECB Data Portal API</p><p class="text-sm text-wef-textGray mt-1"><span id="n-src">11</span> series, downloaded as CSV. Raw response stored unchanged with SHA-256 hash and UTC fetch time.</p></div>
             <div class="stage-arrow"><span class="hidden md:inline">→</span><span class="md:hidden">↓</span></div>
@@ -168,40 +175,40 @@
             <div class="stage-arrow"><span class="hidden md:inline">→</span><span class="md:hidden">↓</span></div>
             <div class="stage"><p class="text-xs font-bold text-blue-700 mb-1">6 · BACKTEST</p><p class="font-semibold text-[#0F172A]">Check performance</p><p class="text-sm text-wef-textGray mt-1">Known errors are injected into real history to measure what the checks catch.</p></div>
         </div>
-        <h3 class="font-semibold text-[#0F172A] mt-10 mb-3">Source register (this build)</h3>
+        <h3 class="rates-h3 mt-10 mb-3">Source register (this build)</h3>
         <div class="scroll-x"><table class="tbl" id="t-src"><thead><tr><th>Field</th><th>ECB series key</th><th>Freq.</th><th class="text-right">Raw rows</th><th>Fetched (UTC)</th><th>Raw SHA-256</th></tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- Dictionary -->
     <section id="dictionary" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Data dictionary</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-8">What every field means</h2>
+        <h2 class="rates-h2 mb-8">What every field means</h2>
         <div class="scroll-x"><table class="tbl" id="t-dict"><thead><tr><th>File</th><th>Field</th><th>Type</th><th>Unit</th><th>Description</th><th>Source / rule</th></tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- Transformations -->
     <section id="transformations" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Transformation rules</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-8">What happens to the data, and what never does</h2>
+        <h2 class="rates-h2 mb-8">What happens to the data, and what never does</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="transforms"></div>
     </section>
 
     <!-- Quality -->
     <section id="quality" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Data-quality checks</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-3">Checked before anything is published</h2>
-        <p class="text-wef-textGray max-w-3xl mb-8">Stale values, abnormal movements and implausible records are flagged before analysis. Thresholds are shown exactly as the code uses them.</p>
+        <h2 class="rates-h2 mb-3">Checked before anything is published</h2>
+        <p class="rates-p max-w-3xl mb-8">Stale values, abnormal movements and implausible records are flagged before analysis. Thresholds are shown exactly as the code uses them.</p>
         <div class="scroll-x"><table class="tbl" id="t-rules"><thead><tr><th>Check</th><th>Severity</th><th>Rule</th></tr></thead><tbody></tbody></table></div>
-        <h3 class="font-semibold text-[#0F172A] mt-10 mb-1">Flags raised on the real history</h3>
-        <p class="text-sm text-wef-textGray mb-3" id="flag-intro"></p>
+        <h3 class="rates-h3 mt-10 mb-1">Flags raised on the real history</h3>
+        <p class="rates-p mb-4" id="flag-intro"></p>
         <div class="scroll-x"><table class="tbl" id="t-flags"><thead><tr><th>Date</th><th>Field</th><th>Check</th><th>Severity</th><th class="text-right">Value</th><th>Detail</th><th style="min-width:220px">Review</th></tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- Backtest -->
     <section id="backtest" class="py-14 border-b border-wef-border">
         <p class="section-kicker mb-3">Backtest</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-3">Would the checks have caught it?</h2>
-        <p class="text-wef-textGray max-w-3xl mb-8" id="bt-intro"></p>
+        <h2 class="rates-h2 mb-3">Would the checks have caught it?</h2>
+        <p class="rates-p max-w-3xl mb-8" id="bt-intro"></p>
         <div class="scroll-x"><table class="tbl" id="t-bt"><thead><tr><th>Error injected into €STR</th><th class="text-right">Injected</th><th class="text-right">Caught</th><th style="min-width:160px">Detection rate</th><th>Caught by</th></tr></thead><tbody></tbody></table></div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             <div class="stage">
@@ -218,8 +225,8 @@
     <!-- Method -->
     <section id="method" class="py-14">
         <p class="section-kicker mb-3">Method &amp; limits</p>
-        <h2 class="text-3xl font-bold text-[#0F172A] tracking-tight mb-6">Read before using</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 text-[#334155] leading-relaxed">
+        <h2 class="rates-h2 mb-6">Read before using</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 rates-p">
             <p><strong class="text-[#0F172A]">Why a yield curve instead of swap rates.</strong> Official daily euro swap rates (such as the ICE Swap Rate) and daily EURIBOR fixings are licensed data and cannot be republished. This lab uses only data the ECB allows to be reused: the euro area AAA government curve stands in for the term structure, and EURIBOR appears as the ECB's monthly averages.</p>
             <p><strong class="text-[#0F172A]">Reference date vs publication date.</strong> €STR for a business day is published at 08:00 CET on the next TARGET2 business day. Dates in this dataset are reference dates.</p>
             <p><strong class="text-[#0F172A]">What the checks cannot do.</strong> They test whether a value is plausible, not whether it is true. The backtest shows small one-day errors of a few basis points are mostly not caught. Catching those would need a second, independent source.</p>
