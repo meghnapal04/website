@@ -1,0 +1,28 @@
+date,field,check,outcome,note
+2020-11-23,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was genuinely flat in the negative-rate period (quoted to 3 decimals).
+2022-02-21,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was genuinely flat in the negative-rate period.
+2022-03-01,yc_aaa_2y,abnormal_move,No data error,Real market move: flight to safety after Russia's invasion of Ukraine.
+2022-03-01,yc_aaa_5y,abnormal_move,No data error,Real market move: flight to safety after Russia's invasion of Ukraine.
+2022-03-23,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was genuinely flat in the negative-rate period.
+2022-05-20,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was genuinely flat in the negative-rate period.
+2026-04-16,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was flat between policy meetings.
+2026-07-10,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was flat between policy meetings.
+2026-08-07,estr_rate,stale_value,No data error,Matches the ECB's published value. €STR was flat between policy meetings.
+2019-12-24,yc_aaa_2y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2019-12-24,yc_aaa_5y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2019-12-24,yc_aaa_10y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2019-12-31,yc_aaa_2y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2019-12-31,yc_aaa_5y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2019-12-31,yc_aaa_10y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2020-12-24,yc_aaa_2y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2020-12-24,yc_aaa_5y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2020-12-24,yc_aaa_10y,missing_business_day,No data error,The ECB published no yield curve for Christmas Eve (shortened bond-market day). Left blank.
+2020-12-31,yc_aaa_2y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2020-12-31,yc_aaa_5y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2020-12-31,yc_aaa_10y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2021-12-14,yc_aaa_2y,missing_business_day,No data error,Gap in the ECB source itself: no curve published for this day. Left blank and not filled.
+2021-12-14,yc_aaa_5y,missing_business_day,No data error,Gap in the ECB source itself: no curve published for this day. Left blank and not filled.
+2021-12-14,yc_aaa_10y,missing_business_day,No data error,Gap in the ECB source itself: no curve published for this day. Left blank and not filled.
+2024-12-31,yc_aaa_2y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2024-12-31,yc_aaa_5y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.
+2024-12-31,yc_aaa_10y,missing_business_day,No data error,The ECB published no yield curve for New Year's Eve (shortened bond-market day). Left blank.

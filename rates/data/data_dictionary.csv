@@ -1,0 +1,19 @@
+file,field,type,unit,description,source_or_rule
+rates_daily.csv,date,date,ISO 8601,TARGET2 business day the rate refers to (not the publication day),"T1, T3"
+rates_daily.csv,estr_rate,float,% p.a.,"€STR, volume-weighted trimmed mean rate",EST/B.EU000A2X2A25.WT
+rates_daily.csv,estr_volume,float,EUR millions,"€STR, total underlying transaction volume",EST/B.EU000A2X2A25.TT
+rates_daily.csv,estr_transactions,int,count,"€STR, number of underlying transactions",EST/B.EU000A2X2A25.NT
+rates_daily.csv,dfr,float,% p.a.,ECB deposit facility rate in force on that day,FM/D.U2.EUR.4F.KR.DFR.LEV · T3 forward-fill
+rates_daily.csv,yc_aaa_2y,float,% p.a.,"Euro area AAA government spot rate, 2-year",YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
+rates_daily.csv,yc_aaa_5y,float,% p.a.,"Euro area AAA government spot rate, 5-year",YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
+rates_daily.csv,yc_aaa_10y,float,% p.a.,"Euro area AAA government spot rate, 10-year",YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
+rates_daily.csv,estr_dfr_spread_bp,float,bp,€STR minus deposit facility rate,T4 derived
+rates_daily.csv,yc_slope_10y_2y_bp,float,bp,10-year minus 2-year AAA spot rate (curve slope),T4 derived
+rates_daily.csv,dq_status,enum,OK / WARN / ERROR,Worst data-quality result for the row,"T5, dq.py"
+rates_daily.csv,dq_notes,string,,field:check for every flag raised on the row,"T5, dq.py"
+rates_monthly.csv,month,date,YYYY-MM-01,Calendar month,T1
+rates_monthly.csv,euribor_1m … euribor_12m,float,% p.a.,"EURIBOR monthly averages (1M, 3M, 6M, 12M)",FM/M.U2.EUR.RT.MM.EURIBOR*.HSTA
+rates_monthly.csv,estr_rate_mavg,float,% p.a.,Simple average of daily €STR in the month,T4 derived
+rates_monthly.csv,euribor3m_estr_spread_bp,float,bp,EURIBOR 3M minus €STR monthly average (term & credit premium),T4 derived
+rates_long.csv,"date, field, value, unit, freq, source_key",mixed,,"Standardised layer: one row per observation, exactly as delivered by the ECB","T1, T2"
+dq_log.csv,"date, field, check, severity, value, detail, review, review_note",mixed,,"Every data-quality flag raised in this build, with its review outcome",dq.py
