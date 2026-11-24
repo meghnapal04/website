@@ -4441,6 +4441,7 @@ date,field,value,unit,freq,source_key
 2026-11-18,estr_rate,2.442,% p.a.,daily,EST/B.EU000A2X2A25.WT
 2026-11-19,estr_rate,2.441,% p.a.,daily,EST/B.EU000A2X2A25.WT
 2026-11-20,estr_rate,2.444,% p.a.,daily,EST/B.EU000A2X2A25.WT
+2026-11-23,estr_rate,2.443,% p.a.,daily,EST/B.EU000A2X2A25.WT
 2019-10-01,estr_transactions,432,count,daily,EST/B.EU000A2X2A25.NT
 2019-10-02,estr_transactions,397,count,daily,EST/B.EU000A2X2A25.NT
 2019-10-03,estr_transactions,373,count,daily,EST/B.EU000A2X2A25.NT
@@ -6271,6 +6272,7 @@ date,field,value,unit,freq,source_key
 2026-11-18,estr_transactions,904,count,daily,EST/B.EU000A2X2A25.NT
 2026-11-19,estr_transactions,882,count,daily,EST/B.EU000A2X2A25.NT
 2026-11-20,estr_transactions,884,count,daily,EST/B.EU000A2X2A25.NT
+2026-11-23,estr_transactions,893,count,daily,EST/B.EU000A2X2A25.NT
 2019-10-01,estr_volume,35996,EUR millions,daily,EST/B.EU000A2X2A25.TT
 2019-10-02,estr_volume,33549,EUR millions,daily,EST/B.EU000A2X2A25.TT
 2019-10-03,estr_volume,29200,EUR millions,daily,EST/B.EU000A2X2A25.TT
@@ -8101,6 +8103,7 @@ date,field,value,unit,freq,source_key
 2026-11-18,estr_volume,60997,EUR millions,daily,EST/B.EU000A2X2A25.TT
 2026-11-19,estr_volume,57735,EUR millions,daily,EST/B.EU000A2X2A25.TT
 2026-11-20,estr_volume,57757,EUR millions,daily,EST/B.EU000A2X2A25.TT
+2026-11-23,estr_volume,61151,EUR millions,daily,EST/B.EU000A2X2A25.TT
 2019-10-01,euribor_12m,-0.3042174,% p.a.,monthly,FM/M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA
 2019-11-01,euribor_12m,-0.2719524,% p.a.,monthly,FM/M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA
 2019-12-01,euribor_12m,-0.2614,% p.a.,monthly,FM/M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA
@@ -10265,6 +10268,7 @@ date,field,value,unit,freq,source_key
 2026-11-18,yc_aaa_10y,3.410323615,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
 2026-11-19,yc_aaa_10y,3.441513023,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
 2026-11-20,yc_aaa_10y,3.360777655,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
+2026-11-23,yc_aaa_10y,3.320906906,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
 2019-10-01,yc_aaa_2y,-0.7908502089,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
 2019-10-02,yc_aaa_2y,-0.7977470724,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
 2019-10-03,yc_aaa_2y,-0.808946633,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
@@ -12089,6 +12093,7 @@ date,field,value,unit,freq,source_key
 2026-11-18,yc_aaa_2y,3.085907912,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
 2026-11-19,yc_aaa_2y,3.125063752,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
 2026-11-20,yc_aaa_2y,3.030264415,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
+2026-11-23,yc_aaa_2y,3.027138651,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
 2019-10-01,yc_aaa_5y,-0.747786125,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
 2019-10-02,yc_aaa_5y,-0.7487159316,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
 2019-10-03,yc_aaa_5y,-0.7823411466,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
@@ -13913,3 +13918,4 @@ date,field,value,unit,freq,source_key
 2026-11-18,yc_aaa_5y,3.151376924,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
 2026-11-19,yc_aaa_5y,3.188375531,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
 2026-11-20,yc_aaa_5y,3.101044137,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
+2026-11-23,yc_aaa_5y,3.076297696,% p.a.,daily,YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
