@@ -1,71 +1,71 @@
 {
   "pipeline_version": "1.0.0",
-  "built_at_utc": "2026-11-26T18:58:31+00:00",
+  "built_at_utc": "2026-11-27T18:55:16+00:00",
   "coverage": {
     "from": "2019-10-01",
-    "to": "2026-11-25"
+    "to": "2026-11-26"
   },
   "sources": {
     "estr_rate": {
       "ecb_key": "EST/B.EU000A2X2A25.WT",
       "url": "https://data-api.ecb.europa.eu/service/data/EST/B.EU000A2X2A25.WT?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:06+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:41+00:00",
       "raw_file": "pipeline/raw/estr_rate.csv",
-      "raw_sha256": "b402cd23727f03288f757123b7a8f018ae15c5c0f8e7406c3d6cbc957614fa22",
-      "raw_rows": 1833
+      "raw_sha256": "d1f858a27addc2e18bbd2c26b2153892aa6292808c580671377ac1960f56e705",
+      "raw_rows": 1834
     },
     "estr_volume": {
       "ecb_key": "EST/B.EU000A2X2A25.TT",
       "url": "https://data-api.ecb.europa.eu/service/data/EST/B.EU000A2X2A25.TT?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:08+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:44+00:00",
       "raw_file": "pipeline/raw/estr_volume.csv",
-      "raw_sha256": "24f87067e5951a133d1043f0e37c63fb51e4ea96468b3242de4b1c2fd955440c",
-      "raw_rows": 1833
+      "raw_sha256": "73a6275081871ca00c0b615f2c1cd15b47658cb01702f1d7737f3cd707a387a4",
+      "raw_rows": 1834
     },
     "estr_transactions": {
       "ecb_key": "EST/B.EU000A2X2A25.NT",
       "url": "https://data-api.ecb.europa.eu/service/data/EST/B.EU000A2X2A25.NT?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:09+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:46+00:00",
       "raw_file": "pipeline/raw/estr_transactions.csv",
-      "raw_sha256": "beb5f71402edabd59ec98d91967d980411dad355638587db6d102ff709334c09",
-      "raw_rows": 1833
+      "raw_sha256": "3fff63490df2c7c9bcaff6deacec1030203db686963e869e1f65c5fb8a0c78c4",
+      "raw_rows": 1834
     },
     "dfr": {
       "ecb_key": "FM/D.U2.EUR.4F.KR.DFR.LEV",
       "url": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:12+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:48+00:00",
       "raw_file": "pipeline/raw/dfr.csv",
-      "raw_sha256": "e1ab821f50ecdf37b1dd280e715b5112527e8b8bee2fb39d28f15ac0db2ca938",
-      "raw_rows": 2614
+      "raw_sha256": "1c43f9bf7bf994e35127ae7e6bfcee85adfa76605097e7cf4ceeaa333ca31383",
+      "raw_rows": 2615
     },
     "yc_aaa_2y": {
       "ecb_key": "YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y",
       "url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:15+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:51+00:00",
       "raw_file": "pipeline/raw/yc_aaa_2y.csv",
-      "raw_sha256": "197f5659e4dd4111c48a9a4c4daa7c010eeceba4e4cb3b4d6de8ad42a984083f",
-      "raw_rows": 1827
+      "raw_sha256": "8aa88e0ee3406fc40faa7847747b2e4f260a32f6d66325f4ef7d5a305e65421a",
+      "raw_rows": 1828
     },
     "yc_aaa_5y": {
       "ecb_key": "YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y",
       "url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:17+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:54+00:00",
       "raw_file": "pipeline/raw/yc_aaa_5y.csv",
-      "raw_sha256": "1804b03ee209d5649a8a254f924db6fb340f1f80a36f61d1a8247cf3705a197e",
-      "raw_rows": 1827
+      "raw_sha256": "2c116e2ae948060f87cc33cd6cc35005ccd43d916642558c9c4742f8077a11a9",
+      "raw_rows": 1828
     },
     "yc_aaa_10y": {
       "ecb_key": "YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y",
       "url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:19+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:57+00:00",
       "raw_file": "pipeline/raw/yc_aaa_10y.csv",
-      "raw_sha256": "80ac8051b16d87af2c65290f2af4c795cab88c66d052534d919f03d6eb10f624",
-      "raw_rows": 1827
+      "raw_sha256": "e5bab82047fd9e7c9e3cf0145ff1f24e84d9b01e4898fe6ce290ddde0c8326fe",
+      "raw_rows": 1828
     },
     "euribor_1m": {
       "ecb_key": "FM/M.U2.EUR.RT.MM.EURIBOR1MD_.HSTA",
       "url": "https://data-api.ecb.europa.eu/service/data/FM/M.U2.EUR.RT.MM.EURIBOR1MD_.HSTA?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:21+00:00",
+      "fetched_at_utc": "2026-11-27T18:54:59+00:00",
       "raw_file": "pipeline/raw/euribor_1m.csv",
       "raw_sha256": "10172f392b07e5d4f571a0ebda48c660e049ba2f35fafef6d1e954b9b095c86d",
       "raw_rows": 85
@@ -73,7 +73,7 @@
     "euribor_3m": {
       "ecb_key": "FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
       "url": "https://data-api.ecb.europa.eu/service/data/FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:22+00:00",
+      "fetched_at_utc": "2026-11-27T18:55:02+00:00",
       "raw_file": "pipeline/raw/euribor_3m.csv",
       "raw_sha256": "18e1646c8c8d69a86c98c91cf4c5dc219e19491d3b6e0b0964eabd18126e881f",
       "raw_rows": 85
@@ -81,7 +81,7 @@
     "euribor_6m": {
       "ecb_key": "FM/M.U2.EUR.RT.MM.EURIBOR6MD_.HSTA",
       "url": "https://data-api.ecb.europa.eu/service/data/FM/M.U2.EUR.RT.MM.EURIBOR6MD_.HSTA?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:24+00:00",
+      "fetched_at_utc": "2026-11-27T18:55:06+00:00",
       "raw_file": "pipeline/raw/euribor_6m.csv",
       "raw_sha256": "48e5f0163b357510e6fa317d998d02476f5b9e4f002d0e1e5d51b1f681262fae",
       "raw_rows": 85
@@ -89,7 +89,7 @@
     "euribor_12m": {
       "ecb_key": "FM/M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA",
       "url": "https://data-api.ecb.europa.eu/service/data/FM/M.U2.EUR.RT.MM.EURIBOR1YD_.HSTA?format=csvdata&detail=dataonly&startPeriod=2019-10-01",
-      "fetched_at_utc": "2026-11-26T18:58:25+00:00",
+      "fetched_at_utc": "2026-11-27T18:55:09+00:00",
       "raw_file": "pipeline/raw/euribor_12m.csv",
       "raw_sha256": "a8357767f52a0d6fafa54c2e47eed5f3b86e2e8ffecc2e0705efaff87468ace2",
       "raw_rows": 85
@@ -98,8 +98,8 @@
   "outputs": [
     {
       "file": "data/rates_daily.csv",
-      "rows": 1833,
-      "sha256": "d40959457338686d16752037aecafcaa1933ba4bfface86cd283073610cfe4ec"
+      "rows": 1834,
+      "sha256": "df13580a70d69970dd8f95ded951bbbbf6f84b3c66900afc753dc90119e3f64d"
     },
     {
       "file": "data/rates_monthly.csv",
@@ -108,8 +108,8 @@
     },
     {
       "file": "data/rates_long.csv",
-      "rows": 13934,
-      "sha256": "8401f8ab748262ca092185e422de3baf45508817f3b8412d55212a537d4b314d"
+      "rows": 13941,
+      "sha256": "9a722e392e02d06ec1630810032f2a23aed062c756739f1af99d84e7b0cc8177"
     },
     {
       "file": "data/dq_log.csv",
